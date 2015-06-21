@@ -11,10 +11,11 @@
 				<!--</md-button>-->
 
 
+				<h3>Your Tags</h3>
 				<md-chips ng-model="homeCtrl.tags" readonly="true">
 					<md-chip-template ng-click="homeCtrl.click($chip)" style="color:{{$chip.color}}">
         		<span layout="row">
-          		<strong>{{$chip.text}}</strong>
+          		<strong>{{$chip.text | uppercase}}</strong>
         		</span>
 					</md-chip-template>
 				</md-chips>
@@ -26,7 +27,8 @@
 			<div layout="column" layout-fill layout-align="top center">
 				<md-list>
 					<md-list-item ng-repeat="note in homeCtrl.notes |
-						orderBy:homeCtrl.sortOrder">
+						orderBy:homeCtrl.sortOrder |
+						filter:homeCtrl.byTagsFilter">
 						<span>
 							<p>{{note}}</p>
 						</span>
