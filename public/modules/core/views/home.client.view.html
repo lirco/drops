@@ -29,9 +29,9 @@
 					<md-list-item ng-repeat="note in homeCtrl.notes |
 						orderBy:homeCtrl.sortOrder |
 						filter:homeCtrl.byTagsFilter">
-						<span>
-							<p>{{note}}</p>
-						</span>
+						<section class="note-container	md-padding md-whiteframe-z1 md-default-theme">
+							<p>{{note.title}}</p>
+						</section>
 					</md-list-item>
 				</md-list>
 				<div>
