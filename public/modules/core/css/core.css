@@ -15,11 +15,20 @@
     border-color:#78FA89;
 }
 .note-container {
-	height:100px;
-	width:480px;
+	height:120px;
+	width:500px;
 	border-radius: 0 20px 20px 0;
 	margin-bottom: 16px;
 	transition:0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
 	position:relative;
 	padding-bottom: 0;
+}
+.note-container .note-title {
+	font-size:14px;
+	font-weight: bold;
+	margin-bottom:5px ;
+}
+
+.note-container .note-content {
+	font-size: 13px;
 }
