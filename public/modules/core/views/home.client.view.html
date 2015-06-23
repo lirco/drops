@@ -1,6 +1,6 @@
 
-
-<div data-ng-controller="homeController as homeCtrl" layout="column" flex>
+<div class="top-bar"></div>
+<div class="content" data-ng-controller="homeController as homeCtrl" layout="column" flex>
 	<section layout="row" flex>
 
 		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" flex>
@@ -30,14 +30,14 @@
 						orderBy:homeCtrl.sortOrder |
 						filter:homeCtrl.byTagsFilter">
 						<section class="note-container	md-padding md-whiteframe-z1 md-default-theme">
-							<div>
-								<p class="note-title">{{note.title}}</p>
+							<div class="note-title">
+								<p>{{note.title |truncate:9}}</p>
 							</div>
-							<div>
-								<p class="note-content">{{note.content | truncate:15}}</p>
+							<div class="note-content">
+								<p>{{note.content | truncate:25}}</p>
 							</div>
-							<div>
-								<a target="_blank" class="note-link" href={{note.url}}>{{note.domain}}</a>
+							<div class="note-link">
+								<a target="_blank" href={{note.url}}>{{note.domain}}</a>
 							</div>
 						</section>
 					</md-list-item>

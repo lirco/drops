@@ -1,6 +1,15 @@
-
+.top-bar {
+	height:10px !important;
+	display: block;
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	background-color: rgb(96,125,139);
+	z-index: 1030;
+}
 .content {
-	margin-top: 50px;
+	margin-top: 10px;
 }
 .undecorated-link:hover {
 	text-decoration: none;
@@ -32,21 +41,25 @@
 .note-container:focus, .note-container:hover  .note-title{
 	color: #428bca;
 }
-.note-container .note-title {
+.note-container .note-title p{
 	font-size:18px;
 	font-weight: bold;
-	margin-bottom:5px ;
+	margin-bottom:3px;
+	overflow: hidden;
 }
 .note-container .note-content {
 	font-size: 13px;
 	line-height: 1.42857143;
 }
-.note-container .note-link {
+.note-container .note-link a{
 	position: absolute;
 	bottom: 7px;
 	font-size: 12px;
 	color: grey;
 }
-.note-container .note-link:hover {
+.note-container .note-link:hover a{
 	color: #428bca;
+}
+.md-toolbar{
+	heght:50px;
 }

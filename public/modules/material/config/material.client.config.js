@@ -14,7 +14,7 @@ angular.module('material')
 		//	.icon("phone"      , "./assets/svg/phone.svg"       , 512);
 
 		$mdThemingProvider.theme('default')
-			.primaryPalette('grey')
+			.primaryPalette('blue-grey')
 			.accentPalette('orange');
 
 	});
