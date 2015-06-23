@@ -21,11 +21,11 @@
 	margin-bottom: 16px;
 	transition:0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
 	position:relative;
-	padding-bottom: 0;
-	padding-left: 19px;
+	padding: 5px 19px 0 19px;
+	overflow: hidden;
 }
 .note-container .note-title {
-	font-size:14px;
+	font-size:16px;
 	font-weight: bold;
 	margin-bottom:5px ;
 }
@@ -35,6 +35,7 @@
 }
 .note-container .note-link {
 	position: absolute;
+	font-size: 13px;
 	bottom: 7px;
 	font-size: 12px;
 }
