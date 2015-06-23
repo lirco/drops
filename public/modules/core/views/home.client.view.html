@@ -11,8 +11,10 @@
 				<!--</md-button>-->
 
 
-				<h3>Your Tags</h3>
 				<md-chips ng-model="homeCtrl.tags" readonly="true">
+					<md-chip ng-click="homeCtrl.showAll()">
+						<strong>SHOW-ALL</strong>
+					</md-chip>
 					<md-chip-template ng-click="homeCtrl.click($chip)" style="color:{{$chip.color}}; background-color: {{$chip.color}}">
         		<span layout="row">
           		<strong>{{$chip.text | uppercase}}</strong>

@@ -44,6 +44,12 @@
 			}
 		};
 
+		self.showAll = function() {
+			self.byTagsFilter = function(note) {
+				return self.tags
+			}
+		}
+
 	}
 
 	angular.module('core')
