@@ -3,7 +3,7 @@
 <div class="content" data-ng-controller="homeController as homeCtrl" layout="column" flex>
 	<section layout="row" flex>
 
-		<md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" flex>
+		<md-sidenav class="md-sidenav md-locked-open md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" flex>
 			<md-content layout-padding data-ng-controller="sidebarController as sidebarCtrl">
 
 				<!--<md-button ng-click="sidebarCtrl.close()" class="md-primary" hide-gt-md>-->
@@ -26,20 +26,26 @@
 		</md-sidenav>
 
 		<md-content flex layout-padding>
-			<div layout="column" layout-fill layout-align="top center">
 				<md-list>
 					<md-list-item ng-repeat="note in homeCtrl.notes |
 						orderBy:homeCtrl.sortOrder |
 						filter:homeCtrl.byTagsFilter">
-						<section class="note-container	md-padding md-whiteframe-z1 md-default-theme">
+						<section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
+										 ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
 							<div class="note-title">
 								<p>{{note.title |truncate:9}}</p>
 							</div>
 							<div class="note-content">
 								<p>{{note.content | truncate:25}}</p>
 							</div>
-							<div class="note-link">
-								<a target="_blank" href={{note.url}}>{{note.domain}}</a>
+							<div class="note-footer">
+								<div class="note-link">
+									<a target="_blank" href={{note.url}}>{{note.domain}}</a>
+								</div>
+								<div class="note-hidden-buttons" layout="row" ng-show="note.showHidden">
+									<p class="note-delete" ng-click="homeCtrl.showDeleteDialog($event, note)">delete</p>
+									<p class="note-date">{{note.modified | date}}</p>
+								</div>
 							</div>
 						</section>
 					</md-list-item>
