@@ -95,7 +95,7 @@
 				'<md-dialog class="note-dialog" aria-label="Note dialog" flex="60"">' +
 				'  <md-toolbar>' +
         '    <div class="md-toolbar-tools">' +
-				'      <form class="note-dialog-form-title" name="noteTitleForm">' +
+				'      <form class="note-dialog-form-title" name="noteTitleForm" flex>' +
 				'        <md-input-container flex>' +
 				'        <label></label>' +
 				'          <input class="note-dialog-title" ng-model="note.title" columns="1" style="color: white"></input>' +
@@ -131,13 +131,16 @@
 				$scope.closeNote = function () {
 					$mdDialog.hide();
 				};
-				$scope.UpdateNote = function () {
-					console.log('***************************************');
-					console.log('update note');
-					console.log('***************************************');
+				$scope.updateNote = function () {
+					//var note = activeNote;
+					note.$update(function() {
+						$mdDialog.hide();
+					}, function(errorResponse) {
+						self.error = errorResponse.data.message;
+					});
 				}
 			}
-		}
+		};
 
 
 		// helper function to convert hex color to rgb
