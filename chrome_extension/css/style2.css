@@ -1,8 +1,8 @@
 
 html, body {
   font-family: 'Open Sans', sans-sarif;
-  width: 350px;
-  height: 470px;
+  width: 660px;
+  height: 448px;
   overflow: hidden;
   /* remove below line to remove centered view */
   margin:  0 auto;

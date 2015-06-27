@@ -5,22 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
   <title>drops</title>
+  <link rel="stylesheet" href="lib/angular-material/angular-material.min.css">
   <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="lib/angular/angular-csp.css">
-  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="lib/ng-tags-input/ng-tags-input.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body ng-controller="mainController as mainCtrl">
-  <div class="panel panel-primary">
-    <ui-view></ui-view>
-  </div>
+  <section data-ui-view layout="column" flex>
+    <!--<ui-view></ui-view>-->
+  </section>
 
   <script src="lib/angular/angular.min.js"></script>
   <script src="lib/angular-ui-router/release/angular-ui-router.min.js"></script>
   <script src="lib/angular-resource/angular-resource.js"></script>
   <script src="lib/angular-bootstrap/ui-bootstrap.min.js"></script>
   <script src="lib/ng-tags-input/ng-tags-input.min.js"></script>
+  <script src="lib/angular-animate/angular-animate.min.js"></script>
+  <script src="lib/angular-aria/angular-aria.min.js"></script>
+  <script src="lib/angular-material/angular-material.min.js"></script>
   <script src="application.js"></script>
   <script src="views/main/main.chrome.controller.js"></script>
   <script src="views/users/authentication/authentication.chrome.controller.js"></script>

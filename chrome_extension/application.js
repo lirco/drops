@@ -1,4 +1,4 @@
-angular.module('drops', ['ui.router', 'ngResource', 'ui.bootstrap', 'ngTagsInput'])
+angular.module('drops', ['ui.router', 'ngResource', 'ui.bootstrap', 'ngTagsInput', 'ngAnimate', 'ngMaterial'])
   .config([
 
     '$resourceProvider',
@@ -13,7 +13,7 @@ angular.module('drops', ['ui.router', 'ngResource', 'ui.bootstrap', 'ngTagsInput
     $stateProvider
 
       .state('home', {
-        templateUrl: 'views/home/home.chrome.view.html',
+        templateUrl: 'views/home/main.chrome.view.html',
         controller: 'homeController',
         controllerAs: 'homeCtrl',
         resolve: {

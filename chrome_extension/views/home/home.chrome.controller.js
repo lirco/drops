@@ -7,19 +7,19 @@
     self.authentication = {};
     self.authentication.user = Authentication.getUser();
 
-    self.viewState = viewState;
+    //self.viewState = viewState;
     self.domainNotes = notes.domainNotes;
     self.urlNotes = notes.urlNotes;
 
-    $scope.$on('viewEvent:changeViewState', function(type, data){
-      if (data == 'Page') {
-        self.viewState = 'Page';
-        self.notesToShow = self.urlNotes;
-      } else if (data == 'Site'){
-        self.viewState = 'Site';
-        self.notesToShow = self.domainNotes;
-      }
-    });
+    //$scope.$on('viewEvent:changeViewState', function(type, data){
+    //  if (data == 'Page') {
+    //    self.viewState = 'Page';
+    //    self.notesToShow = self.urlNotes;
+    //  } else if (data == 'Site'){
+    //    self.viewState = 'Site';
+    //    self.notesToShow = self.domainNotes;
+    //  }
+    //});
 
     //self.switchViewState = function(viewState){
     //  AppState.setViewState(viewState);
@@ -32,14 +32,14 @@
     //  }
     //};
 
-    self.defineNotesToShow = function() {
-      if (self.viewState == 'Page') {
-        self.notesToShow = self.urlNotes;
-      } else if (self.viewState == 'Site') {
-        self.notesToShow = self.domainNotes;
-      }
-    };
-    self.defineNotesToShow();
+    //self.defineNotesToShow = function() {
+    //  if (self.viewState == 'Page') {
+    //    self.notesToShow = self.urlNotes;
+    //  } else if (self.viewState == 'Site') {
+    //    self.notesToShow = self.domainNotes;
+    //  }
+    //};
+    //self.defineNotesToShow();
 
     self.editNote = function(note) {
       AppState.setActiveNote(note);
@@ -71,6 +71,12 @@
     self.goToPage = function(note) {
       chrome.tabs.update({
         url: note.url
+      });
+    };
+
+    self.goHome = function() {
+      chrome.tabs.update({
+        url: 'http://localhost:3000/'
       });
     }
   }
