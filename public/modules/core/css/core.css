@@ -22,6 +22,22 @@
 .ng-valid.ng-dirty{
     border-color:#78FA89;
 }
+
+/*----------- tags area ----------------- */
+.tags-area {
+	padding-top: 30px;
+	height: inherit;
+	width: inherit;
+	display: block;
+	overflow: hidden;
+}
+
+.md-button {
+	line-height: 30px;
+}
+
+/*----------- main content ----------------- */
+
 .note-container {
 	height:97px;
 	width:634px;

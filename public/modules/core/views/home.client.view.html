@@ -10,17 +10,11 @@
 					<!--Close Sidenav Left-->
 				<!--</md-button>-->
 
-
-				<md-chips ng-model="homeCtrl.tags" readonly="true">
-					<md-chip ng-click="homeCtrl.showAll()">
-						<strong>SHOW-ALL</strong>
-					</md-chip>
-					<md-chip-template ng-click="homeCtrl.click($chip)" style="color:{{$chip.color}}; background-color: {{$chip.color}}">
-        		<span layout="row">
-          		<strong>{{$chip.text | uppercase}}</strong>
-        		</span>
-					</md-chip-template>
-				</md-chips>
+				<div class="tags-area">
+					<div ng-repeat="tag in homeCtrl.tags">
+						<md-button style="background: {{tag.color}} ; color:{{homeCtrl.setTextColor(tag.color)}}">{{tag.text}}</md-button>
+					</div>
+				</div>
 
 			</md-content>
 		</md-sidenav>

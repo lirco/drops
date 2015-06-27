@@ -87,6 +87,29 @@
 			});
 		};
 
+		// helper function to convert hex color to rgb
+		self.hexToRGB = function(hex) {
+			var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
+			return result ? [
+				parseInt(result[1], 16),
+				parseInt(result[2], 16),
+				parseInt(result[3], 16)
+			]
+			 : null;
+		};
+
+		// determine the text color by it's background color
+		self.setTextColor = function(bg) {
+			var rgb = self.hexToRGB(bg);
+
+			var o = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) /1000);
+			if (o > 125){
+				return 'black'
+			} else {
+				return 'white'
+			}
+		}
+
 	}
 
 	angular.module('core')
