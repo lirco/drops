@@ -15,7 +15,7 @@
 						<strong>SHOW-ALL</strong>
 					</md-button>
 					<div ng-repeat="tag in homeCtrl.tags">
-						<md-button ng-click="homeCtrl.click(tag)" style="background:{{tag.color}} ; color:{{homeCtrl.setTextColor(tag.color)}}">
+						<md-button ng-click="homeCtrl.click(tag)" style="background:{{tag.color}} ; color:{{homeCtrl.setTextColor(tag.color)}} ; opacity: 0.7">
 							<strong>{{tag.text}}</strong>
 						</md-button>
 					</div>
@@ -30,9 +30,8 @@
 						orderBy:homeCtrl.sortOrder |
 						filter:homeCtrl.byTagsFilter">
 						<section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
-										 ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)"
-										 ng-click="homeCtrl.showNote($event, note)">
-							<div class="note-title">
+										 ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
+							<div class="note-title" ng-click="homeCtrl.showNote($event, note)">
 								<p>{{note.title |truncate:9}}</p>
 							</div>
 							<div class="note-content">

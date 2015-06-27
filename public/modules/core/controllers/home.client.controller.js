@@ -92,18 +92,32 @@
 				parent: angular.element(document.body),
 				targetEvent: $event,
 				template:
-				'<md-dialog aria-label="Note dialog">' +
+				'<md-dialog class="note-dialog" aria-label="Note dialog" flex="60"">' +
 				'  <md-toolbar>' +
-				'    <div class="md-toolbar-tools">' +
-				'      <h2>{{note.title}}</h2>' +
-				'     </div>' +
+        '    <div class="md-toolbar-tools">' +
+				'      <form class="note-dialog-form-title" name="noteTitleForm">' +
+				'        <md-input-container flex>' +
+				'        <label></label>' +
+				'          <input class="note-dialog-title" ng-model="note.title" columns="1" style="color: white"></input>' +
+				'        </md-input-container>' +
+				'      </form>' +
+				'    </div>' +
 				'  </md-toolbar>' +
-				'  <md-dialog-content>' +
-				'    <p>{{note.content}}</p>' +
+
+				'  <md-dialog-content flex>' +
+				'    <form name="noteContentForm">' +
+				'      <md-input-container flex>' +
+				'        <label></label>' +
+				'        <textarea class="note-dialog-content" ng-model="note.content" columns="1"></textarea>' +
+				'      </md-input-container>' +
+				'    </form>' +
 				'  </md-dialog-content>' +
-				'  <div class="md-actions">' +
-				'    <md-button ng-click="closeDialog()" class="md-primary">' +
-				'      Close Dialog' +
+				'  <div class="note-dialog-footer md-actions">' +
+				'    <md-button ng-click="closeNote()" class="md-primary">' +
+				'      Close' +
+				'    </md-button>' +
+				'    <md-button ng-click="updateNote()" class="md-primary">' +
+				'      Update' +
 				'    </md-button>' +
 				'  </div>' +
 				'</md-dialog>',
@@ -114,8 +128,13 @@
 			});
 			function noteCtrl($scope, $mdDialog, note) {
 				$scope.note = note;
-				$scope.closeDialog = function () {
+				$scope.closeNote = function () {
 					$mdDialog.hide();
+				};
+				$scope.UpdateNote = function () {
+					console.log('***************************************');
+					console.log('update note');
+					console.log('***************************************');
 				}
 			}
 		}

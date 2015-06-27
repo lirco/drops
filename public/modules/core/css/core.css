@@ -105,3 +105,33 @@
 .note-container .note-footer .note-hidden-buttons .note-delete:hover {
 	color: #550000;
 }
+
+/* ---------------note diaalog ---------------*/
+.note-dialog {
+	max-height: 80%
+}
+.md-toolbar-tools .note-dialog-form-title {
+	height:inherit;
+	margin:0px;
+	padding-left: 10px;
+}
+.note-dialog-title {
+	color: rgb(255,255,255);
+	font-size: inherit;
+	margin: inherit;
+	font-family: inherit;
+	font-weight: 500;
+	line-height: 1.1;
+	display: block;
+	-webkit-margin-before: 0.83em;
+	-webkit-margin-after: 0.83em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	border: none;
+}
+.note-dialog-content {
+	border: none;
+}
+.note-dialog-footer {
+	bottom: 0;
+}
