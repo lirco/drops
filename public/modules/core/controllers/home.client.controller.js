@@ -4,7 +4,7 @@
 
 (function () {
 
-	function homeController(Authentication, Notes, $mdDialog) {
+	function homeController(Authentication, Notes, $mdDialog, $scope) {
 
 		var self = this;
 		var selectedTags = [];
@@ -74,18 +74,52 @@
 			// Appending dialog to document.body to cover sidenav in docs app
 			var confirm = $mdDialog.confirm()
 				.parent(angular.element(document.body))
-				.title('Would you like to delete this note?')
+				.title('Delete this note?')
 				.content('This note will be gone forever.')
-				.ariaLabel('Lucky day')
+				.ariaLabel('Delete')
 				.ok('Delete')
 				.cancel('Keep it')
 				.targetEvent(ev);
 			$mdDialog.show(confirm).then(function() {
 				self.remove(note);
 			}, function() {
-				$scope.alert = 'You decided to keep your debt.';
+				$scope.alert = 'You decided to keep your note.';
 			});
 		};
+
+		self.showNote = function($event, note) {
+			$mdDialog.show({
+				parent: angular.element(document.body),
+				targetEvent: $event,
+				template:
+				'<md-dialog aria-label="Note dialog">' +
+				'  <md-toolbar>' +
+				'    <div class="md-toolbar-tools">' +
+				'      <h2>{{note.title}}</h2>' +
+				'     </div>' +
+				'  </md-toolbar>' +
+				'  <md-dialog-content>' +
+				'    <p>{{note.content}}</p>' +
+				'  </md-dialog-content>' +
+				'  <div class="md-actions">' +
+				'    <md-button ng-click="closeDialog()" class="md-primary">' +
+				'      Close Dialog' +
+				'    </md-button>' +
+				'  </div>' +
+				'</md-dialog>',
+				locals: {
+					note: note
+				},
+				controller: noteCtrl
+			});
+			function noteCtrl($scope, $mdDialog, note) {
+				$scope.note = note;
+				$scope.closeDialog = function () {
+					$mdDialog.hide();
+				}
+			}
+		}
+
 
 		// helper function to convert hex color to rgb
 		self.hexToRGB = function(hex) {
@@ -113,6 +147,6 @@
 	}
 
 	angular.module('core')
-		.controller('homeController', ['Authentication', 'Notes', '$mdDialog', homeController])
+		.controller('homeController', ['Authentication', 'Notes', '$mdDialog', '$scope', homeController])
 
 }());
