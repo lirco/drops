@@ -116,7 +116,7 @@
 				'    <md-button ng-click="closeNote()" class="md-primary">' +
 				'      Close' +
 				'    </md-button>' +
-				'    <md-button ng-click="updateNote()" class="md-primary">' +
+				'    <md-button ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="updateNote()" class="md-primary">' +
 				'      Update' +
 				'    </md-button>' +
 				'  </div>' +
@@ -132,7 +132,6 @@
 					$mdDialog.hide();
 				};
 				$scope.updateNote = function () {
-					//var note = activeNote;
 					note.$update(function() {
 						$mdDialog.hide();
 					}, function(errorResponse) {
