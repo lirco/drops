@@ -3,7 +3,7 @@ body {
   height: 448px;
 }
 .top-bar {
-  height: 5px !important;
+  height: 6px !important;
   position: fixed;
   left: 0;
   top: 0;
@@ -13,7 +13,13 @@ body {
 }
 /*----------- left sidebar ----------------- */
 .sidebar-left {
+  border-right: 1px solid;
+}
+.sidebar-left .sidebar-title {
 
+}
+.sidebar-left .md-button {
+  font-weight: normal;
 }
 
 /*----------- main content ----------------- */
