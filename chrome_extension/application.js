@@ -3,11 +3,17 @@ angular.module('drops', ['ui.router', 'ngResource', 'ui.bootstrap', 'ngTagsInput
 
     '$resourceProvider',
     '$stateProvider',
+    '$mdThemingProvider',
 
-    function ($resourceProvider, $stateProvider) {
+    function ($resourceProvider, $stateProvider, $mdThemingProvider) {
 
     // Don't strip trailing slashes from calculated URLs
     //$resourceProvider.defaults.stripTrailingSlashes = false;
+
+    // material design theme config
+    $mdThemingProvider.theme('default')
+      .primaryPalette('blue-grey')
+      .accentPalette('orange');
 
 
     $stateProvider

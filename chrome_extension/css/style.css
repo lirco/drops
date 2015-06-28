@@ -1,0 +1,92 @@
+body {
+  width: 660px;
+  height: 448px;
+}
+.top-bar {
+  height: 5px !important;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: rgb(96,125,139);
+  z-index: 1030;
+}
+/*----------- left sidebar ----------------- */
+.sidebar-left {
+
+}
+
+/*----------- main content ----------------- */
+.main-content {
+  overflow-y: scroll;
+}
+
+/*----------- note element ----------------- */
+.note-container {
+  height:97px;
+  width:564px;
+  border-radius: 0 20px 20px 0;
+  margin-bottom: 16px;
+  transition:0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
+  position:relative;
+  padding: 5px 19px 0 19px;
+  overflow: hidden;
+}
+.note-container:focus, .note-container:hover {
+  background-color: #f7f7f7;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.note-container:focus, .note-container:hover  .note-title{
+  color: #428bca;
+}
+.note-container .note-title p{
+  font-size:18px;
+  font-weight: bold;
+  margin-bottom:3px;
+  overflow: hidden;
+  line-height: inherit;
+}
+.note-container .note-content {
+  font-size: 13px;
+  line-height: 1.42857143;
+}
+.note-container .note-content p{
+  margin-bottom:3px;
+
+}
+.note-container .note-footer {
+  margin-top:3px;
+  overflow: hidden;
+  vertical-align: middle;
+  height: 20px;
+}
+.note-container .note-footer .note-link a{
+  position:absolute;
+  bottom: 5px;
+  font-size: 12px;
+  color: grey;
+  float:left;
+}
+.note-container .note-footer .note-link:hover a{
+  color: #428bca;
+}
+.note-container .note-footer .note-hidden-buttons {
+  position: absolute;
+  bottom: 5px;
+  right:25px;
+}
+
+.note-container .note-footer .note-hidden-buttons p{
+  margin-bottom: 0;
+  font-size: 12px;
+  color: grey;
+}
+.note-container .note-footer .note-hidden-buttons .note-delete {
+  margin-right: 10px;
+}
+.note-container .note-footer .note-hidden-buttons .note-delete:hover {
+  color: #550000;
+}
+
