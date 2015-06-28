@@ -2,19 +2,20 @@
   <div class="top-bar"></div>
   <div layout="row" flex>
 
-    <div class="sidebar-left" flex="33" layout="column">
+    <div class="sidebar-left md-whiteframe-z2" layout="column">
       <div class="md-toolbar-tools sidebar-title">
         <h2>Hi {{homeCtrl.authentication.user.username}}!</h2>
       </div>
-      <md-button>ADD NEW NOTE</md-button>
-      <md-button ng-click="homeCtrl.goHome()">GO TO HOMEPAGE</md-button>
-      <md-button>SETTINGS</md-button>
+      <div class="sidebar-buttons" layout="column">
+        <md-button>ADD NEW NOTE</md-button>
+        <md-button ng-click="homeCtrl.goHome()">GO TO HOMEPAGE</md-button>
+        <md-button>SETTINGS</md-button>
+      </div>
     </div>
 
-    <div class="main-content" flex="66">
-      <div class="md-padding">
-
-        <md-tabs md-dynamic-height md-border-bottom>
+    <div class="main-content">
+      <div class="tabs-area md-padding">
+        <md-tabs class="list-group" md-dynamic-height md-border-bottom>
 
           <md-tab label="Page">
             <div>
@@ -28,9 +29,9 @@
               </div>
 
               <div ng-if="homeCtrl.domainNotes.length !== 0">
-                <md-list>
+                <md-list class="list-group">
                   <md-list-item ng-repeat="note in homeCtrl.urlNotes |
-						                    orderBy:homeCtrl.sortOrder">
+                                orderBy:homeCtrl.sortOrder">
                     <section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
                              ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
                       <div class="note-title" ng-click="homeCtrl.showNote($event, note)">
@@ -57,7 +58,7 @@
           </md-tab>
 
           <md-tab label="Site">
-            <md-content class="md-padding">
+            <md-content>
 
               <div ng-if="homeCtrl.domainNotes.length == 0">
                 <div>
@@ -68,9 +69,9 @@
               </div>
 
               <div ng-if="homeCtrl.domainNotes.length !== 0">
-                <md-list>
+                <md-list class="list-group">
                   <md-list-item ng-repeat="note in homeCtrl.domainNotes |
-						                    orderBy:homeCtrl.sortOrder">
+                                orderBy:homeCtrl.sortOrder">
                     <section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
                              ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
                       <div class="note-title" ng-click="homeCtrl.showNote($event, note)">
@@ -97,7 +98,7 @@
           </md-tab>
 
         </md-tabs>
-      </md-content>
+      </div>
     </div>
   </div>
 </div>

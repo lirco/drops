@@ -1,6 +1,8 @@
-body {
+html, body {
   width: 660px;
   height: 448px;
+  max-height: 448px;
+  overflow: hidden;
 }
 .top-bar {
   height: 6px !important;
@@ -13,10 +15,23 @@ body {
 }
 /*----------- left sidebar ----------------- */
 .sidebar-left {
-  border-right: 1px solid;
+  width: 220px;
+  height: 448px;
 }
 .sidebar-left .sidebar-title {
-
+  position:absolute;
+  top: 12px;
+  left: 0;
+  height: 80px;
+  width: inherit;
+  text-align: center;
+  margin: auto;
+}
+.sidebar-left .sidebar-buttons {
+  position:absolute;
+  top: 80px;
+  left: 0;
+  width: inherit;
 }
 .sidebar-left .md-button {
   font-weight: normal;
@@ -24,7 +39,23 @@ body {
 
 /*----------- main content ----------------- */
 .main-content {
+  width: 440px;
   overflow-y: scroll;
+}
+.list-group {
+  overflow-y: scroll;
+  height: 400px;
+}
+.list-group::-webkit-scrollbar {
+  display: none;
+}
+.tabs-area {
+  height: 400px;
+  width: inherit;
+}
+.footer {
+  height:48px;
+  width: inherit;
 }
 
 /*----------- note element ----------------- */
