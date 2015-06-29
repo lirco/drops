@@ -30,7 +30,7 @@
 
               <div ng-if="homeCtrl.domainNotes.length !== 0">
                 <md-list class="list-group">
-                  <md-list-item ng-repeat="note in homeCtrl.urlNotes |
+                  <md-list-item class="list-item" ng-repeat="note in homeCtrl.urlNotes |
                                 orderBy:homeCtrl.sortOrder">
                     <section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
                              ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
