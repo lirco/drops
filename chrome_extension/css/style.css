@@ -45,9 +45,9 @@ html, body {
 .list-group {
   height: 400px;
 }
-.list-item {
-  overflow-y: scroll;
-}
+/*.list-item {*/
+  /*overflow-y: scroll;*/
+/*}*/
 md-content::-webkit-scrollbar {
   display: none;
 }
