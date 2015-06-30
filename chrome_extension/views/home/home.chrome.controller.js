@@ -2,7 +2,7 @@
 
 (function () {
 
-  function homeController($scope, $state, Authentication, AppState, notes, viewState) {
+  function homeController($scope, $state, Authentication, AppState, notes, viewState, $mdDialog) {
     var self = this;
     self.authentication = {};
     self.authentication.user = Authentication.getUser();
@@ -50,20 +50,6 @@
       $state.go('newNote');
     };
 
-    self.deleteNote = function(note) {
-      note.$remove();
-
-      for (var i in self.domainNotes) {
-        if (self.domainNotes[i] === note) {
-          self.domainNotes.splice(i,1);
-        }
-        if (self.urlNotes[i] && self.urlNotes[i] === note) {
-          self.urlNotes.splice(i,1);
-        }
-      }
-      self.defineNotesToShow();
-    };
-
     self.noteHover = function(note) {
       return note.showHidden = !note.showHidden;
     };
@@ -78,10 +64,44 @@
       chrome.tabs.update({
         url: 'http://localhost:3000/'
       });
-    }
+    };
+
+    self.showDeleteDialog = function(ev, note) {
+      // Appending dialog to document.body to cover sidenav in docs app
+      var confirm = $mdDialog.confirm()
+        .parent(angular.element(document.body))
+        .title('Delete this note?')
+        .content('This note will be gone forever.')
+        .ariaLabel('Delete')
+        .ok('Delete')
+        .cancel('Keep it')
+        .targetEvent(ev);
+      $mdDialog.show(confirm).then(function() {
+        self.remove(note);
+      }, function() {
+        $scope.alert = 'You decided to keep your note.';
+      });
+    };
+
+    self.remove = function(note) {
+      if (note) {
+        for (var i in self.domainNotes) {
+          if (self.domainNotes[i] === note) {
+            self.domainNotes.splice(i,1);
+          }
+          if (self.urlNotes[i] && self.urlNotes[i] === note) {
+            self.urlNotes.splice(i,1);
+          }
+        }
+        note.$remove(function() {
+          $state.go('home');
+        });
+      }
+    };
+
   }
 
   angular.module('drops')
-    .controller('homeController', ['$scope','$state','Authentication','AppState','notes', 'viewState', homeController])
+    .controller('homeController', ['$scope','$state','Authentication','AppState','notes', 'viewState', '$mdDialog', homeController])
 
 }());
