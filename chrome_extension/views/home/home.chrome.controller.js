@@ -61,7 +61,7 @@
     };
 
     self.goHome = function() {
-      chrome.tabs.update({
+      chrome.tabs.create({
         url: 'http://localhost:3000/'
       });
     };
