@@ -28,11 +28,12 @@
 	padding-top: 30px;
 	height: inherit;
 	width: inherit;
-	display: block;
 	overflow: hidden;
 }
-.md-button {
-	line-height: 30px;
+.tags-area .md-button {
+  line-height: 25px;
+  min-height: 25px;
+  opacity: 0.7;
 }
 
 /*----------- main content ----------------- */
