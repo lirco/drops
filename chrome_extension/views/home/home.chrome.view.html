@@ -1,52 +1,10 @@
-<div class="panel panel-primary">
+<div class="content" flex>
+  <div class="top-bar"></div>
+  <div layout="row" flex>
 
-  <div ng-include src="'../views/main/header.chrome.view.html'"></div>
+    <div ui-view="sideBar"></div>
+    <div ui-view="content"></div>
 
-  <div class="panel-body">
-    <div ng-if="homeCtrl.notesToShow.length == 0">
-      <div class="panel-body">
-        <h2 class="text-center">Hey {{homeCtrl.authentication.user.username}}!</h2>
-        <br>
-        <h3 class="text-center">No notes yet for this page</h3>
-        <br>
-        <button class="btn btn-block btn-primary margin-auto" ng-click="homeCtrl.newNote()">drop one</button>
-      </div>
-    </div>
 
-    <div ng-if="homeCtrl.notesToShow.length !== 0">
-      <div class="padding-15">
-        <div class="pull-left">
-          <h4 class="text-bold text-deep-blue">{{homeCtrl.authentication.user.username}}'s notes</h4>
-        </div>
-        <div class="pull-right">
-          <button ng-click="homeCtrl.newNote()" class="btn btn-sm btn-outline"><span class="glyphicon glyphicon-plus"></span></button>
-        </div>
-        <div class="clearfix"></div>
-      </div>
-
-      <div class="list-group">
-        <div class="list-group-item" ng-repeat="note in homeCtrl.notesToShow" ng-click="homeCtrl.editNote(note)" ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
-          <a class="note" href="#">
-            <h5 class="list-group-item-heading">{{note.title | truncate:7}}</h5>
-            <p class="list-group-item-text small">{{note.content | truncate:16}}</p>
-          </a>
-          <div class="action" ng-show="note.showHidden">
-            <a class="text-danger" ng-click="homeCtrl.deleteNote(note)">
-              <span class="glyphicon glyphicon-trash"></span>
-            </a>
-            <a class="text-info" ng-click="homeCtrl.goToPage(note)">
-              <span class="glyphicon glyphicon-new-window"></span>
-            </a>
-            <!--<a class="text-danger" ng-click="homeCtrl.deleteNote(note)">delete</a> &nbsp; <a ng-click="homeCtrl.editNote(note)">edit</a>-->
-          </div>
-        </div>
-      </div>
-    </div>
   </div>
-
-  <div class="panel-footer"></div>
-
 </div>
-
-
-

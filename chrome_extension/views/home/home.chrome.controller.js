@@ -41,6 +41,8 @@
     //};
     //self.defineNotesToShow();
 
+    $state.go('home.views');
+
     self.editNote = function(note) {
       AppState.setActiveNote(note);
       $state.go('editNote')
@@ -94,7 +96,7 @@
           }
         }
         note.$remove(function() {
-          $state.go('home');
+          $state.go('home.views');
         });
       }
     };

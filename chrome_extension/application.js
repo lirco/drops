@@ -19,7 +19,7 @@ angular.module('drops', ['ui.router', 'ngResource', 'ui.bootstrap', 'ngTagsInput
     $stateProvider
 
       .state('home', {
-        templateUrl: 'views/home/main.chrome.view.html',
+        templateUrl: 'views/home/home.chrome.view.html',
         controller: 'homeController',
         controllerAs: 'homeCtrl',
         resolve: {
@@ -28,6 +28,16 @@ angular.module('drops', ['ui.router', 'ngResource', 'ui.bootstrap', 'ngTagsInput
           },
           viewState: function(AppState) {
             return AppState.getViewState()
+          }
+        }
+      })
+      .state('home.views', {
+        views: {
+          'content': {
+            templateUrl: 'views/home/sub_views/home.content.chrome.view.html'
+          },
+          'sideBar': {
+            templateUrl: 'views/home/sub_views/home.sideBar.chrome.view.html'
           }
         }
       })
