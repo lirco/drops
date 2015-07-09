@@ -38,6 +38,11 @@ html, body {
 }
 
 /*----------- main content ----------------- */
+#no-notes-block {
+  color:rgba(0,0,0,0.6);
+  padding: 40px;
+}
+
 .main-content {
   width: 440px;
   overflow: hidden;

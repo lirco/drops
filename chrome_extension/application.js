@@ -38,41 +38,45 @@ angular.module('drops', ['ui.router', 'ngResource', 'ui.bootstrap', 'ngTagsInput
           },
           'sideBar': {
             templateUrl: 'views/home/sub_views/home.sideBar.chrome.view.html'
+          },
+          'newNote': {
+            templateUrl: 'views/home/sub_views/home.note.chrome.view.html'
           }
         }
       })
-      .state('newNote', {
-        templateUrl: 'views/notes/newNote.chrome.view.html',
-        controller: 'notesController',
-        controllerAs: 'notesCtrl',
-        resolve: {
-          activeTabUrl: function(AppState) {
-            return AppState.getActiveTabUrl()
-          },
-          activeTabDomain: function(AppState) {
-            return AppState.getActiveTabDomain()
-          },
-          activeNote: function(AppState) {
-            return AppState.getActiveNote()
-          }
-        }
-      })
-      .state('editNote', {
-        templateUrl: 'views/notes/editNote.chrome.view.html',
-        controller: 'notesController',
-        controllerAs: 'notesCtrl',
-        resolve: {
-          activeTabUrl: function(AppState) {
-            return AppState.getActiveTabUrl()
-          },
-          activeTabDomain: function(AppState) {
-            return AppState.getActiveTabDomain()
-          },
-          activeNote: function(AppState) {
-            return AppState.getActiveNote()
-          }
-        }
-      })
+
+      //.state('newNote', {
+      //  templateUrl: 'views/notes/newNote.chrome.view.html',
+      //  controller: 'notesController',
+      //  controllerAs: 'notesCtrl',
+      //  resolve: {
+      //    activeTabUrl: function(AppState) {
+      //      return AppState.getActiveTabUrl()
+      //    },
+      //    activeTabDomain: function(AppState) {
+      //      return AppState.getActiveTabDomain()
+      //    },
+      //    activeNote: function(AppState) {
+      //      return AppState.getActiveNote()
+      //    }
+      //  }
+      //})
+      //.state('editNote', {
+      //  templateUrl: 'views/notes/editNote.chrome.view.html',
+      //  controller: 'notesController',
+      //  controllerAs: 'notesCtrl',
+      //  resolve: {
+      //    activeTabUrl: function(AppState) {
+      //      return AppState.getActiveTabUrl()
+      //    },
+      //    activeTabDomain: function(AppState) {
+      //      return AppState.getActiveTabDomain()
+      //    },
+      //    activeNote: function(AppState) {
+      //      return AppState.getActiveNote()
+      //    }
+      //  }
+      //})
 
       //User routes
       .state('signIn', {

@@ -2,9 +2,8 @@
   <div class="top-bar"></div>
   <div layout="row" flex>
 
-    <div ui-view="sideBar"></div>
-    <div ui-view="content"></div>
-
+    <div ui-view="sideBar" class="sidebar-left md-whiteframe-z2" layout="column"></div>
+    <div ui-view={{homeCtrl.contentToShow}} class="main-content"></div>
 
   </div>
 </div>

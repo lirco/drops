@@ -43,6 +43,16 @@
 
     $state.go('home.views');
 
+    self.contentToShow = "content";
+    self.setContentToShow = function(content) {
+      console.log('***************************************');
+      console.log(content);
+      console.log(typeof(content));
+      console.log('***************************************');
+      self.contentToShow = content;
+      console.log(self.contentToShow);
+    };
+
     self.editNote = function(note) {
       AppState.setActiveNote(note);
       $state.go('editNote')
