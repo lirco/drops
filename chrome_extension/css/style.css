@@ -38,7 +38,7 @@ html, body {
 }
 
 /*----------- main content ----------------- */
-#no-notes-block {
+.no-notes-block {
   color:rgba(0,0,0,0.6);
   padding: 40px;
 }

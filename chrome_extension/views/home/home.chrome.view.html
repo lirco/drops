@@ -3,7 +3,9 @@
   <div layout="row" flex>
 
     <div ui-view="sideBar" class="sidebar-left md-whiteframe-z2" layout="column"></div>
-    <div ui-view={{homeCtrl.contentToShow}} class="main-content"></div>
+    <div ng-show="homeCtrl.contentToShow == 'content'" ui-view="content" class="main-content"></div>
+    <div ng-show="homeCtrl.contentToShow == 'newNote'" ui-view="newNote" class="main-content"></div>
+
 
   </div>
 </div>

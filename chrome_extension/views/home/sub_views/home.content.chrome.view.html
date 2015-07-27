@@ -5,10 +5,10 @@
       <div>
 
         <div ng-if="homeCtrl.urlNotes.length == 0">
-          <div id="no-notes-block">
+          <div class="no-notes-block">
             <h1 class="text-center">No notes yet for this page</h1>
             <br>
-            <md-button class="btn btn-block md-primary margin-auto" ng-click="homeCtrl.newNote()">drop one</md-button>
+            <md-button class="btn btn-block md-primary margin-auto" ng-click="homeCtrl.setContentToShow('newNote')">drop one</md-button>
           </div>
         </div>
 
@@ -45,10 +45,10 @@
       <md-content>
 
         <div ng-if="homeCtrl.domainNotes.length == 0">
-          <div>
+          <div class="no-notes-block">
             <h1 class="text-center">No notes yet for this Site</h1>
             <br>
-            <md-button class="btn btn-block md-primary margin-auto" ng-click="homeCtrl.newNote()">drop one</md-button>
+            <md-button class="btn btn-block md-primary margin-auto" ng-click="homeCtrl.setContentToShow('newNote')">drop one</md-button>
           </div>
         </div>
 
