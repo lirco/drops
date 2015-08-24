@@ -11,6 +11,10 @@
     self.domainNotes = notes.domainNotes;
     self.urlNotes = notes.urlNotes;
 
+    self.note = {
+      title: 'Note title goes here',
+      content: 'Add your notes here'
+    }
     //$scope.$on('viewEvent:changeViewState', function(type, data){
     //  if (data == 'Page') {
     //    self.viewState = 'Page';

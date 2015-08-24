@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 (function () {
 
 	function homeController(Authentication, Notes, $mdDialog, $scope) {
