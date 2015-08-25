@@ -26,8 +26,11 @@ angular.module('drops', ['ui.router', 'ngResource', 'ui.bootstrap', 'ngTagsInput
           notes: function(GetNotes) {
             return GetNotes.getNotes()
           },
-          viewState: function(AppState) {
-            return AppState.getViewState()
+          activeTabDomain: function(AppState) {
+            return AppState.getActiveTabDomain()
+          },
+          activeTabUrl: function(AppState) {
+            return AppState.getActiveTabUrl()
           }
         }
       })
@@ -45,22 +48,22 @@ angular.module('drops', ['ui.router', 'ngResource', 'ui.bootstrap', 'ngTagsInput
         }
       })
 
-      //.state('newNote', {
-      //  templateUrl: 'views/notes/newNote.chrome.view.html',
-      //  controller: 'notesController',
-      //  controllerAs: 'notesCtrl',
-      //  resolve: {
-      //    activeTabUrl: function(AppState) {
-      //      return AppState.getActiveTabUrl()
-      //    },
-      //    activeTabDomain: function(AppState) {
-      //      return AppState.getActiveTabDomain()
-      //    },
-      //    activeNote: function(AppState) {
-      //      return AppState.getActiveNote()
-      //    }
-      //  }
-      //})
+      .state('newNote', {
+        templateUrl: 'views/notes/newNote.chrome.view.html',
+        controller: 'notesController',
+        controllerAs: 'notesCtrl',
+        resolve: {
+          activeTabUrl: function(AppState) {
+            return AppState.getActiveTabUrl()
+          },
+          activeTabDomain: function(AppState) {
+            return AppState.getActiveTabDomain()
+          },
+          activeNote: function(AppState) {
+            return AppState.getActiveNote()
+          }
+        }
+      })
       //.state('editNote', {
       //  templateUrl: 'views/notes/editNote.chrome.view.html',
       //  controller: 'notesController',

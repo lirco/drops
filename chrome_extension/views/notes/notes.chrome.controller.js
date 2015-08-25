@@ -30,22 +30,6 @@
       })
     };
 
-    self.remove = function(note) {
-      if (note) {
-        note.$remove();
-
-        for (var i in self.notes) {
-          if (self.notes[i] === note) {
-            self.notes.splice(i,1);
-          }
-        }
-      } else {
-        self.note.$remove(function() {
-          $state.go('home');
-        });
-      }
-    };
-
     self.update = function() {
       var note = activeNote;
       note.$update(function() {
@@ -56,15 +40,15 @@
       });
     };
 
-    self.find = function() {
-      self.notes = Notes.query();
-    };
+    //self.find = function() {
+    //  self.notes = Notes.query();
+    //};
 
-    self.findOne = function() {
-      self.note = Notes.get({
-        noteId: $stateParams.noteId
-      });
-    };
+    //self.findOne = function() {
+    //  self.note = Notes.get({
+    //    noteId: $stateParams.noteId
+    //  });
+    //};
 
     self.getTags = function(query) {
       var d = $q.defer();

@@ -3,10 +3,9 @@
   function AppState() {
 
     var self = this;
-    self.activeNote = {};
     self.activeTabUrl = '';
     self.activeTabDomain = '';
-    self.viewState = 'Page';
+    self.activeNote = {};
 
     return {
       setActiveTabUrl: function(url) {
@@ -25,13 +24,7 @@
         self.activeNote = note
       },
       getActiveNote: function() {
-        return self.activeNote;
-      },
-      setViewState: function(viewState) {
-        self.viewState = viewState
-      },
-      getViewState: function() {
-        return self.viewState;
+        return self.activeNote
       }
     }
   }

@@ -1,9 +1,8 @@
 <md-toolbar>
   <div class="md-toolbar-tools">
     <form class="note-dialog-form-title" name="noteTitleForm" flex>
-      <md-input-container flex>
-        <label></label>
-        <input class="note-dialog-title" ng-model="homeCtrl.note.title" columns="1" style="color: white"></input>
+      <md-input-container md-no-float>
+        <input class="note-dialog-title" ng-model="homeCtrl.note.title" style="color:white" placeholder="Note title goes here">
       </md-input-container>
     </form>
   </div>
@@ -11,9 +10,8 @@
 
 <md-dialog-content flex>
   <form class="note-dialog-content" name="noteContentForm">
-    <md-input-container flex>
-      <label></label>
-      <textarea class="note-dialog-content" ng-model="homeCtrl.note.content" columns="1"></textarea>
+    <md-input-container md-no-float>
+      <textarea class="note-dialog-content" ng-model="homeCtrl.note.content" placeholder="Your note goes here"></textarea>
     </md-input-container>
   </form>
   </md-dialog-content>
@@ -21,7 +19,7 @@
   <md-button ng-click="closeNote()" class="md-primary">
     Cancel
   </md-button>
-  <md-button ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="homeCtrl.saveNewNote()" class="md-primary">
+  <md-button ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="homeCtrl.create()" class="md-primary">
     Save
   </md-button>
 </div>
