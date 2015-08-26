@@ -54,6 +54,11 @@
       });
       note.$save(function(response) {
         self.contentToShow = "content";
+        self.domainNotes.unshift(note);
+        self.urlNotes.unshift(note);
+        console.log('***************************************');
+        console.log(self.urlNotes);
+        console.log('***************************************');
         $state.go('home.views');
         //TODO: create a service that holds the notes for current url and pull it's notes on homeCtrl
         self.note.title = '';
