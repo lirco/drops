@@ -16,7 +16,7 @@
   </form>
   </md-dialog-content>
 <div class="note-dialog-footer md-actions">
-  <md-button ng-click="closeNote()" class="md-primary">
+  <md-button ng-click="homeCtrl.closeNote()" class="md-primary">
     Cancel
   </md-button>
   <md-button ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="homeCtrl.create()" class="md-primary">

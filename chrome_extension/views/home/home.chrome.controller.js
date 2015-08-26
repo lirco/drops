@@ -56,9 +56,6 @@
         self.contentToShow = "content";
         self.domainNotes.unshift(note);
         self.urlNotes.unshift(note);
-        console.log('***************************************');
-        console.log(self.urlNotes);
-        console.log('***************************************');
         $state.go('home.views');
         //TODO: create a service that holds the notes for current url and pull it's notes on homeCtrl
         self.note.title = '';
@@ -67,6 +64,14 @@
       }, function(errorResponse) {
         self.error = errorResponse.data.message;
       })
+    };
+
+    self.closeNote = function() {
+      self.note.title = '';
+      self.note.content = '';
+      self.note.tags = '';
+      self.contentToShow = "content";
+      $state.go('home.views');
     };
 
     self.editNote = function(note) {
