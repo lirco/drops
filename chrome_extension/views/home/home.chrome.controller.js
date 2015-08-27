@@ -8,6 +8,9 @@
     self.authentication.user = Authentication.getUser();
     self.activeTabUrl = activeTabUrl;
     self.activeTabDomain = activeTabDomain;
+    self.note = AppState.initializeNote();
+    self.editMode = false;
+
 
     //self.viewState = viewState;
     self.domainNotes = notes.domainNotes;
@@ -67,16 +70,34 @@
     };
 
     self.closeNote = function() {
-      self.note.title = '';
-      self.note.content = '';
-      self.note.tags = '';
+      if (self.editMode == false) {
+        self.note.title = '';
+        self.note.content = '';
+        self.note.tags = '';
+      }
       self.contentToShow = "content";
+      self.editMode = false;
       $state.go('home.views');
     };
 
     self.editNote = function(note) {
-      AppState.setActiveNote(note);
-      $state.go('editNote')
+      //AppState.setActiveNote(note);
+      self.editMode = true;
+      self.contentToShow = "newNote";
+      self.note = note;
+      $state.go('home.views')
+    };
+
+    self.update = function() {
+      var note = self.note;
+      note.$update(function() {
+        self.editMode = false;
+        self.contentToShow = 'content';
+        $state.go('home.views');
+        //AppState.setActiveNote(null);
+      }, function(errorResponse) {
+        self.error = errorResponse.data.message;
+      });
     };
 
     self.showDeleteDialog = function(ev, note) {

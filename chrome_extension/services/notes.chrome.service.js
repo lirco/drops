@@ -16,7 +16,7 @@
       }
     });
   }
-  //Articles service used for communicating with the articles REST endpoints
+  //Notes service used for communicating with the articles REST endpoints
   angular.module('drops')
     .factory('Notes', ['$resource', notesService])
 

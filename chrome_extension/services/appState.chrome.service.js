@@ -6,6 +6,11 @@
     self.activeTabUrl = '';
     self.activeTabDomain = '';
     self.activeNote = {};
+    self.note = {
+      title: '',
+      content: '',
+      tags: ''
+    };
 
     return {
       setActiveTabUrl: function(url) {
@@ -25,6 +30,9 @@
       },
       getActiveNote: function() {
         return self.activeNote
+      },
+      initializeNote: function(){
+        return self.note;
       }
     }
   }

@@ -19,7 +19,10 @@
   <md-button ng-click="homeCtrl.closeNote()" class="md-primary">
     Cancel
   </md-button>
-  <md-button ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="homeCtrl.create()" class="md-primary">
+  <md-button ng-if="homeCtrl.editMode == false" ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="homeCtrl.create()" class="md-primary">
     Save
+  </md-button>
+  <md-button ng-if="homeCtrl.editMode == true" ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="homeCtrl.update()" class="md-primary">
+    Update
   </md-button>
 </div>
