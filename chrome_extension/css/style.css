@@ -173,24 +173,26 @@ w440 / h448
 }
 .note-dialog-content-wrapper{
   position: absolute;
-  top: 70px;
-  height: 374px;
+  top: 64px;
+  height: 318px;
   width: inherit;
 }
 .note-dialog-content {
-  height: 314px;
+  height: inherit;
   width: inherit;
   border: none;
   padding: 26px;
   overflow-y: scroll;
 }
 .note-dialog-footer {
+  width: inherit;
   position: absolute;
   bottom: 10px;
 }
-/*.note-dialog-footer .footer-buttons-wrapper {*/
-  /*position: absolute;*/
-  /*right:15px;*/
-/*}*/
+.note-dialog-footer .footer-buttons-wrapper {
+  float: left;
+  position: relative;
+  right:15px;
+}
 
 
