@@ -44,11 +44,8 @@ exports.create = function(req, res) {
 
   note.save(function(err) {
     if (err) {
-      console.log('***************************************');
-      console.log('oops');
-      console.log('***************************************');
       return res.status(400).send({
-      message: errorHandler.getErrorMessage(err)
+        message: errorHandler.getErrorMessage(err)
       });
     } else {
       user.save(function(err) {

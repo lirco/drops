@@ -1,35 +1,44 @@
-<md-toolbar>
-  <div class="md-toolbar-tools">
-    <form class="note-dialog-form-title" name="noteTitleForm" flex>
+<div class="note-wrapper" flex>
+  <md-toolbar flex>
+    <div class="md-toolbar-tools">
+      <form class="note-dialog-form-title" name="noteTitleForm" flex>
+        <md-input-container ng-if="homeCtrl.editMode == false" md-no-float>
+          <input class="note-dialog-title" ng-model="homeCtrl.newNote.title" style="color:white" placeholder="Note title goes here">
+        </md-input-container>
+        </md-input-container>
+        <md-input-container ng-if="homeCtrl.editMode == true" md-no-float>
+          <input class="note-dialog-title" ng-model="homeCtrl.editedNote.title" style="color:white">
+        </md-input-container>
+      </form>
+    </div>
+  </md-toolbar>
+
+  <md-dialog-content class="note-dialog-content-wrapper" flex>
+    <form class="note-dialog-content" name="noteContentForm">
       <md-input-container ng-if="homeCtrl.editMode == false" md-no-float>
-        <input class="note-dialog-title" ng-model="homeCtrl.newNote.title" style="color:white" placeholder="Note title goes here">
-      </md-input-container>
+        <textarea class="note-dialog-content" ng-model="homeCtrl.newNote.content" placeholder="Your note goes here"></textarea>
       </md-input-container>
       <md-input-container ng-if="homeCtrl.editMode == true" md-no-float>
-        <input class="note-dialog-title" ng-model="homeCtrl.editedNote.title" style="color:white">
+        <textarea class="note-dialog-content" ng-model="homeCtrl.editedNote.content"></textarea>
       </md-input-container>
     </form>
-  </div>
-</md-toolbar>
-
-<md-dialog-content flex>
-  <form class="note-dialog-content" name="noteContentForm">
-    <md-input-container ng-if="homeCtrl.editMode == false" md-no-float>
-      <textarea class="note-dialog-content" ng-model="homeCtrl.newNote.content" placeholder="Your note goes here"></textarea>
-    </md-input-container>
-    <md-input-container ng-if="homeCtrl.editMode == true" md-no-float>
-      <textarea class="note-dialog-content" ng-model="homeCtrl.editedNote.content"></textarea>
-    </md-input-container>
-  </form>
   </md-dialog-content>
-<div class="note-dialog-footer md-actions">
-  <md-button ng-click="homeCtrl.closeNote()" class="md-primary">
-    Cancel
-  </md-button>
-  <md-button ng-if="homeCtrl.editMode == false" ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="homeCtrl.create()" class="md-primary">
-    Save
-  </md-button>
-  <md-button ng-if="homeCtrl.editMode == true" ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="homeCtrl.update()" class="md-primary">
-    Update
-  </md-button>
+
+  <div class="note-dialog-footer md-actions">
+    <!--<div ng-if="homeCtrl.error">-->
+    <!--{{homeCtrl.error}}-->
+    <!--</div>-->
+    <div class="footer-buttons-wrapper">
+      <md-button ng-click="homeCtrl.closeNote()" class="md-primary">
+        Cancel
+      </md-button>
+      <md-button ng-if="homeCtrl.editMode == false" ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="homeCtrl.create()" class="md-primary">
+        Save
+      </md-button>
+      <md-button ng-if="homeCtrl.editMode == true" ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="homeCtrl.update()" class="md-primary">
+        Update
+      </md-button>
+    </div>
+  </div>
 </div>
+

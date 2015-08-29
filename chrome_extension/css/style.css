@@ -50,9 +50,6 @@ html, body {
 .list-group {
   height: 400px;
 }
-/*.list-item {*/
-  /*overflow-y: scroll;*/
-/*}*/
 md-content::-webkit-scrollbar {
   display: none;
 }
@@ -138,10 +135,23 @@ md-content::-webkit-scrollbar {
 }
 
 
-/* ---------------note diaalog ---------------*/
+/* ---------------note view ---------------*/
+
 .note-dialog {
   max-height: 80%
 }
+
+/*
+w440 / h448
+*/
+
+.note-wrapper {
+  position: absolute;
+  top: 6px;
+  height: 442px;
+  width: inherit;
+}
+
 .md-toolbar-tools .note-dialog-form-title {
   height:inherit;
   margin:0px;
@@ -161,12 +171,26 @@ md-content::-webkit-scrollbar {
   -webkit-margin-end: 0px;
   border: none;
 }
+.note-dialog-content-wrapper{
+  position: absolute;
+  top: 70px;
+  height: 374px;
+  width: inherit;
+}
 .note-dialog-content {
+  height: 314px;
+  width: inherit;
   border: none;
   padding: 26px;
+  overflow-y: scroll;
 }
 .note-dialog-footer {
-  bottom: 0;
+  position: absolute;
+  bottom: 10px;
 }
+/*.note-dialog-footer .footer-buttons-wrapper {*/
+  /*position: absolute;*/
+  /*right:15px;*/
+/*}*/
 
 
