@@ -1,8 +1,12 @@
 <md-toolbar>
   <div class="md-toolbar-tools">
     <form class="note-dialog-form-title" name="noteTitleForm" flex>
-      <md-input-container md-no-float>
-        <input class="note-dialog-title" ng-model="homeCtrl.note.title" style="color:white" placeholder="Note title goes here">
+      <md-input-container ng-if="homeCtrl.editMode == false" md-no-float>
+        <input class="note-dialog-title" ng-model="homeCtrl.newNote.title" style="color:white" placeholder="Note title goes here">
+      </md-input-container>
+      </md-input-container>
+      <md-input-container ng-if="homeCtrl.editMode == true" md-no-float>
+        <input class="note-dialog-title" ng-model="homeCtrl.editedNote.title" style="color:white">
       </md-input-container>
     </form>
   </div>
@@ -10,8 +14,11 @@
 
 <md-dialog-content flex>
   <form class="note-dialog-content" name="noteContentForm">
-    <md-input-container md-no-float>
-      <textarea class="note-dialog-content" ng-model="homeCtrl.note.content" placeholder="Your note goes here"></textarea>
+    <md-input-container ng-if="homeCtrl.editMode == false" md-no-float>
+      <textarea class="note-dialog-content" ng-model="homeCtrl.newNote.content" placeholder="Your note goes here"></textarea>
+    </md-input-container>
+    <md-input-container ng-if="homeCtrl.editMode == true" md-no-float>
+      <textarea class="note-dialog-content" ng-model="homeCtrl.editedNote.content"></textarea>
     </md-input-container>
   </form>
   </md-dialog-content>

@@ -25,7 +25,7 @@ exports.create = function(req, res) {
     return color;
   }
   
-  var newTags = req.body.tags;
+  var newTags = req.body.tags || '';
 
   for (var i = 0; i < newTags.length ; i++) {
     var newTag = newTags[i];
@@ -44,8 +44,11 @@ exports.create = function(req, res) {
 
   note.save(function(err) {
     if (err) {
+      console.log('***************************************');
+      console.log('oops');
+      console.log('***************************************');
       return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
+      message: errorHandler.getErrorMessage(err)
       });
     } else {
       user.save(function(err) {
@@ -74,7 +77,7 @@ exports.read = function(req, res) {
 exports.update = function(req, res) {
   var note = req.note;
   var user = req.user;
-  var newTags = req.body.tags;
+  var newTags = req.body.tags || '';
 
   function getRandomColor() {
     var letters = '0123456789ABCDEF'.split('');

@@ -22,7 +22,7 @@ var NoteSchema = new Schema({
     type: String,
     default: '',
     trim: true,
-    required: 'Title cannot be blank'
+    //required: 'Title cannot be blank'
   },
   tags: {
     type: Array

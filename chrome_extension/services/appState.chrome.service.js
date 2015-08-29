@@ -26,7 +26,7 @@
         return self.activeTabDomain;
       },
       setActiveNote: function(note) {
-        self.activeNote = note
+        self.activeNote = note;
       },
       getActiveNote: function() {
         return self.activeNote
