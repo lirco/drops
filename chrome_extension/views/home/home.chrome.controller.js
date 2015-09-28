@@ -30,9 +30,9 @@
       return note.showHidden = !note.showHidden;
     };
 
-    self.goToPage = function(note) {
-      chrome.tabs.update({
-        url: note.url
+    self.goToPage = function(url) {
+      chrome.tabs.create({
+        url: url
       });
     };
 
