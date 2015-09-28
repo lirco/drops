@@ -21,7 +21,7 @@
     // initializing the content to show to be the list of notes
     self.contentToShow = "content";
 
-    // for switching between list of notes and add a new note screen
+    // for switching between list of notes(content), add a new note screen and settings screen
     self.setContentToShow = function(content) {
       self.contentToShow = content;
     };
@@ -43,7 +43,7 @@
     };
 
 
-    // -------------- Notes handlers ----------------
+    // -------------- Notes handlers start----------------
     //TODO: move these to a different controller
 
     self.create = function() {
@@ -129,6 +129,14 @@
         });
       }
     };
+    // -------------- Notes handlers end----------------
+
+    // -------------- Settings handlers start----------------
+
+    self.signOut = function() {
+
+    };
+    // -------------- Settings handlers end----------------
 
   }
 
