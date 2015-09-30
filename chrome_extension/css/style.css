@@ -187,10 +187,6 @@ md-content::-webkit-scrollbar {
   max-height: 80%
 }
 
-/*
-w440 / h448
-*/
-
 .note-wrapper {
   position: absolute;
   top: 6px;
@@ -200,11 +196,11 @@ w440 / h448
 
 .md-toolbar-tools .note-dialog-form-title {
   height:inherit;
-  margin:0px;
+  margin:0;
   padding-left: 10px;
 }
 .note-dialog-title {
-  color: rgb(255,255,255);
+  /*color: rgb(255,255,255);*/
   font-size: inherit;
   margin: inherit;
   font-family: inherit;
@@ -215,12 +211,12 @@ w440 / h448
   -webkit-margin-after: 0.83em;
   -webkit-margin-start: 0px;
   -webkit-margin-end: 0px;
-  border: none;
+  border-bottom: 1px #003366;
 }
 .note-dialog-content-wrapper{
   position: absolute;
   top: 64px;
-  height: 318px;
+  height: 280px;
   width: inherit;
 }
 .note-dialog-content {
@@ -230,12 +226,19 @@ w440 / h448
   padding: 26px;
   overflow-y: scroll;
 }
+.note-dialog-tags-wrapper{
+  position: absolute;
+  bottom: 58px;
+  height: 48px;
+  width: inherit;
+}
 .note-dialog-footer {
   width: inherit;
+  height: 68px;
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 0 10px 10px 0;
+  padding: 10px 26px;
 
 }
 .note-dialog-footer .footer-buttons-wrapper {

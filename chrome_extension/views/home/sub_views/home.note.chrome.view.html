@@ -2,10 +2,11 @@
   <md-toolbar flex>
     <div class="md-toolbar-tools">
       <form class="note-dialog-form-title" name="noteTitleForm" flex>
+        <!-- title for a new note -->
         <md-input-container ng-if="homeCtrl.editMode == false" md-no-float>
           <input class="note-dialog-title" ng-model="homeCtrl.newNote.title" style="color:white" placeholder="Note title goes here">
         </md-input-container>
-        </md-input-container>
+        <!-- update title of existing note -->
         <md-input-container ng-if="homeCtrl.editMode == true" md-no-float>
           <input class="note-dialog-title" ng-model="homeCtrl.editedNote.title" style="color:white">
         </md-input-container>
@@ -15,19 +16,22 @@
 
   <div class="note-dialog-content-wrapper" flex>
     <form class="note-dialog-content" name="noteContentForm">
+      <!-- content for a new note -->
       <md-input-container ng-if="homeCtrl.editMode == false" md-no-float>
         <textarea class="note-dialog-content" ng-model="homeCtrl.newNote.content" placeholder="Your note goes here"></textarea>
       </md-input-container>
+      <!-- update content for a existing note -->
       <md-input-container ng-if="homeCtrl.editMode == true" md-no-float>
         <textarea class="note-dialog-content" ng-model="homeCtrl.editedNote.content"></textarea>
       </md-input-container>
     </form>
   </div>
 
+  <div class="note-dialog-tags-wrapper">
+
+  </div>
+
   <div class="note-dialog-footer md-actions">
-    <!--<div ng-if="homeCtrl.error">-->
-    <!--{{homeCtrl.error}}-->
-    <!--</div>-->
     <div class="footer-buttons-wrapper">
       <md-button ng-click="homeCtrl.closeNote()" class="md-primary">
         Cancel
