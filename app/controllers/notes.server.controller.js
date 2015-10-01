@@ -16,6 +16,10 @@ exports.create = function(req, res) {
   note.user = req.user;
   var user = req.user;
 
+  /**
+   * helper function for creating random colors for tags
+   * @returns {string}
+   */
   function getRandomColor() {
     var letters = '0123456789ABCDEF'.split('');
     var color = '#';
@@ -24,9 +28,23 @@ exports.create = function(req, res) {
     }
     return color;
   }
-  
-  var newTags = req.body.tags || '';
 
+  /**
+   * generate tags array.
+   * each tag is an object with text and color (will be generated if tag is new)
+   */
+  var newTags = [];
+  for (var k = 0; k < req.body.tags.length ; k++) {
+    var tag = {
+      text: req.body.tags[k],
+      color : ''
+    };
+    newTags.push(tag);
+  }
+
+  /**
+   * check if the tag already exists in the user's tags
+   */
   for (var i = 0; i < newTags.length ; i++) {
     var newTag = newTags[i];
     var index = -1;

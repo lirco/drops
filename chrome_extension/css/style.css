@@ -230,15 +230,16 @@ md-content::-webkit-scrollbar {
   position: absolute;
   bottom: 58px;
   height: 48px;
-  width: inherit;
+  width: 400px;
+  margin-left: 20px;
 }
 .note-dialog-footer {
   width: inherit;
-  height: 68px;
+  height: 58px;
   position: absolute;
   bottom: 0;
   right: 0;
-  padding: 10px 26px;
+  padding: 5px 26px;
 
 }
 .note-dialog-footer .footer-buttons-wrapper {

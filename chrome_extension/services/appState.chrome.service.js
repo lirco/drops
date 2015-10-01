@@ -9,7 +9,7 @@
     self.note = {
       title: '',
       content: '',
-      tags: ''
+      tags: []
     };
 
     return {

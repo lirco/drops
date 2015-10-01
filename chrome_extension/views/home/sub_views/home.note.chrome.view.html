@@ -28,7 +28,15 @@
   </div>
 
   <div class="note-dialog-tags-wrapper">
-
+    <md-chips
+            ng-model="homeCtrl.newNote.tags"
+            readonly="homeCtrl.readonly"
+            placeholder="Enter a tag"
+            delete-button-label="Remove Tag"
+            delete-hint="Press delete to remove tag"
+            secondary-placeholder="+Tag">
+    </md-chips>
+    <br/>
   </div>
 
   <div class="note-dialog-footer md-actions">
