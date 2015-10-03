@@ -17,36 +17,11 @@ exports.create = function(req, res) {
   var user = req.user;
 
   /**
-   * helper function for creating random colors for tags
-   * @returns {string}
-   */
-  function getRandomColor() {
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#';
-    for (var i = 0; i < 6; i++ ) {
-      color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
-  }
-
-  /**
-   * generate tags array.
-   * each tag is an object with text and color (will be generated if tag is new)
-   */
-  var newTags = [];
-  for (var k = 0; k < req.body.tags.length ; k++) {
-    var tag = {
-      text: req.body.tags[k],
-      color : ''
-    };
-    newTags.push(tag);
-  }
-
-  /**
    * check if the tag already exists in the user's tags
+   * TODO: make in async friendly for god's sake
    */
-  for (var i = 0; i < newTags.length ; i++) {
-    var newTag = newTags[i];
+  for (var i = 0; i < req.body.tags.length ; i++) {
+    var newTag = req.body.tags[i];
     var index = -1;
     for (var j = 0; j < user.tags.length ; j++) {
       if (user.tags[j].text == newTag.text) {
@@ -55,7 +30,6 @@ exports.create = function(req, res) {
       }
     }
     if (index == -1) {
-      newTag.color = getRandomColor();
       user.tags.push(newTag);
     }
   }
