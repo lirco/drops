@@ -47,14 +47,34 @@
     <!--</div>-->
   <!--</md-autocomplete>-->
 
-  <div class="note-dialog-tags-wrapper">
+  <div ng-if="homeCtrl.editMode == false" class="note-dialog-tags-wrapper">
     <md-chips
             ng-model="homeCtrl.newNote.tags"
+            md-on-append="homeCtrl.newTagAppend($chip)"
             readonly="homeCtrl.readonly"
             placeholder="Enter a tag"
             delete-button-label="Remove Tag"
             delete-hint="Press delete to remove tag"
             secondary-placeholder="+Tag">
+      <md-chip-template>
+        <p>{{$chip.text}}</p>
+      </md-chip-template>
+    </md-chips>
+    <br/>
+  </div>
+
+  <div ng-if="homeCtrl.editMode == true" class="note-dialog-tags-wrapper">
+    <md-chips
+            ng-model="homeCtrl.editedNote.tags"
+            md-on-append="homeCtrl.newTagAppend($chip)"
+            readonly="homeCtrl.readonly"
+            placeholder="Enter a tag"
+            delete-button-label="Remove Tag"
+            delete-hint="Press delete to remove tag"
+            secondary-placeholder="+Tag">
+      <md-chip-template>
+        <p>{{$chip.text}}</p>
+      </md-chip-template>
     </md-chips>
     <br/>
   </div>
@@ -67,7 +87,7 @@
       <md-button ng-if="homeCtrl.editMode == false" ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="homeCtrl.create()" class="md-primary">
         Save
       </md-button>
-      <md-button ng-if="homeCtrl.editMode == true" ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="homeCtrl.update()" class="md-primary">
+      <md-button ng-if="homeCtrl.editMode == true" ng-click="homeCtrl.update()" class="md-primary">
         Update
       </md-button>
     </div>

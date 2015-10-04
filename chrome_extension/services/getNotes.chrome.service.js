@@ -1,3 +1,8 @@
+/**
+ * This service gets the domainNotes array from the server,
+ * generates the url notes array, and returns a promise with both domainNotes and urlNotes
+ */
+
 (function () {
 
   function getNotes($q, Notes, AppState) {
