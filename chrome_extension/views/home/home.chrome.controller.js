@@ -92,6 +92,8 @@
     self.closeNote = function() {
       if (self.editMode == false) {
         self.newNote = Object.create(AppState.initializeNote());
+        //TODO: fix the hack below
+        self.newNote.tags = [];
       }
       self.contentToShow = "content";
       self.editMode = false;
@@ -103,6 +105,8 @@
       self.contentToShow = "newNote";
       self.activeNote = note;
       self.editedNote = Object.create(note);
+      //TODO: fix the hack below
+      self.editedNote.tags = note.tags;
       $state.go('home.views')
     };
 
