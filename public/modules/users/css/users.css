@@ -1,3 +1,9 @@
+@media (min-width: 800px) {
+	.nav-users {
+		position: fixed;
+	}
+}
+
 @media (min-width: 992px) {
 	.nav-users {
 		position: fixed;
@@ -13,4 +19,41 @@
 	top: 10px;
 	right: 10px;
 	position: absolute;
+}
+
+/*----------- hello page ----------------- */
+
+.hello-content {
+	position:relative;
+	width: inherit;
+	min-height: 1200px;
+	background-image: url(../img/intro-bg_1900x1267.jpg) ;
+}
+.hello-content h1 {
+	padding-left: 35px;
+	color: whitesmoke;
+	font-size: 44px;
+	font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+}
+.hello-form-wrapper {
+	background-color:rgba(0,0,0,0.2);
+	margin: auto;
+	width: 250px;
+	height:320px;
+	border-radius: 5px;
+}
+.hello-form {
+	margin: auto;
+	padding-top: 15px;
+	height: 250px;
+	width: 220px;
+	color: whitesmoke;
+}
+.hello-footer {
+	margin: auto;
+	color: whitesmoke;
+	padding: 15px 10px 10px 15px;
+}
+.hello-footer a {
+	color: #66B2FF;
 }
