@@ -43,6 +43,7 @@
   line-height: 25px;
   min-height: 25px;
   opacity: 0.7;
+	border-radius: 6px;
 }
 .tags-area .tags-list {
 	display: inline;
