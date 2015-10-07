@@ -1,37 +1,38 @@
 <div class="top-bar"></div>
 
-<div style="position:relative">
-	<div class="hello-bg"></div>
-	<div class="hello-content">
-		<h1>Hello.</h1>
-		<div class="hello-form-wrapper">
-			<div class="hello-form">
-				<form name="userForm" data-ng-submit="authCtrl.signin()" class="margin-top-15" accept-charset="utf-8">
-					<div class="form-group">
-						<input type="email" class="form-control" id="email" name="email" data-ng-model="authCtrl.credentials.email" placeholder="E-mail">
-					</div>
-					<div class="form-group">
-						<input type="password" class="form-control" id="password" name="password" data-ng-model="authCtrl.credentials.password"  placeholder="Password">
-					</div>
-					<div class="form-group">
-						<button type="submit" class="btn btn-block btn-primary">Sign in</button>
-					</div>
-					<span class="alert error" ng-show="authCtrl.error">{{authCtrl.error}}</span>
-					<div class="form-group">
-						<ul class="list-inline text-center">
-							<li>or via</li>
-							<li><a href="#" ng-click="authCtrl.goToAuthProvider('facebook')"><img src="../../icons/facebook.png" alt="" style="width:40px"></a></li>
-							<li><a href="#" ng-click="authCtrl.goToAuthProvider('google')"><img src="../../icons/g+.png" alt="" style="width:40px"></a></li>
-						</ul>
-					</div>
-				</form>
-			</div>
-			<div class="hello-footer">
-				<p>
-					<a ui-sref="forgot">Forgot your password?</a>
-				</p>
-				<p class="pull-left">First time here?</p><p class="pull-right"><a  ui-sref="signUp">Sign up</a></p>
-				<div class="clearfix"></div>
+<div>
+	<div class="hello-content-wrapper">
+		<div class="hello-content">
+			<h1>drops</h1>
+			<div class="hello-form-wrapper">
+				<div class="hello-form">
+					<form name="userForm" data-ng-submit="authCtrl.signin()" class="margin-top-15" accept-charset="utf-8">
+						<div class="form-group">
+							<input type="email" class="form-control" id="email" name="email" data-ng-model="authCtrl.credentials.email" placeholder="E-mail">
+						</div>
+						<div class="form-group">
+							<input type="password" class="form-control" id="password" name="password" data-ng-model="authCtrl.credentials.password"  placeholder="Password">
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-block btn-primary">Sign in</button>
+						</div>
+						<span class="alert error" ng-show="authCtrl.error">{{authCtrl.error}}</span>
+						<div class="form-group">
+							<ul class="list-inline text-center">
+								<li>or via</li>
+								<li><a href="http://localhost:3000/auth/facebook"><img src="../../icons/facebook.png" alt="" style="width:40px"></a></li>
+								<li><a href="http://localhost:3000/auth/google"><img src="../../icons/g+.png" alt="" style="width:40px"></a></li>
+							</ul>
+						</div>
+					</form>
+				</div>
+				<div class="hello-footer">
+					<p>
+						<a ui-sref="forgot">Forgot your password?</a>
+					</p>
+					<p class="pull-left">First time here?</p><p class="pull-right"><a  ui-sref="signUp">Sign up</a></p>
+					<div class="clearfix"></div>
+				</div>
 			</div>
 		</div>
 	</div>
