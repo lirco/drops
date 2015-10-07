@@ -3,6 +3,7 @@ html, body {
   height: 448px;
   max-height: 448px;
   overflow: hidden;
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
 }
 .top-bar {
   height: 6px !important;
@@ -32,7 +33,6 @@ html, body {
   padding-left: 35px;
   color: whitesmoke;
   font-size: 44px;
-  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
 }
 .hello-form-wrapper {
   background-color:rgba(0,0,0,0.2);

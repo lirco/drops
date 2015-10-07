@@ -15,6 +15,6 @@ angular.module('drops')
 
 		$mdThemingProvider.theme('default')
 			.primaryPalette('blue-grey')
-			.accentPalette('orange');
+			.accentPalette('yellow');
 
 	});

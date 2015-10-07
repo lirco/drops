@@ -1,7 +1,15 @@
 
 <div class="top-bar"></div>
-<div class="top-banner"></div>
-<div class="top-bar" style="height: 2px; margin-top: 68px;"></div>
+<div class="top-banner" layout="row">
+	<div class="logo-wrapper">
+		<div class="logo"><p>DROPS</p></div>
+	</div>
+	<div class="search-box-wrapper">
+		<input class="search-box" ng-model="searchText" placeholder="search notes">
+	</div>
+
+</div>
+<div class="top-bar" style="height: 2px; margin-top: 58px;"></div>
 <div class="content" data-ng-controller="homeController as homeCtrl" layout="column" flex>
 	<section layout="row" flex>
 
@@ -30,7 +38,8 @@
 				<md-list class="notes-list">
 					<md-list-item ng-repeat="note in homeCtrl.notes |
 						orderBy:homeCtrl.sortOrder |
-						filter:homeCtrl.byTagsFilter">
+						filter:homeCtrl.byTagsFilter |
+						filter: searchText">
 						<section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
 										 ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
 							<div class="note-title" ng-click="homeCtrl.showNote($event, note)">
