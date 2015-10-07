@@ -44,6 +44,9 @@
   min-height: 25px;
   opacity: 0.7;
 }
+.tags-area .tags-list {
+	display: inline;
+}
 
 /*----------- main content ----------------- */
 .notes-list {

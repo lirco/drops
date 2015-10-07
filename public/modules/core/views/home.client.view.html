@@ -12,16 +12,16 @@
 					<!--Close Sidenav Left-->
 				<!--</md-button>-->
 
-				<div class="tags-area">
-					<md-button ng-click="homeCtrl.showAll()" style="background:#f7f7f7">
+				<ul class="tags-area">
+					<md-button ng-click="homeCtrl.showAll()" style="background:#f7f7f7 ; display:block">
 						<strong>SHOW-ALL</strong>
 					</md-button>
-					<div ng-repeat="tag in homeCtrl.tags">
+					<li class="tags-list" ng-repeat="tag in homeCtrl.tags">
 						<md-button ng-click="homeCtrl.click(tag)" style="background:{{tag.color}} ; color:{{homeCtrl.setTextColor(tag.color)}}">
 							<strong>{{tag.text}}</strong>
 						</md-button>
-					</div>
-				</div>
+					</li>
+				</ul>
 
 			</md-content>
 		</md-sidenav>
