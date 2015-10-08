@@ -20,10 +20,11 @@
       </form>
     </md-dialog-content>
 
+    {{note.tag}}
     <div class="note-dialog-tags-wrapper">
       <md-chips
               ng-model="note.tags"
-              md-on-append="homeCtrl.newTagAppend($chip)"
+              md-on-append="newTagAppend($chip)"
               readonly="homeCtrl.readonly"
               placeholder="Enter a tag"
               delete-button-label="Remove Tag"
@@ -41,7 +42,7 @@
         <md-button ng-click="closeNote()" class="md-primary">
           Close
         </md-button>
-        <md-button ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="updateNote()" class="md-primary">
+        <md-button ng-click="updateNote()" class="md-primary">
           Update
         </md-button>
       </div>

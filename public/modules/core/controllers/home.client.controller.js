@@ -9,7 +9,7 @@
 		self.authentication = Authentication;
 		self.notes = Notes.query();
 
-		self.tags = self.authentication.user.tags;
+		self.userTags = self.authentication.user.tags;
 		self.sortOrder = ['-modified'];
 
 		self.remove = function(note) {
@@ -60,7 +60,7 @@
 
 		self.showAll = function() {
 			self.byTagsFilter = function(note) {
-				return self.tags
+				return self.userTags
 			}
 		};
 
@@ -82,15 +82,7 @@
 			return color;
 		}
 
-		self.newTagAppend = function(chipText) {
-			return {
-				text: chipText,
-				color: getRandomColor()
-			}
-		};
-
 		self.showDeleteDialog = function(ev, note) {
-			// Appending dialog to document.body to cover sidenav in docs app
 			var confirm = $mdDialog.confirm()
 				.parent(angular.element(document.body))
 				.title('Delete this note?')
@@ -118,6 +110,12 @@
 			});
 			function noteCtrl($scope, $mdDialog, note) {
 				$scope.note = note;
+				$scope.newTagAppend = function(chipText) {
+					return {
+						text: chipText,
+						color: getRandomColor()
+					}
+				};
 				$scope.closeNote = function () {
 					$mdDialog.hide();
 				};
