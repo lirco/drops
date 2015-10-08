@@ -72,7 +72,7 @@
 	padding-top: 30px;
 }
 .note-container {
-	height:97px;
+	height:100px;
 	width:564px;
 	border-radius: 0 20px 20px 0;
 	margin-bottom: 16px;
@@ -86,7 +86,9 @@
 	text-decoration: none;
 	cursor: pointer;
 }
-
+.note-container .note-body {
+	height: 80px;
+}
 .note-container:focus, .note-container:hover  .note-title{
 	color: #428bca;
 }

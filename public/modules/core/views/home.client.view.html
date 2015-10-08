@@ -42,15 +42,17 @@
 						filter: searchText">
 						<section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
 										 ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
-							<div class="note-title" ng-click="homeCtrl.showNote($event, note)">
-								<p>{{note.title |truncate:9}}</p>
-							</div>
-							<div class="note-content">
-								<p>{{note.content | truncate:25}}</p>
+							<div class="note-body" ng-click="homeCtrl.showNote($event, note)">
+								<div class="note-title">
+									<p>{{note.title |truncate:9}}</p>
+								</div>
+								<div class="note-content">
+									<p>{{note.content | truncate:25}}</p>
+								</div>
 							</div>
 							<div class="note-footer">
 								<div class="note-link">
-									<a target="_blank" href={{note.url}}>{{note.domain}}</a>
+									<a target="_blank" href={{note.url}}>go to page | {{note.domain}}</a>
 								</div>
 								<div class="note-hidden-buttons" layout="row" ng-show="note.showHidden">
 									<p class="note-delete" ng-click="homeCtrl.showDeleteDialog($event, note)">delete</p>
