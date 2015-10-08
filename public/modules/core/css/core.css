@@ -46,8 +46,12 @@
 	opacity: 0.2;
 
 }
+.sidenav {
+	position: fixed;
+	top: 50px;
+}
 .content {
-	margin-top: 50px;
+	margin: 50px 0 0 304px;
 }
 
 /*----------- tags area ----------------- */
