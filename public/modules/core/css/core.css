@@ -164,9 +164,34 @@
 	-webkit-margin-end: 0px;
 	border: none;
 }
+.note-dialog-title-wrapper {
+
+}
+.note-dialog-content-wrapper {
+	clear: both;
+}
 .note-dialog-content {
 	border: none;
 }
+.note-dialog-tags-wrapper{
+	position: absolute;
+	bottom: 58px;
+	height: 48px;
+	width: 100%;
+	margin-left: 20px;
+	margin-right: 20px;
+}
 .note-dialog-footer {
+	width: inherit;
+	height: 58px;
+	/*position: absolute;*/
 	bottom: 0;
+	right: 0;
+	padding: 5px 26px;
+
+}
+.note-dialog-footer .footer-buttons-wrapper {
+	float: right;
+	position: relative;
+	right:15px;
 }

@@ -68,6 +68,27 @@
 			return note.showHidden = !note.showHidden;
 		};
 
+		/**
+		 * helper function for creating random colors for tags
+		 * TODO: move this to a service class that holds helper functions
+		 * @returns {string}
+		 */
+		function getRandomColor() {
+			var letters = '0123456789ABCDEF'.split('');
+			var color = '#';
+			for (var i = 0; i < 6; i++ ) {
+				color += letters[Math.floor(Math.random() * 16)];
+			}
+			return color;
+		}
+
+		self.newTagAppend = function(chipText) {
+			return {
+				text: chipText,
+				color: getRandomColor()
+			}
+		};
+
 		self.showDeleteDialog = function(ev, note) {
 			// Appending dialog to document.body to cover sidenav in docs app
 			var confirm = $mdDialog.confirm()
@@ -89,36 +110,7 @@
 			$mdDialog.show({
 				parent: angular.element(document.body),
 				targetEvent: $event,
-				template:
-				'<md-dialog class="note-dialog" aria-label="Note dialog" flex="60"">' +
-				'  <md-toolbar>' +
-        '    <div class="md-toolbar-tools">' +
-				'      <form class="note-dialog-form-title" name="noteTitleForm" flex>' +
-				'        <md-input-container flex>' +
-				'        <label></label>' +
-				'          <input class="note-dialog-title" ng-model="note.title" columns="1" style="color: white"></input>' +
-				'        </md-input-container>' +
-				'      </form>' +
-				'    </div>' +
-				'  </md-toolbar>' +
-
-				'  <md-dialog-content flex>' +
-				'    <form name="noteContentForm">' +
-				'      <md-input-container flex>' +
-				'        <label></label>' +
-				'        <textarea class="note-dialog-content" ng-model="note.content" columns="1"></textarea>' +
-				'      </md-input-container>' +
-				'    </form>' +
-				'  </md-dialog-content>' +
-				'  <div class="note-dialog-footer md-actions">' +
-				'    <md-button ng-click="closeNote()" class="md-primary">' +
-				'      Close' +
-				'    </md-button>' +
-				'    <md-button ng-disabled="noteContentForm.$pristine && noteTitleForm.$pristine" ng-click="updateNote()" class="md-primary">' +
-				'      Update' +
-				'    </md-button>' +
-				'  </div>' +
-				'</md-dialog>',
+				templateUrl:"modules/core/views/note.client.view.html",
 				locals: {
 					note: note
 				},
@@ -153,7 +145,6 @@
 		// determine the text color by it's background color
 		self.setTextColor = function(bg) {
 			var rgb = self.hexToRGB(bg);
-
 			var o = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) /1000);
 			if (o > 125){
 				return 'black'
