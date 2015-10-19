@@ -29,10 +29,10 @@
 		};
 
 		//helper function for finding objects in array
-		var ObjIndexOf = function(arr, prop, val) {
+		var objIndexOf = function(arr, prop, val) {
 			for(var i = 0 ; i < arr.length ; i++) {
 				if (arr[i][prop] === val) {
-					return 1
+					return 1;
 				}
 			}
 			return -1;
@@ -41,18 +41,18 @@
 		self.click = function(tag) {
 			var index = -1;
 			for (var i=0; i < selectedTags.length ; i++) {
-				if (selectedTags[i] == tag) {
+				if (selectedTags[i] === tag) {
 					index = i;
 					break;
 				}
 			}
-			if (index == -1) {
+			if (index === -1) {
 				selectedTags.push(tag);
 				// filter the notes on view by tag selected
 				//TODO: option to show tags of multiple tags selected
 				self.byTagsFilter = function(note) {
-					return ObjIndexOf(note.tags, "text", tag.text) !==-1
-				}
+					return objIndexOf(note.tags, 'text', tag.text) !==-1;
+				};
 			} else {
 				selectedTags.splice(index,1);
 			}
@@ -60,8 +60,8 @@
 
 		self.showAll = function() {
 			self.byTagsFilter = function(note) {
-				return self.userTags
-			}
+				return self.userTags;
+			};
 		};
 
 		self.noteHover = function(note) {
@@ -114,7 +114,7 @@
 					return {
 						text: chipText,
 						color: getRandomColor()
-					}
+					};
 				};
 				$scope.closeNote = function () {
 					$mdDialog.hide();
@@ -125,7 +125,7 @@
 					}, function(errorResponse) {
 						self.error = errorResponse.data.message;
 					});
-				}
+				};
 			}
 		};
 
@@ -145,15 +145,15 @@
 			var rgb = self.hexToRGB(bg);
 			var o = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) /1000);
 			if (o > 125){
-				return 'black'
+				return 'black';
 			} else {
-				return 'white'
+				return 'white';
 			}
-		}
+		};
 
 	}
 
 	angular.module('core')
-		.controller('homeController', ['Authentication', 'Notes', '$mdDialog', '$scope', homeController])
+		.controller('homeController', ['Authentication', 'Notes', '$mdDialog', '$scope', homeController]);
 
 }());
