@@ -2,7 +2,7 @@
 
 (function () {
 
-	function authenticationController(http, $state, Authentication) {
+	function authenticationController($http, $state, Authentication) {
 
 		var self = this;
 		self.authentication = Authentication;
@@ -11,7 +11,7 @@
 		if (self.authentication.user !== null) $state.go('home');
 
 		self.signup = function() {
-			http.post('http://localhost:3000/auth/signup', self.credentials).success(function(response) {
+			$http.post('http://localhost:3000/auth/signup', self.credentials).success(function(response) {
 				// If successful we assign the response to the global user model
 				Authentication.setUser(response);
 				self.authentication.user = Authentication.getUser();
@@ -24,7 +24,7 @@
 		};
 
 		self.signin = function() {
-			http.post('http://localhost:3000/auth/signin', self.credentials).success(function(response) {
+			$http.post('http://localhost:3000/auth/signin', self.credentials).success(function(response) {
 				// If successful we assign the response to the global user model
 				Authentication.setUser(response);
 				self.authentication.user = Authentication.getUser();
