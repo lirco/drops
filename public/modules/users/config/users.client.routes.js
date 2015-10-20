@@ -19,7 +19,9 @@ angular.module('users').config(['$stateProvider',
 		})
 		.state('reset-invlaid', {
 			url: '/password/reset/invalid',
-			templateUrl: 'modules/users/views/password/reset-password-invalid.client.view.html'
+			templateUrl: 'modules/users/views/password/reset-password-invalid.client.view.html',
+			controller: 'passwordController',
+			controllerAs: 'passwordCtrl'
 		})
 
 		//User routes
