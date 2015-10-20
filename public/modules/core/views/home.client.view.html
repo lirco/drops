@@ -3,9 +3,6 @@
 	<div class="logo-wrapper">
 		<div class="logo"><p>DROPS</p></div>
 	</div>
-	<div class="search-box-wrapper">
-		<input class="search-box" ng-model="searchText" placeholder="Search Notes...">
-	</div>
 
 </div>
 <div class="top-bar" style="height: 2px; margin-top: 58px;"></div>
@@ -20,12 +17,12 @@
 				<!--</md-button>-->
 
 				<ul class="tags-area">
-					<md-button ng-click="homeCtrl.showAll()" style="padding-right:0 ; background:#f7f7f7 ; border:1px solid; width: 90% ;display:block">
+					<md-button ng-click="homeCtrl.showAll()" style="padding-right:0 ; background:#FAFCFC ; border:1px solid; width: 90% ;display:block">
 						<strong>SHOW ALL NOTES</strong>
 					</md-button>
 					<li class="tags-list" ng-repeat="tag in homeCtrl.userTags">
 						<md-button ng-click="homeCtrl.click(tag)" style="background:{{tag.color}}">
-							<div style="background:#f7f7f7 ; padding: 0 6px">
+							<div style="background:#FFF ; padding: 0 6px">
 								{{tag.text}}
 							</div>
 						</md-button>
@@ -36,6 +33,9 @@
 		</md-sidenav>
 
 		<md-content class="main-content" flex layout-padding>
+			<div class="search-box-wrapper">
+				<input class="search-box" ng-model="searchText" placeholder="Search Notes...">
+			</div>
 			<md-list class="notes-list">
 				<md-list-item class="note-wrapper" ng-repeat="note in homeCtrl.notes |
 						orderBy:homeCtrl.sortOrder |

@@ -39,13 +39,17 @@
 
 }
 .search-box-wrapper{
-
+	position: relative;
+	left: 20px;
+	margin-top: 22px;
+  height: 50px;
+	width: inherit;
 }
 .search-box {
 	position: absolute;
-	left: 324px;
+	left: 0;
 	top: 8px;
-	background-color: #FFF;
+	background-color: #FAFCFC;
 	border-radius: 6px;
 	border: 1px solid;
 	height: 34px;
@@ -53,12 +57,11 @@
 	padding: 5px 20px;
 	color: grey;
 }
-.sidenav {
-	background-color: #E5F2F7 !important;
+.sidenav md-content {
+	background-image: url(../img/Doodle-800x547_03.jpg) ;
 }
 .content {
 	margin: 50px 0 0 0;
-	/*background-color: #E5F2F7 !important;*/
 }
 .main-content {
 	margin: 0 0 0 304px;
@@ -75,7 +78,17 @@
 .tags-area .md-button {
   line-height: 25px;
   min-height: 20px;
-  opacity: 0.7;
+  opacity: 0.9;
+	border-radius: 1px;
+	padding: 1px 1px 1px 6px;
+	text-transform: capitalize;
+	font-weight: 500;
+	font-size: 12px;
+}
+.tags-area .md-button:focus, .tags-area .md-button:hover {
+	line-height: 25px;
+	min-height: 20px;
+	opacity: 1;
 	border-radius: 1px;
 	padding: 1px 1px 1px 6px;
 	text-transform: capitalize;
@@ -88,7 +101,7 @@
 
 /*----------- main content ----------------- */
 .notes-list {
-	padding-top: 30px;
+	padding-top: 10px;
 }
 .note-container {
 	background-color: #FFF;
