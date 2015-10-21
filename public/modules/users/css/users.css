@@ -1,3 +1,8 @@
+.body {
+	font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+	font-weight: 700;
+}
+
 @media (min-width: 800px) {
 	.nav-users {
 		position: fixed;

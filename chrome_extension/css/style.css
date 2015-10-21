@@ -113,7 +113,7 @@ md-content::-webkit-scrollbar {
 
 /*----------- note element ----------------- */
 .note-container {
-  height:97px;
+  height:100px;
   width:564px;
   border-radius: 0 20px 20px 0;
   margin-bottom: 16px;
@@ -130,6 +130,9 @@ md-content::-webkit-scrollbar {
 
 .note-container:focus, .note-container:hover  .note-title{
   color: #428bca;
+}
+.note-content-wrapper{
+  height: 80px;
 }
 .note-container .note-title p{
   font-size:18px;
@@ -243,9 +246,10 @@ md-content::-webkit-scrollbar {
 
 }
 .note-dialog-footer .footer-buttons-wrapper {
-  float: right;
+  /*float: right;*/
   position: relative;
-  right:15px;
+  padding: 0 15px;
+  width: 400px;
 }
 
 

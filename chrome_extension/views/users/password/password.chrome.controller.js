@@ -2,8 +2,6 @@
 
 (function () {
 
-  debugger;
-
   function passwordController($scope, $stateParams, $http, $state, Authentication) {
 
     var self = this;

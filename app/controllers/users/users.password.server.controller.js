@@ -25,7 +25,7 @@ exports.forgot = function(req, res, next) {
 				done(err, token);
 			});
 		},
-		// Lookup user by username
+		// Lookup user by email
 		function(token, done) {
 			if (req.body.email) {
 				User.findOne({
@@ -50,7 +50,7 @@ exports.forgot = function(req, res, next) {
 				});
 			} else {
 				return res.status(400).send({
-					message: 'Username field must not be blank'
+					message: 'email field must not be blank'
 				});
 			}
 		},

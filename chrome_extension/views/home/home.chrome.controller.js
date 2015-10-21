@@ -154,6 +154,19 @@
         });
       }
     };
+
+    // autocomplete stuff
+
+    function loadTags() {
+      return user.tags.map( function (tag) {
+        return {
+          text: tag.toLowerCase(),
+          color: tag.color
+        };
+      });
+    }
+
+
     // -------------- Notes handlers end----------------
 
     // -------------- Settings handlers start----------------

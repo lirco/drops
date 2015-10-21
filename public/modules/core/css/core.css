@@ -15,21 +15,12 @@
     border-color:#78FA89;
 }
 .top-bar {
-	height:8px;
+	height:10px;
 	position: fixed;
 	left: 0;
 	top: 0;
 	width: 100%;
 	background-color: rgb(96,125,139);
-	z-index: 1030;
-}
-.top-banner {
-	margin-top: 8px;
-	height: 50px;
-	position: fixed;
-	left: 0;
-	width: 100%;
-	background-image: url(../img/hp/banner-bg_1900x840.jpg) ;
 	z-index: 1030;
 }
 .logo-wrapper {
@@ -39,15 +30,33 @@
 
 }
 .search-box-wrapper{
-
+	position: relative;
+	left: 20px;
+	margin-top: 22px;
+  height: 50px;
+	width: inherit;
 }
 .search-box {
-	background-color: whitesmoke;
-	opacity: 0.2;
-
+	position: absolute;
+	left: 0;
+	top: 8px;
+	background-color: #FAFCFC;
+	border-radius: 6px;
+	border: 1px solid;
+	height: 34px;
+	width: 300px;
+	padding: 5px 20px;
+	color: grey;
+}
+.sidenav md-content {
+	background-image: url(../img/Doodle-800x547_02.jpg) ;
 }
 .content {
-	margin-top: 50px;
+	margin: 15px 0 0 0;
+}
+.main-content {
+	margin: 0 0 0 304px;
+	background-color: #FAFCFC !important;
 }
 
 /*----------- tags area ----------------- */
@@ -59,9 +68,23 @@
 }
 .tags-area .md-button {
   line-height: 25px;
-  min-height: 25px;
-  opacity: 0.7;
-	border-radius: 6px;
+  min-height: 20px;
+  opacity: 0.8;
+	border-radius: 1px;
+	padding: 1px 1px 1px 7px;
+	text-transform: capitalize;
+	font-weight: 550;
+	font-size: 13px;
+}
+.tags-area .md-button:focus, .tags-area .md-button:hover {
+	line-height: 25px;
+	min-height: 20px;
+	opacity: 1;
+	border-radius: 1px;
+	padding: 1px 1px 1px 7px;
+	text-transform: capitalize;
+	font-weight: 760;
+	font-size: 13px;
 }
 .tags-area .tags-list {
 	display: inline;
@@ -69,9 +92,10 @@
 
 /*----------- main content ----------------- */
 .notes-list {
-	padding-top: 30px;
+	padding-top: 10px;
 }
 .note-container {
+	background-color: #FFF;
 	height:100px;
 	width:564px;
 	border-radius: 0 20px 20px 0;
@@ -123,6 +147,13 @@
 .note-container .note-footer .note-link:hover a{
 	color: #428bca;
 }
+.note-container .note-footer .note-tag-colors-wrapper{
+	position:absolute;
+	width: 100px;
+	bottom: 5px;
+	left:200px;
+	background: #000;
+}
 .note-container .note-footer .note-hidden-buttons {
 	position: absolute;
 	bottom: 5px;
@@ -147,7 +178,7 @@
 }
 .md-toolbar-tools .note-dialog-form-title {
 	height:inherit;
-	margin:0px;
+	margin:0;
 	padding-left: 10px;
 }
 .note-dialog-title {
@@ -160,13 +191,38 @@
 	display: block;
 	-webkit-margin-before: 0.83em;
 	-webkit-margin-after: 0.83em;
-	-webkit-margin-start: 0px;
-	-webkit-margin-end: 0px;
+	-webkit-margin-start: 0;
+	-webkit-margin-end: 0;
 	border: none;
+}
+.note-dialog-title-wrapper {
+
+}
+.note-dialog-content-wrapper {
+	clear: both;
 }
 .note-dialog-content {
 	border: none;
 }
+.note-dialog-tags-wrapper{
+	position: absolute;
+	bottom: 58px;
+	height: 48px;
+	width: 100%;
+	margin-left: 20px;
+	margin-right: 20px;
+}
 .note-dialog-footer {
+	width: inherit;
+	height: 58px;
+	/*position: absolute;*/
 	bottom: 0;
+	right: 0;
+	padding: 5px 26px;
+
+}
+.note-dialog-footer .footer-buttons-wrapper {
+	float: right;
+	position: relative;
+	right:15px;
 }

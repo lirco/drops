@@ -18,19 +18,21 @@
                               orderBy:homeCtrl.sortOrder">
               <section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
                        ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
-                <div ng-click="homeCtrl.editNote(note)" class="note-title" ng-click="homeCtrl.showNote($event, note)">
-                  <p>{{note.title |truncate:6}}</p>
-                </div>
-                <div class="note-content">
-                  <p>{{note.content | truncate:20}}</p>
-                </div>
-                <div class="note-footer">
-                  <div class="note-link">
-                    <a target="_blank" href={{note.url}}>{{note.domain}}</a>
+                <div class="note-content-wrapper" ng-click="homeCtrl.editNote(note)">
+                  <div class="note-title" ng-click="homeCtrl.showNote($event, note)">
+                    <p>{{note.title |truncate:6}}</p>
                   </div>
-                  <div class="note-hidden-buttons" layout="row" ng-show="note.showHidden">
-                    <p class="note-delete" ng-click="homeCtrl.showDeleteDialog($event, note)">delete</p>
-                    <p class="note-date">{{note.modified | date}}</p>
+                  <div class="note-content">
+                    <p>{{note.content | truncate:20}}</p>
+                  </div>
+                  <div class="note-footer">
+                    <div class="note-link">
+                      <a target="_blank" href={{note.url}}>{{note.domain}}</a>
+                    </div>
+                    <div class="note-hidden-buttons" layout="row" ng-show="note.showHidden">
+                      <p class="note-delete" ng-click="homeCtrl.showDeleteDialog($event, note)">delete</p>
+                      <p class="note-date">{{note.modified | date}}</p>
+                    </div>
                   </div>
                 </div>
               </section>
@@ -58,19 +60,21 @@
                               orderBy:homeCtrl.sortOrder">
               <section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
                        ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
-                <div ng-click="homeCtrl.editNote(note)" class="note-title" ng-click="homeCtrl.showNote($event, note)">
-                  <p>{{note.title |truncate:6}}</p>
-                </div>
-                <div class="note-content">
-                  <p>{{note.content | truncate:20}}</p>
-                </div>
-                <div class="note-footer">
-                  <div class="note-link">
-                    <a target="_blank" href={{note.url}}>{{note.domain}}</a>
+                <div class="note-content-wrapper" ng-click="homeCtrl.editNote(note)">
+                  <div class="note-title" ng-click="homeCtrl.showNote($event, note)">
+                    <p>{{note.title |truncate:6}}</p>
                   </div>
-                  <div class="note-hidden-buttons" layout="row" ng-show="note.showHidden">
-                    <p class="note-delete" ng-click="homeCtrl.showDeleteDialog($event, note)">delete</p>
-                    <p class="note-date">{{note.modified | date}}</p>
+                  <div class="note-content">
+                    <p>{{note.content | truncate:20}}</p>
+                  </div>
+                  <div class="note-footer">
+                    <div class="note-link">
+                      <a target="_blank" href={{note.url}}>{{note.domain}}</a>
+                    </div>
+                    <div class="note-hidden-buttons" layout="row" ng-show="note.showHidden">
+                      <p class="note-delete" ng-click="homeCtrl.showDeleteDialog($event, note)">delete</p>
+                      <p class="note-date">{{note.modified | date}}</p>
+                    </div>
                   </div>
                 </div>
               </section>
