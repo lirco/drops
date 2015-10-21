@@ -13,6 +13,7 @@
     //self.viewState = viewState;
     self.domainNotes = notes.domainNotes;
     self.urlNotes = notes.urlNotes;
+    self.querySearch = querySearch;
 
     $state.go('home.views');
 
@@ -66,7 +67,7 @@
       }
     };
 
-    // -------------- Notes handlers start----------------
+    // -------------- Notes handlers ----------------
     //TODO: move these to a different controller
 
     self.create = function() {
@@ -155,26 +156,22 @@
       }
     };
 
-    // autocomplete stuff
-
-    function loadTags() {
-      return user.tags.map( function (tag) {
-        return {
-          text: tag.toLowerCase(),
-          color: tag.color
-        };
-      });
+    // ---------------- autocomplete stuff -----------------
+    function querySearch (query) {
+      return query ? self.authentication.user.tags.filter( createFilterFor(query) ) : self.authentication.user.tags;
     }
 
+    function createFilterFor(query) {
+      var lowercaseQuery = angular.lowercase(query);
+      return function filterFn(tag) {
+        return (tag.text.indexOf(lowercaseQuery) === 0);
+      };
+    }
 
-    // -------------- Notes handlers end----------------
-
-    // -------------- Settings handlers start----------------
-
+    // -------------- Settings handlers ----------------
     self.signOut = function() {
 
     };
-    // -------------- Settings handlers end----------------
 
   }
 

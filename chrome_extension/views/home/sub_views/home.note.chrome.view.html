@@ -27,37 +27,26 @@
     </form>
   </div>
 
-  <!--<md-autocomplete flex required-->
-                   <!--md-input-name="autocompleteField"-->
-                   <!--md-input-minlength="2"-->
-                   <!--md-input-maxlength="18"-->
-                   <!--md-no-cache="ctrl.noCache"-->
-                   <!--md-selected-item="ctrl.selectedItem"-->
-                   <!--md-search-text="ctrl.searchText"-->
-                   <!--md-items="item in ctrl.querySearch(ctrl.searchText)"-->
-                   <!--md-item-text="item.display"-->
-                   <!--md-floating-label="Favorite state">-->
-    <!--<md-item-template>-->
-      <!--<span md-highlight-text="ctrl.searchText">{{item.display}}</span>-->
-    <!--</md-item-template>-->
-    <!--<div ng-messages="searchForm.autocompleteField.$error" ng-if="searchForm.autocompleteField.$touched">-->
-      <!--<div ng-message="required">You <b>must</b> have a favorite state.</div>-->
-      <!--<div ng-message="minlength">Your entry is not long enough.</div>-->
-      <!--<div ng-message="maxlength">Your entry is too long.</div>-->
-    <!--</div>-->
-  <!--</md-autocomplete>-->
-
   <div ng-if="homeCtrl.editMode == false" class="note-dialog-tags-wrapper">
     <md-chips
+            md-autocomplete-snap
             ng-model="homeCtrl.newNote.tags"
             md-on-append="homeCtrl.newTagAppend($chip)"
-            readonly="homeCtrl.readonly"
-            placeholder="Enter a tag"
-            delete-button-label="Remove Tag"
-            delete-hint="Press delete to remove tag"
+            placeholder="+Tag"
             secondary-placeholder="+Tag">
+      <md-autocomplete
+                       md-input-name="autocompleteField"
+                       md-selected-item="homeCtrl.selectedItem"
+                       md-search-text="homeCtrl.searchText"
+                       md-items="tag in homeCtrl.querySearch(homeCtrl.searchText)"
+                       md-item-text="tag.text">
+        <md-item-template>
+          <span md-highlight-text="homeCtrl.searchText">{{tag.text}}</span>
+        </md-item-template>
+      </md-autocomplete>
       <md-chip-template>
-        <p>{{$chip.text}}</p>
+        <span>{{$chip.text}}</span>
+        <!--<span>hi</span>-->
       </md-chip-template>
     </md-chips>
     <br/>
