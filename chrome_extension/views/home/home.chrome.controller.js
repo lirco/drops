@@ -2,7 +2,7 @@
 
 (function () {
 
-  function homeController($scope, $state, Authentication, AppState, Notes, $mdDialog, notes, activeTabDomain, activeTabUrl) {
+  function homeController($timeout,$filter, $q, $scope, $state, Authentication, AppState, Notes, $mdDialog, notes, activeTabDomain, activeTabUrl) {
     var self = this;
     self.authentication = {};
     self.authentication.user = Authentication.getUser();
@@ -39,32 +39,6 @@
       chrome.tabs.create({
         url: 'http://localhost:3000/'
       });
-    };
-
-    /**
-     * helper function for creating random colors for tags
-     * TODO: move this to a service class that holds helper functions
-     * @returns {string}
-     */
-    function getRandomColor() {
-      var letters = '0123456789ABCDEF'.split('');
-      var color = '#';
-      for (var i = 0; i < 6; i++ ) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    }
-
-    /**
-     * called from md-chips directive as md-on-append to transform tag from text to object
-     * @param chipText
-     * @returns {{text: *, color: string}}
-     */
-    self.newTagAppend = function(chipText) {
-      return {
-        text: chipText,
-        color: getRandomColor()
-      }
     };
 
     // -------------- Notes handlers ----------------
@@ -157,16 +131,67 @@
     };
 
     // ---------------- autocomplete stuff -----------------
+
+    self.userTags = loadTags();
+
     function querySearch (query) {
-      return query ? self.authentication.user.tags.filter( createFilterFor(query) ) : self.authentication.user.tags;
+      var results = query ? self.userTags.filter( createFilterFor(query) ) : self.userTags,
+        deferred;
+      deferred = $q.defer();
+      deferred.resolve( results );
+      return deferred.promise;
     }
 
     function createFilterFor(query) {
       var lowercaseQuery = angular.lowercase(query);
       return function filterFn(tag) {
-        return (tag.text.indexOf(lowercaseQuery) === 0);
+        return (tag.textToLower.indexOf(lowercaseQuery) === 0);
       };
     }
+
+    function loadTags() {
+      var allTags = self.authentication.user.tags;
+      return allTags.map( function (tag) {
+        return {
+          textToLower: tag.text.toLowerCase(),
+          text: tag.text,
+          color: tag.color
+        };
+      });
+    }
+
+    /**
+     * helper function for creating random colors for tags
+     * TODO: move this to a service class that holds helper functions
+     * @returns {string}
+     */
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF'.split('');
+      var color = '#';
+      for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    /**
+     * called from md-chips directive as md-on-append to transform tag from text to object
+     * @param chipText
+     * @returns {{text: *, color: string}}
+     */
+    self.newTagAppend = function(chip) {
+      if (chip.color) {
+        return {
+          text: chip.text,
+          color: chip.color
+        };
+      } else {
+        return {
+          text: chip,
+          color: getRandomColor()
+        };
+      }
+    };
 
     // -------------- Settings handlers ----------------
     self.signOut = function() {
@@ -176,6 +201,6 @@
   }
 
   angular.module('drops')
-    .controller('homeController', ['$scope','$state','Authentication','AppState','Notes', '$mdDialog', 'notes', 'activeTabDomain', 'activeTabUrl', homeController])
+    .controller('homeController', ['$timeout','$filter', '$q', '$scope','$state','Authentication','AppState','Notes', '$mdDialog', 'notes', 'activeTabDomain', 'activeTabUrl', homeController])
 
 }());
