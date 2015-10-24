@@ -63,6 +63,7 @@ html, body {
 .sidebar-left {
   width: 220px;
   height: 448px;
+  background-image: url(../images/Doodle-800x547_01.jpg) ;
 }
 .sidebar-left .sidebar-title {
   position:absolute;
@@ -72,12 +73,14 @@ html, body {
   width: inherit;
   text-align: center;
   margin: auto;
+  font-weight: 400;
 }
 .sidebar-left .sidebar-buttons {
   position:absolute;
   top: 80px;
   left: 0;
   width: inherit;
+  font-weight: 500;
 }
 .sidebar-left .md-button {
   font-weight: normal;
@@ -197,6 +200,10 @@ md-content::-webkit-scrollbar {
   width: inherit;
 }
 
+.note-wrapper .md-toolbar {
+  opacity: 0.9;
+}
+
 .md-toolbar-tools .note-dialog-form-title {
   height:inherit;
   margin:0;
@@ -207,7 +214,7 @@ md-content::-webkit-scrollbar {
   font-size: inherit;
   margin: inherit;
   font-family: inherit;
-  font-weight: 500;
+  font-weight: 550;
   line-height: 1.1;
   display: block;
   -webkit-margin-before: 0.83em;

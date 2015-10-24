@@ -2,7 +2,7 @@
 
 (function () {
 
-  function homeController($timeout,$filter, $q, $scope, $state, Authentication, AppState, Notes, $mdDialog, notes, activeTabDomain, activeTabUrl) {
+  function homeController($q, $scope, $state, Authentication, AppState, Notes, $mdDialog, notes, activeTabDomain, activeTabUrl) {
     var self = this;
     self.authentication = {};
     self.authentication.user = Authentication.getUser();
@@ -201,6 +201,6 @@
   }
 
   angular.module('drops')
-    .controller('homeController', ['$timeout','$filter', '$q', '$scope','$state','Authentication','AppState','Notes', '$mdDialog', 'notes', 'activeTabDomain', 'activeTabUrl', homeController])
+    .controller('homeController', ['$q', '$scope','$state','Authentication','AppState','Notes', '$mdDialog', 'notes', 'activeTabDomain', 'activeTabUrl', homeController])
 
 }());
