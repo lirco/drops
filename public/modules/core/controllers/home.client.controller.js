@@ -2,7 +2,7 @@
 
 (function () {
 
-	function homeController(Authentication, Notes, $mdDialog, $scope) {
+	function homeController(Authentication, Notes, $mdDialog, $scope, $q) {
 
 		var self = this;
 		var selectedTags = [];
@@ -68,20 +68,6 @@
 			return note.showHidden = !note.showHidden;
 		};
 
-		/**
-		 * helper function for creating random colors for tags
-		 * TODO: move this to a service class that holds helper functions
-		 * @returns {string}
-		 */
-		function getRandomColor() {
-			var letters = '0123456789ABCDEF'.split('');
-			var color = '#';
-			for (var i = 0; i < 6; i++ ) {
-				color += letters[Math.floor(Math.random() * 16)];
-			}
-			return color;
-		}
-
 		self.showDeleteDialog = function(ev, note) {
 			var confirm = $mdDialog.confirm()
 				.parent(angular.element(document.body))
@@ -108,14 +94,60 @@
 				},
 				controller: noteCtrl
 			});
+			//note dialog controller
 			function noteCtrl($scope, $mdDialog, note) {
 				$scope.note = note;
-				$scope.newTagAppend = function(chipText) {
-					return {
-						text: chipText,
-						color: getRandomColor()
+				$scope.userTags = loadTags();
+				$scope.querySearch = querySearch;
+
+				function querySearch (query) {
+					var results = query ? $scope.userTags.filter( createFilterFor(query) ) : $scope.userTags,
+						deferred;
+					deferred = $q.defer();
+					deferred.resolve( results );
+					return deferred.promise;
+				}
+
+				function createFilterFor(query) {
+					var lowercaseQuery = angular.lowercase(query);
+					return function filterFn(tag) {
+						return (tag.textToLower.indexOf(lowercaseQuery) === 0);
 					};
+				}
+
+				function loadTags() {
+					var allTags = self.authentication.user.tags;
+					return allTags.map( function (tag) {
+						return {
+							textToLower: tag.text.toLowerCase(),
+							text: tag.text,
+							color: tag.color
+						};
+					});
+				}
+
+				$scope.newTagAppend = function(chip) {
+					if (chip.color) {
+						return {
+							text: chip.text,
+							color: chip.color
+						};
+					} else {
+						return {
+							text: chip,
+							color: getRandomColor()
+						};
+					}
 				};
+
+				function getRandomColor() {
+					var letters = '0123456789ABCDEF'.split('');
+					var color = '#';
+					for (var i = 0; i < 6; i++ ) {
+						color += letters[Math.floor(Math.random() * 16)];
+					}
+					return color;
+				}
 				$scope.closeNote = function () {
 					$mdDialog.hide();
 				};
@@ -129,31 +161,12 @@
 			}
 		};
 
-		// helper function to convert hex color to rgb
-		self.hexToRGB = function(hex) {
-			var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-			return result ? [
-				parseInt(result[1], 16),
-				parseInt(result[2], 16),
-				parseInt(result[3], 16)
-			]
-			 : null;
-		};
 
-		// determine the text color by it's background color
-		self.setTextColor = function(bg) {
-			var rgb = self.hexToRGB(bg);
-			var o = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) /1000);
-			if (o > 125){
-				return 'black';
-			} else {
-				return 'white';
-			}
-		};
+
 
 	}
 
 	angular.module('core')
-		.controller('homeController', ['Authentication', 'Notes', '$mdDialog', '$scope', homeController]);
+		.controller('homeController', ['Authentication', 'Notes', '$mdDialog', '$scope', '$q',homeController]);
 
 }());

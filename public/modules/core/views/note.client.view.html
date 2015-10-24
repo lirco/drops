@@ -20,18 +20,25 @@
       </form>
     </md-dialog-content>
 
-    {{note.tag}}
     <div class="note-dialog-tags-wrapper">
       <md-chips
+              md-autocomplete-snap
               ng-model="note.tags"
-              md-on-append="newTagAppend($chip)"
-              readonly="homeCtrl.readonly"
-              placeholder="Enter a tag"
-              delete-button-label="Remove Tag"
-              delete-hint="Press delete to remove tag"
-              secondary-placeholder="+Tag">
+              md-on-append="newTagAppend($chip)">
+        <md-autocomplete
+                md-input-name="autocompleteField"
+                md-selected-item="selectedItem"
+                md-search-text="searchText"
+                md-items="tag in querySearch(searchText)"
+                md-item-text="tag.text"
+                placeholder="+Tag"
+                secondary-placeholder="+Tag">
+          <md-item-template>
+            <span md-highlight-text="searchText">{{tag.text}}</span>
+          </md-item-template>
+        </md-autocomplete>
         <md-chip-template>
-          <p>{{$chip.text}}</p>
+          <span>{{$chip.text}}</span>
         </md-chip-template>
       </md-chips>
       <br/>
