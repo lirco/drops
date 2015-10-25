@@ -125,6 +125,7 @@
           }
         }
         note.$remove(function() {
+          self.contentToShow = "content";
           $state.go('home.views');
         });
       }
