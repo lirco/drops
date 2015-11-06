@@ -6,9 +6,8 @@
 
 		var self = this;
 		var selectedTags = [];
-		self.authentication = Authentication;
+		self.authentication = Authentication.getUser();
 		self.notes = Notes.query();
-
 		self.userTags = self.authentication.user.tags;
 		self.sortOrder = ['-modified'];
 
