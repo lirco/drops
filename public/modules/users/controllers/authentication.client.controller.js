@@ -2,16 +2,17 @@
 
 (function () {
 
-	function authenticationController($http, $state, Authentication) {
+	function authenticationController($http, $state, Authentication, ENV) {
 
 		var self = this;
 		self.authentication = Authentication;
+		self.apiEndPoint = ENV.apiEndPoint;
 
 		// If user is signed in then redirect back home
 		if (self.authentication.user !== null) $state.go('home');
 
 		self.signup = function() {
-			$http.post('http://localhost:3000/auth/signup', self.credentials).success(function(response) {
+			$http.post(ENV.apiEndPoint + '/auth/signup', self.credentials).success(function(response) {
 				// If successful we assign the response to the global user model
 				Authentication.setUser(response);
 				self.authentication.user = Authentication.getUser();
@@ -24,7 +25,7 @@
 		};
 
 		self.signin = function() {
-			$http.post('http://localhost:3000/auth/signin', self.credentials).success(function(response) {
+			$http.post(ENV.apiEndPoint + '/auth/signin', self.credentials).success(function(response) {
 				// If successful we assign the response to the global user model
 				Authentication.setUser(response);
 				self.authentication.user = Authentication.getUser();
@@ -36,11 +37,11 @@
 			});
 		};
 		self.goToAuthProvider = function (name) {
-			chrome.tabs.create({"url": "http://localhost:3000/auth/" + name });
+			chrome.tabs.create({"url": ENV.apiEndPoint + '/auth/' + name });
 		}
 	}
 
 	angular.module('users')
-		.controller('authenticationController', ['$http', '$state', 'Authentication', authenticationController])
+		.controller('authenticationController', ['$http', '$state', 'Authentication', 'ENV', authenticationController])
 
 }());

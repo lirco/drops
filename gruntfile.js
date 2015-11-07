@@ -14,6 +14,37 @@ module.exports = function(grunt) {
 	// Project Configuration
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
+		ngconstant: {
+			// Options for all targets
+			options: {
+				space: '  ',
+				wrap: '"use strict";\n\n {%= __ngModule %}',
+				name: 'envConfig'
+			},
+			// Environment targets
+			development: {
+				options: {
+					dest: 'public/modules/envConfig/envConfig.js'
+				},
+				constants: {
+					ENV: {
+						name: 'development',
+						apiEndpoint: 'http://localhost:3000'
+					}
+				}
+			},
+			production: {
+				options: {
+					dest: '<%= yeoman.dist %>/scripts/config.js'
+				},
+				constants: {
+					ENV: {
+						name: 'production',
+						apiEndpoint: 'http://api.livesite.com'
+					}
+				}
+			}
+		},
 		watch: {
 			serverViews: {
 				files: watchFiles.serverViews,
@@ -167,4 +198,9 @@ module.exports = function(grunt) {
 
 	// Test task.
 	grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
+
+	//Task for generating angular ENV Config file(s)
+	grunt.registerTask('envConfig', ['ngconstant:development']);
+
+
 };
