@@ -1,11 +1,7 @@
-(function () {
+"use strict";
 
-  function EnvConfig(scope) {
+angular.module('envConfig', [])
 
+  .constant('ENV', {name:'development', apiEndPoint:'http://localhost:3000'})
 
-  }
-
-  angular.module('EnvConfig')
-    .service('EnvConfig', [EnvConfig])
-
-}());
+;

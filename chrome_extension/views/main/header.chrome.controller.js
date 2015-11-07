@@ -2,12 +2,13 @@
 
 (function () {
 
-  function HeaderController($scope, $http, $state, Authentication, AppState) {
+  function HeaderController($scope, $http, $state, Authentication, AppState, ENV) {
 
     var self = this;
     self.authentication = {};
     self.authentication.user = Authentication.getUser();
     self.viewState = AppState.getViewState();
+    self.apiEndPoint = ENV.apiEndPoint;
 
     self.stateChange = function(state) {
       AppState.setViewState(state);
@@ -27,8 +28,8 @@
 
     self.signOut = function() {
       $http({
-        method:'get',
-        url:'http://localhost:3000/auth/signout'
+        method: 'get',
+        url: self.apiEndPoint+'/auth/signout'
       })
         .then(function(response) {
           Authentication.removeUser();
@@ -36,17 +37,17 @@
         .then(function(){
           $state.go('signIn');
         });
-    }
+    };
 
     self.goHome = function() {
       chrome.tabs.update({
-        url: 'http://localhost:3000/'
+        url: ENV.apiEndPoint
       });
     }
 
   }
 
   angular.module('drops')
-    .controller('HeaderController', ['$scope', '$http', '$state', 'Authentication', 'AppState', HeaderController])
+    .controller('HeaderController', ['$scope', '$http', '$state', 'Authentication', 'AppState','ENV', HeaderController])
 
 }());

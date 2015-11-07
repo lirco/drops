@@ -2,12 +2,12 @@
 
 (function () {
 
-  function passwordController($scope, $stateParams, $http, $state, Authentication) {
+  function passwordController($stateParams, $http, $state, Authentication, ENV) {
 
     var self = this;
     self.authentication = {};
-
     self.authentication.user = Authentication.getUser();
+    self.apiEndPoint = ENV.apiEndPoint;
 
     //If user is signed in then redirect back home
     if (self.authentication.user !== null) $state.go('home');
@@ -16,7 +16,7 @@
     self.askForPasswordReset = function() {
       self.success = self.error = null;
 
-      $http.post('http://localhost:3000/auth/forgot', self.credentials)
+      $http.post(self.apiEndPoint+'/auth/forgot', self.credentials)
         .success(function(response) {
           // Show user success message and clear form
           self.credentials = null;
@@ -51,6 +51,6 @@
   }
 
   angular.module('drops')
-    .controller('passwordController', ['$scope', '$stateParams', '$http', '$state', 'Authentication', passwordController])
+    .controller('passwordController', ['$stateParams', '$http', '$state', 'Authentication', 'ENV',passwordController])
 
 }());

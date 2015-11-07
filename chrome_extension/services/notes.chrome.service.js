@@ -2,8 +2,8 @@
 
 (function () {
 
-  function notesService($resource) {
-    return $resource('http://localhost:3000/notes/:noteId', {
+  function notesService($resource, ENV) {
+    return $resource(ENV.apiEndPoint+'/notes/:noteId', {
       noteId: '@_id'
     }, {
       update: {
@@ -18,6 +18,6 @@
   }
   //Notes service used for communicating with the articles REST endpoints
   angular.module('drops')
-    .factory('Notes', ['$resource', notesService])
+    .factory('Notes', ['$resource', 'ENV', notesService])
 
 }());

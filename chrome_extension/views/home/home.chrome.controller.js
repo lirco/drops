@@ -2,7 +2,7 @@
 
 (function () {
 
-  function homeController($q, $scope, $state, Authentication, AppState, Notes, $mdDialog, notes, activeTabDomain, activeTabUrl) {
+  function homeController($q, $scope, $state, Authentication, AppState, Notes, $mdDialog, notes, activeTabDomain, activeTabUrl, ENV) {
     var self = this;
     self.authentication = {};
     self.authentication.user = Authentication.getUser();
@@ -14,6 +14,7 @@
     self.domainNotes = notes.domainNotes;
     self.urlNotes = notes.urlNotes;
     self.querySearch = querySearch;
+    self.apiEndPoint = ENV.apiEndPoint;
 
     $state.go('home.views');
 
@@ -37,7 +38,7 @@
 
     self.goHome = function() {
       chrome.tabs.create({
-        url: 'http://localhost:3000/'
+        url: ENV.apiEndPoint
       });
     };
 
@@ -202,6 +203,6 @@
   }
 
   angular.module('drops')
-    .controller('homeController', ['$q', '$scope','$state','Authentication','AppState','Notes', '$mdDialog', 'notes', 'activeTabDomain', 'activeTabUrl', homeController])
+    .controller('homeController', ['$q', '$scope','$state','Authentication','AppState','Notes', '$mdDialog', 'notes', 'activeTabDomain', 'activeTabUrl', 'ENV', homeController])
 
 }());
