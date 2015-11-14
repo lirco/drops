@@ -1,4 +1,5 @@
 'use strict';
+var _ = require('lodash');
 
 module.exports = function(grunt) {
 	// Unified Watch Object
@@ -96,6 +97,13 @@ module.exports = function(grunt) {
 				src: watchFiles.clientCSS
 			}
 		},
+		ngmin: {
+			production: {
+				files: {
+					'public/dist/application.js': '<%= applicationJavaScriptFiles %>'
+				}
+			}
+		},
 		uglify: {
 			production: {
 				options: {
@@ -136,13 +144,6 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-    ngmin: {
-        production: {
-            files: {
-                'public/dist/application.js': '<%= applicationJavaScriptFiles %>'
-            }
-        }
-    },
 		concurrent: {
 			default: ['nodemon', 'watch'],
 			debug: ['nodemon', 'watch', 'node-inspector'],
@@ -179,8 +180,9 @@ module.exports = function(grunt) {
 	grunt.task.registerTask('loadConfig', 'Task that loads the config into a grunt option.', function() {
 		var init = require('./config/init')();
 		var config = require('./config/config');
+		var productionConfig = require('./config/env/production');
 
-		grunt.config.set('applicationJavaScriptFiles', config.assets.js);
+		grunt.config.set('applicationJavaScriptFiles', _.union(config.assets.js,productionConfig.assets.envConfig));
 		grunt.config.set('applicationCSSFiles', config.assets.css);
 	});
 

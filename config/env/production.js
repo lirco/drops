@@ -24,10 +24,10 @@ module.exports = {
 			]
 		},
 		css: 'public/dist/application.min.css',
-		js: [
-			'public/dist/application.min.js',
+		js: 'public/dist/application.min.js',
+		envConfig: [
 			'public/envConfig/envConfig.client.module.js',
-			'public/envConfig/production/*.js'
+			'public/envConfig/production/envConfig.js'
 		]
 	},
 	facebook: {
