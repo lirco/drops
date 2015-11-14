@@ -24,23 +24,23 @@ module.exports = function(grunt) {
 			// Environment targets
 			development: {
 				options: {
-					dest: 'public/modules/envConfig/envConfig.js'
+					dest: 'public/envConfig/development/envConfig.js'
 				},
 				constants: {
 					ENV: {
 						name: 'development',
-						apiEndpoint: 'http://localhost:3000'
+						apiEndPoint: 'http://localhost:3000'
 					}
 				}
 			},
 			production: {
 				options: {
-					dest: '<%= yeoman.dist %>/scripts/config.js'
+					dest: 'public/envConfig/production/envConfig.js'
 				},
 				constants: {
 					ENV: {
 						name: 'production',
-						apiEndpoint: 'http://api.livesite.com'
+						apiEndPoint: 'http://localhost:8000'
 					}
 				}
 			}
@@ -62,7 +62,7 @@ module.exports = function(grunt) {
 			clientViews: {
 				files: watchFiles.clientViews,
 				options: {
-					livereload: true,
+					livereload: true
 				}
 			},
 			clientJS: {
@@ -136,13 +136,13 @@ module.exports = function(grunt) {
 				}
 			}
 		},
-        ngmin: {
-            production: {
-                files: {
-                    'public/dist/application.js': '<%= applicationJavaScriptFiles %>'
-                }
+    ngmin: {
+        production: {
+            files: {
+                'public/dist/application.js': '<%= applicationJavaScriptFiles %>'
             }
-        },
+        }
+    },
 		concurrent: {
 			default: ['nodemon', 'watch'],
 			debug: ['nodemon', 'watch', 'node-inspector'],
@@ -200,7 +200,7 @@ module.exports = function(grunt) {
 	grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
 
 	//Task for generating angular ENV Config file(s)
-	grunt.registerTask('envConfig', ['ngconstant:development']);
+	grunt.registerTask('envConfig', ['ngconstant:development', 'ngconstant:production']);
 
 
 };
