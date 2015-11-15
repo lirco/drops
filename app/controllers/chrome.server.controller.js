@@ -3,8 +3,6 @@
 /**
  * Module dependencies.
  */
-var mongoose = require('mongoose'),
-    _ = require('lodash');
 
 exports.chromeIndex = function(req, res) {
   if (req.user) {
