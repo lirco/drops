@@ -1,15 +1,11 @@
 (function () {
 
-  function mainController($scope, $http, $state, Authentication, AppState) {
+  function mainController($scope, $http, $state, Authentication, AppState, ENV) {
 
     var self = this;
 
     self.authentication = {};
     self.activeTabUrl = '';
-
-    $scope.$on('dropsAppEvent', function (event, type, data) {
-      $scope.$broadcast(type, data);
-    });
 
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true, 'currentWindow': true}, function (tabs) {
 
@@ -30,7 +26,7 @@
 
       $http({
         method:'get',
-        url:'http://localhost:3000/chromeIndex'
+        url:ENV.apiEndPoint+'/chromeIndex'
       })
         .then(function(response) {
           Authentication.setUser(response.data.user);
@@ -48,6 +44,6 @@
   }
 
   angular.module('drops')
-    .controller('mainController', ['$scope', '$http', '$state', 'Authentication','AppState', mainController])
+    .controller('mainController', ['$scope', '$http', '$state', 'Authentication','AppState', 'ENV', mainController])
 
 }());
