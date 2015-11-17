@@ -1,4 +1,4 @@
-angular.module('drops', ['envConfig', 'ui.router', 'ngResource', 'ui.bootstrap', 'ngTagsInput', 'ngAnimate', 'ngMaterial'])
+angular.module('drops', ['envConfig', 'ui.router', 'ngResource', 'ui.bootstrap', 'ngAnimate', 'ngMaterial'])
   .config([
 
     '$resourceProvider',
