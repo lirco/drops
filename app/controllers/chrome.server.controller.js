@@ -14,6 +14,5 @@ exports.chromeIndex = function(req, res) {
       user: null
     });
   }
-
-
 };
+

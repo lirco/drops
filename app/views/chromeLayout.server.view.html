@@ -1,0 +1,68 @@
+
+<!-- THIS FILE IS CURRENTLY NOT IN USE -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <title>{{title}}</title>
+
+  <!-- General META -->
+  <meta charset="utf-8">
+  <meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+  <!-- Semantic META -->
+  <meta name="keywords" content="{{keywords}}">
+  <meta name="description" content="{{description}}">
+
+  <!-- Facebook META -->
+  <meta property="fb:app_id" content="{{facebookAppId}}">
+  <meta property="og:site_name" content="{{title}}">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url" content="{{url}}">
+  <meta property="og:image" content="/img/brand/logo.png">
+  <meta property="og:type" content="chrome extension">
+
+  <!-- Twitter META -->
+  <meta name="twitter:title" content="{{title}}">
+  <meta name="twitter:description" content="{{description}}">
+  <meta name="twitter:url" content="{{url}}">
+  <meta name="twitter:image" content="/img/brand/logo.png">
+
+  <!-- Fav Icon -->
+  <link href="/modules/core/img/brand/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+  <!--Application CSS Files-->
+  {% for chromeCSSFile in cssFiles %}<link rel="stylesheet" href="{{cssFile}}">
+  {% endfor %}
+
+  <!-- HTML5 Shim -->
+</head>
+
+<body class="ng-cloak">
+
+<div flex layout-fill layout="column">
+  <div class="top-bar fixed-top"></div>
+  {% block content %}{% endblock %}
+</div>
+
+<!--Embedding The User Object-->
+<script type="text/javascript">
+  var user = {{ user | json | safe }};
+</script>
+
+<!--Application JavaScript Files-->
+{% for jsFile in chromeJSFiles %}<script type="text/javascript" src="{{jsFile}}"></script>
+{% endfor %}
+
+{% if process.env.NODE_ENV === 'development' %}
+<!--Livereload script rendered -->
+<script type="text/javascript" src="http://localhost:35729/livereload.js"></script>
+
+{% endif %}
+</body>
+
+</html>

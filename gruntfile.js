@@ -12,6 +12,12 @@ module.exports = function(grunt) {
 		mochaTests: ['app/tests/**/*.js']
 	};
 
+	//grunt.config.set('developmentApiEndPoint', 'http://localhost:3000');
+	//grunt.config.set('productionApiEndPoint', 'http://localhost:8000');
+
+	//var developmentApiEndPoint = 'http://localhost:3000';
+	//var productionApiEndPoint = 'http://localhost:8000';
+
 	// Project Configuration
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
@@ -30,7 +36,7 @@ module.exports = function(grunt) {
 				constants: {
 					ENV: {
 						name: 'development',
-						apiEndPoint: 'http://localhost:3000'
+						apiEndPoint: '<%= developmentApiEndPoint %>'
 					}
 				}
 			},
@@ -41,7 +47,29 @@ module.exports = function(grunt) {
 				constants: {
 					ENV: {
 						name: 'production',
-						apiEndPoint: 'http://localhost:8000'
+						apiEndPoint: '<%= productionApiEndPoint %>'
+					}
+				}
+			},
+			chromeDevelopment: {
+				options: {
+					dest: 'chrome_extension/envConfig/development/envConfig.js'
+				},
+				constants: {
+					ENV: {
+						name: 'development',
+						apiEndPoint: '<%= developmentApiEndPoint %>'
+					}
+				}
+			},
+			chromeProduction: {
+				options: {
+					dest: 'chrome_extension/envConfig/production/envConfig.js'
+				},
+				constants: {
+					ENV: {
+						name: 'production',
+						apiEndPoint: '<%= productionApiEndPoint %>'
 					}
 				}
 			}
@@ -102,6 +130,11 @@ module.exports = function(grunt) {
 				files: {
 					'public/dist/application.js': '<%= applicationJavaScriptFiles %>'
 				}
+			},
+			chromeProduction: {
+				files: {
+					'chrome_extension/dist/application.js': '<%= chromeJavaScriptFiles %>'
+				}
 			}
 		},
 		uglify: {
@@ -112,12 +145,21 @@ module.exports = function(grunt) {
 				files: {
 					'public/dist/application.min.js': 'public/dist/application.js'
 				}
+			},
+			chromeProduction: {
+				options: {
+					mangle: false
+				},
+				files: {
+					'chrome_extension/dist/application.min.js': 'chrome_extension/dist/application.js'
+				}
 			}
 		},
 		cssmin: {
 			combine: {
 				files: {
-					'public/dist/application.min.css': '<%= applicationCSSFiles %>'
+					'public/dist/application.min.css': '<%= applicationCSSFiles %>',
+					'chrome_extension/dist/application.min.css': '<%= chromeCSSFiles %>'
 				}
 			}
 		},
@@ -184,6 +226,20 @@ module.exports = function(grunt) {
 
 		grunt.config.set('applicationJavaScriptFiles', _.union(config.assets.js,productionConfig.assets.envConfig));
 		grunt.config.set('applicationCSSFiles', config.assets.css);
+
+		grunt.config.set('chromeJavaScriptFiles', _.union(config.chromeAssets.js,productionConfig.chromeAssets.envConfig));
+		grunt.config.set('chromeCSSFiles', config.chromeAssets.css);
+
+	});
+
+  // A Task for loading the API end point address
+	//TODO: move the addresses into the config files and load this from loadConfig task
+	grunt.task.registerTask('loadApiEndPoint', 'Test task', function() {
+		var developmentApiEndPoint = 'http://localhost:3000';
+		var productionApiEndPoint = 'http://localhost:8000';
+
+		grunt.config.set('developmentApiEndPoint', developmentApiEndPoint);
+		grunt.config.set('productionApiEndPoint', productionApiEndPoint);
 	});
 
 	// Default task(s).
@@ -196,13 +252,12 @@ module.exports = function(grunt) {
 	grunt.registerTask('lint', ['jshint', 'csslint']);
 
 	// Build task(s).
-	grunt.registerTask('build', ['lint', 'loadConfig', 'ngmin', 'uglify', 'cssmin']);
+	grunt.registerTask('build', ['lint', 'loadConfig', 'envConfig', 'ngmin', 'uglify', 'cssmin']);
 
 	// Test task.
 	grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
 
-	//Task for generating angular ENV Config file(s)
-	grunt.registerTask('envConfig', ['ngconstant:development', 'ngconstant:production']);
-
+	//Task for generating public ENV Config file(s)
+	grunt.registerTask('envConfig', ['loadApiEndPoint', 'ngconstant:development', 'ngconstant:production', 'ngconstant:chromeDevelopment', 'ngconstant:chromeProduction']);
 
 };

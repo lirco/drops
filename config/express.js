@@ -36,7 +36,8 @@ module.exports = function(db) {
 	app.locals.facebookAppId = config.facebook.clientID;
 	app.locals.jsFiles = config.getJavaScriptAssets();
 	app.locals.cssFiles = config.getCSSAssets();
-
+	app.locals.chromeJSFiles = config.getChromeJavaScriptAssets();
+	app.locals.chromeCSSFiles = config.getChromeCSSAssets();
 	// Passing the request url to environment locals
 	app.use(function(req, res, next) {
 		res.locals.url = req.protocol + '://' + req.headers.host + req.url;

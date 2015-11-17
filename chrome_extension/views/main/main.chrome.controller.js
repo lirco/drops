@@ -1,6 +1,6 @@
 (function () {
 
-  function mainController($scope, $http, $state, Authentication, AppState, ENV) {
+  function mainController($http, $state, Authentication, AppState, ENV) {
 
     var self = this;
 
@@ -44,6 +44,6 @@
   }
 
   angular.module('drops')
-    .controller('mainController', ['$scope', '$http', '$state', 'Authentication','AppState', 'ENV', mainController])
+    .controller('mainController', ['$http', '$state', 'Authentication','AppState', 'ENV', mainController])
 
 }());

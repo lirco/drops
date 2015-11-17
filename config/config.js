@@ -74,3 +74,25 @@ module.exports.getCSSAssets = function() {
 	var output = this.getGlobbedFiles(this.assets.lib.css.concat(this.assets.css), 'public/');
 	return output;
 };
+
+/**
+ * Get the Chrome Extension modules JavaScript files
+ */
+module.exports.getChromeJavaScriptAssets = function(includeTests) {
+	var output = this.getGlobbedFiles(this.chromeAssets.lib.js.concat(this.chromeAssets.js).concat(this.chromeAssets.envConfig), 'chrome_extension/');
+
+	// To include tests
+	if (includeTests) {
+		output = _.union(output, this.getGlobbedFiles(this.chromeAssets.tests));
+	}
+
+	return output;
+};
+
+/**
+ * Get the Chrome Extension modules CSS files
+ */
+module.exports.getChromeCSSAssets = function() {
+	var output = this.getGlobbedFiles(this.chromeAssets.lib.css.concat(this.chromeAssets.css), 'chrome_extension/');
+	return output;
+};

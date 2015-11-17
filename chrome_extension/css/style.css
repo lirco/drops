@@ -20,7 +20,7 @@ html, body {
   width: 660px;
   height: 448px;
   max-height: 448px;
-  background-image: url(../images/intro-bg.jpg) ;
+  background-image: url(../img/intro-bg.jpg) ;
 }
 .hello-content {
   position:absolute;
@@ -63,7 +63,7 @@ html, body {
 .sidebar-left {
   width: 220px;
   height: 448px;
-  background-image: url(../images/Doodle-800x547_01.jpg) ;
+  background-image: url(../img/Doodle-800x547_01.jpg) ;
 }
 .sidebar-left .sidebar-title {
   position:absolute;

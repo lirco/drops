@@ -30,6 +30,30 @@ module.exports = {
 			'public/envConfig/production/envConfig.js'
 		]
 	},
+	chromeAssets: {
+		lib: {
+			css: [
+				'chrome_extension/lib/angular-material/angular-material.min.css',
+				'chrome_extension/lib/bootstrap/dist/css/bootstrap.min.css',
+				'chrome_extension/lib/angular/angular-csp.css'
+			],
+			js: [
+				'chrome_extension/lib/angular/angular.min.js',
+				'chrome_extension/lib/angular-ui-router/release/angular-ui-router.min.js',
+				'chrome_extension/lib/angular-resource/angular-resource.js',
+				'chrome_extension/lib/angular-bootstrap/ui-bootstrap.min.js',
+				'chrome_extension/lib/ng-tags-input/ng-tags-input.min.js',
+				'chrome_extension/lib/angular-animate/angular-animate.min.js',
+				'chrome_extension/lib/angular-aria/angular-aria.min.js',
+				'chrome_extension/lib/angular-material/angular-material.min.js'
+			]
+		},
+		css: 'chrome_extension/dist/application.min.css',
+		js: 'chrome_extension/dist/application.min.js',
+		envConfig: [
+			'chrome_extension/envConfig/production/envConfig.js'
+		]
+	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',
 		clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
