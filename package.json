@@ -5,7 +5,7 @@
   "author": "Lirco",
   "engines": {
     "node": "0.10.x",
-    "npm": "1.4.x"
+    "npm": "3.4.1"
   },
   "scripts": {
     "start": "grunt",
