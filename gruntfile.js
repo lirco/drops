@@ -236,20 +236,7 @@ module.exports = function(grunt) {
 		grunt.config.set('developmentApiEndPoint', developmentApiEndPoint);
 		grunt.config.set('productionApiEndPoint', productionApiEndPoint);
 
-		console.log('***************************************');
-		console.log(productionApiEndPoint );
-		console.log('***************************************');
 	});
-
-  // A Task for loading the API end point address
-	//TODO: move the addresses into the config files and load this from loadConfig task
-	//grunt.task.registerTask('loadApiEndPoint', 'Test task', function() {
-	//	var developmentApiEndPoint = 'http://localhost:3000';
-	//	var productionApiEndPoint = 'http://localhost:8000';
-  //
-	//	grunt.config.set('developmentApiEndPoint', developmentApiEndPoint);
-	//	grunt.config.set('productionApiEndPoint', productionApiEndPoint);
-	//});
 
 	// Default task(s).
 	grunt.registerTask('default', ['lint', 'concurrent:default']);

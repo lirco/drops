@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || 'mongodb://localhost/drops',
-	port: process.env.PORT,
+	db: process.env.MONGOHQ_URL || process.env.MONGOLAB_URI || '  mongodb://<drops.extension>:<123qwe!@#QWE>@ds057954.mongolab.com:57954/heroku_7b8f0qw5
+	',
 	assets: {
 		lib: {
 			css: [
