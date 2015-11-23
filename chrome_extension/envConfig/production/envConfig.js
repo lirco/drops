@@ -2,6 +2,6 @@
 
  angular.module('envConfig', [])
 
-.constant('ENV', {name:'production',apiEndPoint:'http://localhost:8000'})
+.constant('ENV', {name:'production',apiEndPoint:'https://drops-extension.herokuapp.com'})
 
 ;

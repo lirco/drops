@@ -230,17 +230,26 @@ module.exports = function(grunt) {
 		grunt.config.set('chromeJavaScriptFiles', _.union(config.chromeAssets.js,productionConfig.chromeAssets.envConfig));
 		grunt.config.set('chromeCSSFiles', config.chromeAssets.css);
 
+		var developmentApiEndPoint = 'http://localhost:3000';
+		var productionApiEndPoint = 'https://drops-extension.herokuapp.com';
+
+		grunt.config.set('developmentApiEndPoint', developmentApiEndPoint);
+		grunt.config.set('productionApiEndPoint', productionApiEndPoint);
+
+		console.log('***************************************');
+		console.log(productionApiEndPoint );
+		console.log('***************************************');
 	});
 
   // A Task for loading the API end point address
 	//TODO: move the addresses into the config files and load this from loadConfig task
-	grunt.task.registerTask('loadApiEndPoint', 'Test task', function() {
-		var developmentApiEndPoint = 'http://localhost:3000';
-		var productionApiEndPoint = 'http://localhost:8000';
-
-		grunt.config.set('developmentApiEndPoint', developmentApiEndPoint);
-		grunt.config.set('productionApiEndPoint', productionApiEndPoint);
-	});
+	//grunt.task.registerTask('loadApiEndPoint', 'Test task', function() {
+	//	var developmentApiEndPoint = 'http://localhost:3000';
+	//	var productionApiEndPoint = 'http://localhost:8000';
+  //
+	//	grunt.config.set('developmentApiEndPoint', developmentApiEndPoint);
+	//	grunt.config.set('productionApiEndPoint', productionApiEndPoint);
+	//});
 
 	// Default task(s).
 	grunt.registerTask('default', ['lint', 'concurrent:default']);
@@ -258,6 +267,6 @@ module.exports = function(grunt) {
 	grunt.registerTask('test', ['env:test', 'mochaTest', 'karma:unit']);
 
 	//Task for generating public ENV Config file(s)
-	grunt.registerTask('envConfig', ['loadApiEndPoint', 'ngconstant:development', 'ngconstant:production', 'ngconstant:chromeDevelopment', 'ngconstant:chromeProduction']);
+	grunt.registerTask('envConfig', ['loadConfig', 'ngconstant:development', 'ngconstant:production', 'ngconstant:chromeDevelopment', 'ngconstant:chromeProduction']);
 
 };
