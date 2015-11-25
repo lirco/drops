@@ -55,22 +55,23 @@ module.exports = {
 		]
 	},
 	facebook: {
-		clientID: process.env.FACEBOOK_ID || 'APP_ID',
-		clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
+		clientID: process.env.FACEBOOK_ID || '1595678530717040',
+		clientSecret: process.env.FACEBOOK_SECRET || '7d128fb928db811cc054279567b38b91',
 		callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	google: {
-		clientID: process.env.GOOGLE_ID || 'APP_ID',
-		clientSecret: process.env.GOOGLE_SECRET || 'APP_SECRET',
+		clientID: process.env.GOOGLE_ID || '1027337719545-mhr15g5llaamevasrqp4o3ie84a5u0f4.apps.googleusercontent.com',
+		clientSecret: process.env.GOOGLE_SECRET || '6iENKMpJElFjDWvPA2FdIp2_',
 		callbackURL: 'http://localhost:3000/auth/google/callback'
 	},
 	mailer: {
-		from: process.env.MAILER_FROM || 'MAILER_FROM',
+		from: process.env.MAILER_FROM || 'Drops App',
 		options: {
-			service: process.env.MAILER_SERVICE_PROVIDER || 'MAILER_SERVICE_PROVIDER',
+			service: process.env.MAILER_SERVICE_PROVIDER || 'gmail',
 			auth: {
-				user: process.env.MAILER_EMAIL_ID || 'MAILER_EMAIL_ID',
-				pass: process.env.MAILER_PASSWORD || 'MAILER_PASSWORD'
+				user: process.env.MAILER_EMAIL_ID || 'drops.extension',
+				pass: process.env.MAILER_PASSWORD || '123qwe!@#QWE'
+
 			}
 		}
 	}

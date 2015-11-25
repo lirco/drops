@@ -76,7 +76,7 @@ module.exports = {
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || '1595678530717040',
-		clientSecret: process.env.FACEBOOK_SECRET || 'eb9cd64bad8104b5ffd4a392de423941',
+		clientSecret: process.env.FACEBOOK_SECRET || '7d128fb928db811cc054279567b38b91',
 		callbackURL: 'http://localhost:3000/auth/facebook/callback'
 	},
 	google: {
