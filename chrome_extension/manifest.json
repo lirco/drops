@@ -6,7 +6,7 @@
   "permissions": [
     "tabs",
     "http://*/",
-    "http://localhost:3000/*"
+    "https://*/"
   ],
   "background": {
     "scripts": ["lib/angular/angular.min.js"]
