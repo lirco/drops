@@ -1,0 +1,11 @@
+<div class="md-toolbar-tools sidebar-title">
+  <h2>Hi {{homeCtrl.authentication.user.username}}!</h2>
+</div>
+<div class="sidebar-buttons" layout="column">
+  <md-button ng-click="homeCtrl.setContentToShow('newNote')" >ADD NEW NOTE</md-button>
+  <md-button ng-click="homeCtrl.goHome()">GO TO HOMEPAGE</md-button>
+  <!--<md-button ng-click="homeCtrl.setContentToShow('settings')">SETTINGS</md-button>-->
+  <md-button ng-click="homeCtrl.goToPage(homeCtrl.apiEndPoint+'/auth/signout')">SIGNOUT</md-button>
+
+</div>
+

@@ -1,0 +1,92 @@
+<div class="tabs-area md-padding">
+  <md-tabs class="list-group" md-dynamic-height md-border-bottom>
+
+    <md-tab label="Page">
+      <div>
+
+        <div ng-if="homeCtrl.urlNotes.length == 0">
+          <div class="no-notes-block">
+            <h1 class="text-center">Hello</h1>
+            <h3 class="text-center">No notes yet for this page</h3>
+            <br>
+            <md-button class="btn btn-block md-primary margin-auto" ng-click="homeCtrl.setContentToShow('newNote')">drop one</md-button>
+          </div>
+        </div>
+
+        <div ng-if="homeCtrl.domainNotes.length !== 0">
+          <md-list class="list-group">
+            <md-list-item ng-repeat="note in homeCtrl.urlNotes |
+                              orderBy:homeCtrl.sortOrder">
+              <section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
+                       ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
+                <div class="note-content-wrapper" ng-click="homeCtrl.editNote(note)">
+                  <div class="note-title" ng-click="homeCtrl.showNote($event, note)">
+                    <p>{{note.title |truncate:6}}</p>
+                  </div>
+                  <div class="note-content">
+                    <p>{{note.content | truncate:20}}</p>
+                  </div>
+                  <div class="note-footer">
+                    <div class="note-link">
+                      <a target="_blank" href={{note.url}}>{{note.domain}}</a>
+                    </div>
+                    <div class="note-hidden-buttons" layout="row" ng-show="note.showHidden">
+                      <p class="note-delete" ng-click="homeCtrl.showDeleteDialog($event, note)">delete</p>
+                      <p class="note-date">{{note.modified | date}}</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </md-list-item>
+          </md-list>
+        </div>
+      </div>
+
+    </md-tab>
+
+    <md-tab label="Site">
+      <md-content>
+
+        <div ng-if="homeCtrl.domainNotes.length == 0">
+          <div class="no-notes-block">
+            <h1 class="text-center">Hello</h1>
+            <h3 class="text-center">No notes yet for this site</h3>
+            <br>
+            <md-button class="btn btn-block md-primary margin-auto" ng-click="homeCtrl.setContentToShow('newNote')">drop one</md-button>
+          </div>
+        </div>
+
+        <div ng-if="homeCtrl.domainNotes.length !== 0">
+          <md-list class="list-group">
+            <md-list-item ng-repeat="note in homeCtrl.domainNotes |
+                              orderBy:homeCtrl.sortOrder">
+              <section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
+                       ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
+                <div class="note-content-wrapper" ng-click="homeCtrl.editNote(note)">
+                  <div class="note-title" ng-click="homeCtrl.showNote($event, note)">
+                    <p>{{note.title |truncate:6}}</p>
+                  </div>
+                  <div class="note-content">
+                    <p>{{note.content | truncate:20}}</p>
+                  </div>
+                  <div class="note-footer">
+                    <div class="note-link">
+                      <a target="_blank" href={{note.url}}>{{note.domain}}</a>
+                    </div>
+                    <div class="note-hidden-buttons" layout="row" ng-show="note.showHidden">
+                      <p class="note-delete" ng-click="homeCtrl.showDeleteDialog($event, note)">delete</p>
+                      <p class="note-date">{{note.modified | date}}</p>
+                    </div>
+                  </div>
+                </div>
+              </section>
+            </md-list-item>
+          </md-list>
+        </div>
+      </md-content>
+
+    </md-tab>
+
+  </md-tabs>
+</div>
+

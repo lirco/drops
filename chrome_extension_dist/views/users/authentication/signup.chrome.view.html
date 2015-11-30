@@ -1,0 +1,39 @@
+<div class="top-bar"></div>
+
+<div style="position:relative">
+  <div class="hello-bg"></div>
+  <div class="hello-content">
+    <h1>Hello.</h1>
+    <div class="hello-form-wrapper">
+      <div class="hello-form">
+        <form name="userForm" data-ng-submit="authCtrl.signup()" class="margin-top-15" accept-charset="utf-8">
+          <div class="form-group">
+            <!--<input type="email" class="form-control" id="email" name="email" data-ng-model="authCtrl.credentials.email" placeholder="E-mail">-->
+            <input type="text" class="form-control" id="username" name="username" data-ng-model="authCtrl.credentials.username" placeholder="username">
+          </div>
+          <div class="form-group">
+            <input type="email" class="form-control" id="email" name="email" data-ng-model="authCtrl.credentials.email" placeholder="email">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" id="password" name="password" data-ng-model="authCtrl.credentials.password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-block btn-primary">Sign Up</button>
+            <span class="alert error" ng-show="authCtrl.error">{{authCtrl.error}}</span>
+          </div>
+          <div class="form-group">
+            <ul class="list-inline text-center">
+              <li>or via</li>
+              <!--<li><a href="#" ng-click="authCtrl.goToAuthProvider('facebook')"><img src="../../../icons/facebook.png" alt="" style="width:40px"></a></li>-->
+              <li><a href="#" ng-click="authCtrl.goToAuthProvider('google')"><img src="../../../icons/g+.png" alt="" style="width:40px"></a></li>
+            </ul>
+          </div>
+        </form>
+      </div>
+      <div class="hello-footer">
+        <p class="pull-left">Have an account?</p><p class="pull-right"><a  ui-sref="signIn">Sign In</a></p>
+        <div class="clearfix"></div>
+      </div>
+    </div>
+  </div>
+</div>

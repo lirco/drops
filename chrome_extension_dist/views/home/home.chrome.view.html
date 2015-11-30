@@ -1,0 +1,12 @@
+<div class="content" flex>
+  <div class="top-bar"></div>
+  <div layout="row" flex>
+
+    <div ui-view="sideBar" class="sidebar-left md-whiteframe-z2" layout="column"></div>
+    <div ng-show="homeCtrl.contentToShow == 'content'" ui-view="content" class="main-content"></div>
+    <div ng-show="homeCtrl.contentToShow == 'newNote'" ui-view="newNote" class="main-content"></div>
+    <div ng-show="homeCtrl.contentToShow == 'settings'" ui-view="settings" class="main-content"></div>
+
+
+  </div>
+</div>

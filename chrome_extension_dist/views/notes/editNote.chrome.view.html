@@ -1,0 +1,40 @@
+
+<div class="panel panel-primary">
+
+  <div ng-include src="'../views/main/header.chrome.view.html'"></div>
+
+  <form name="noteForm" data-ng-submit="notesCtrl.update()" novalidate class="margin-top-20" accept-charset="utf-8">
+
+    <div class="panel-body">
+      <div class="form-group">
+        <div class="controls">
+          <input name="title" type="text" data-ng-model="notesCtrl.activeNote.title" id="title" class="form-control input-lg" placeholder="Title" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <textarea name="content" data-ng-model="notesCtrl.activeNote.content" id="content" class="form-control" rows="7" placeholder="Your notes here"></textarea>
+      </div>
+      <div class="form-group">
+        <tags-input data-ng-model="notesCtrl.activeNote.tags" id="tags" name="tags" placeholder="#tags">
+          <auto-complete source="notesCtrl.getTags($query)"
+                         min-length="0"
+                         load-on-focus="false"
+                         load-on-empty="false">
+          </auto-complete>
+        </tags-input>
+      </div>
+    </div>
+
+    <div class="panel-footer">
+
+      <div class="pull-left">
+        <button ui-sref="home" class="btn btn-default">back</button>
+      </div>
+      <div class="pull-right">
+        <button type="submit" class="btn btn-primary">Update</button>
+      </div>
+      <div class="clearfix"></div>
+
+    </div>
+  </form>
+</div>
