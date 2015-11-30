@@ -756,6 +756,6 @@ angular.module('users').factory('Users', [
 ApplicationConfiguration.registerModule('envConfig');'use strict';
 angular.module('envConfig', []).constant('ENV', {
   name: 'production',
-  apiEndPoint: 'http://localhost:8000'
+  apiEndPoint: 'https://drops-extension.herokuapp.com'
 });
 ;
