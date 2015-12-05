@@ -202,7 +202,7 @@
 
   }
 
-  angular.module('drops')
+  angular.module('clipto')
     .controller('homeController', ['$q', '$scope','$state','Authentication','AppState','Notes', '$mdDialog', 'notes', 'activeTabDomain', 'activeTabUrl', 'ENV', homeController])
 
 }());

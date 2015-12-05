@@ -50,7 +50,7 @@
     };
   }
 
-  angular.module('drops')
+  angular.module('clipto')
     .controller('passwordController', ['$stateParams', '$http', '$state', 'Authentication', 'ENV',passwordController])
 
 }());

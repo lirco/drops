@@ -2,7 +2,7 @@
 // Init the application configuration module for AngularJS application
 var ApplicationConfiguration = function () {
     // Init module configuration options
-    var applicationModuleName = 'drops';
+    var applicationModuleName = 'clipto';
     var applicationModuleVendorDependencies = [
         'envConfig',
         'ngResource',
@@ -229,7 +229,7 @@ angular.module('core').controller('HeaderController', [
   function sidebarController(scope) {
     var self = this;
   }
-  angular.module('drops').controller('sidebarController', [
+  angular.module('clipto').controller('sidebarController', [
     '$scope',
     sidebarController
   ]);
@@ -248,7 +248,7 @@ angular.module('core').controller('HeaderController', [
       return input;
     };
   }
-  angular.module('drops').filter('truncate', TruncateFilter);
+  angular.module('clipto').filter('truncate', TruncateFilter);
 }());(function () {
   function AppState(Authentication) {
     var self = this;
@@ -756,6 +756,6 @@ angular.module('users').factory('Users', [
 ApplicationConfiguration.registerModule('envConfig');'use strict';
 angular.module('envConfig', []).constant('ENV', {
   name: 'production',
-  apiEndPoint: 'https://drops-extension.herokuapp.com'
+  apiEndPoint: 'https://www.clipto.co'
 });
 ;

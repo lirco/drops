@@ -43,7 +43,7 @@
 
   }
 
-  angular.module('drops')
+  angular.module('clipto')
     .controller('mainController', ['$http', '$state', 'Authentication','AppState', 'ENV', mainController])
 
 }());

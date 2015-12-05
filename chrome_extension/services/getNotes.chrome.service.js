@@ -35,6 +35,6 @@
     }
   }
 
-  angular.module('drops')
+  angular.module('clipto')
     .service('GetNotes', ['$q','Notes','AppState', getNotes])
 }());

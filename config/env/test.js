@@ -1,10 +1,10 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/drops-test',
+	db: 'mongodb://localhost/clipto-test',
 	port: 3001,
 	app: {
-		title: 'drops - Test Environment'
+		title: 'clipto - Test Environment'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || 'APP_ID',

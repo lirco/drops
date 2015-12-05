@@ -1,7 +1,7 @@
 'use strict';
 
 // Config HTTP Error Handling
-angular.module('drops')
+angular.module('clipto')
 	.config(function($mdThemingProvider, $mdIconProvider){
 
 		//$mdIconProvider

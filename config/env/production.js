@@ -57,12 +57,12 @@ module.exports = {
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || '1595678530717040',
 		clientSecret: process.env.FACEBOOK_SECRET || '7d128fb928db811cc054279567b38b91',
-		callbackURL: 'https://drops-extension.herokuapp.com/auth/facebook/callback'
+		callbackURL: 'https://www.clipto.co/auth/facebook/callback'
 	},
 	google: {
 		clientID: process.env.GOOGLE_ID || '1027337719545-mhr15g5llaamevasrqp4o3ie84a5u0f4.apps.googleusercontent.com',
 		clientSecret: process.env.GOOGLE_SECRET || '6iENKMpJElFjDWvPA2FdIp2_',
-		callbackURL: 'https://drops-extension.herokuapp.com/auth/google/callback'
+		callbackURL: 'https://www.clipto.co/auth/google/callback'
 	},
 	mailer: {
 		from: process.env.MAILER_FROM || 'Drops App',

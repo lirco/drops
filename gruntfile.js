@@ -231,7 +231,7 @@ module.exports = function(grunt) {
 		grunt.config.set('chromeCSSFiles', config.chromeAssets.css);
 
 		var developmentApiEndPoint = 'http://localhost:3000';
-		var productionApiEndPoint = 'https://drops-extension.herokuapp.com';
+		var productionApiEndPoint = 'https://www.clipto.co';
 
 		grunt.config.set('developmentApiEndPoint', developmentApiEndPoint);
 		grunt.config.set('productionApiEndPoint', productionApiEndPoint);

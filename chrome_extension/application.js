@@ -1,4 +1,4 @@
-angular.module('drops', ['envConfig', 'ui.router', 'ngResource', 'ui.bootstrap', 'ngAnimate', 'ngMaterial'])
+angular.module('clipto', ['envConfig', 'ui.router', 'ngResource', 'ui.bootstrap', 'ngAnimate', 'ngMaterial'])
   .config([
 
     '$resourceProvider',

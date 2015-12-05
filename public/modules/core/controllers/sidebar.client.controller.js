@@ -6,7 +6,7 @@
 
   }
 
-  angular.module('drops')
+  angular.module('clipto')
     .controller('sidebarController', ['$scope', sidebarController])
 
 }());

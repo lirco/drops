@@ -1,4 +1,4 @@
-angular.module('drops', [
+angular.module('clipto', [
   'envConfig',
   'ui.router',
   'ngResource',
@@ -104,7 +104,7 @@ angular.module('drops', [
       }
     };
   }
-  angular.module('drops').factory('AppState', [AppState]);
+  angular.module('clipto').factory('AppState', [AppState]);
 }());(function () {
   function Authentication() {
     var self = this;
@@ -121,7 +121,7 @@ angular.module('drops', [
       }
     };
   }
-  angular.module('drops').factory('Authentication', [Authentication]);
+  angular.module('clipto').factory('Authentication', [Authentication]);
 }());/**
  * This service gets the domainNotes array from the server,
  * generates the url notes array, and returns a promise with both domainNotes and urlNotes
@@ -150,7 +150,7 @@ angular.module('drops', [
     }
     return { getNotes: getNotes };
   }
-  angular.module('drops').service('GetNotes', [
+  angular.module('clipto').service('GetNotes', [
     '$q',
     'Notes',
     'AppState',
@@ -160,7 +160,7 @@ angular.module('drops', [
   function getTags() {
     var self = this;
   }
-  angular.module('drops').factory('GetTags', [getTags]);
+  angular.module('clipto').factory('GetTags', [getTags]);
 }());'use strict';
 (function () {
   function notesService($resource, ENV) {
@@ -173,7 +173,7 @@ angular.module('drops', [
     });
   }
   //Notes service used for communicating with the articles REST endpoints
-  angular.module('drops').factory('Notes', [
+  angular.module('clipto').factory('Notes', [
     '$resource',
     'ENV',
     notesService
@@ -193,7 +193,7 @@ angular.module('drops', [
       return input;
     };
   }
-  angular.module('drops').filter('truncate', TruncateFilter);
+  angular.module('clipto').filter('truncate', TruncateFilter);
 }());'use strict';
 (function () {
   function homeController($q, $scope, $state, Authentication, AppState, Notes, $mdDialog, notes, activeTabDomain, activeTabUrl, ENV) {
@@ -359,7 +359,7 @@ angular.module('drops', [
     self.signOut = function () {
     };
   }
-  angular.module('drops').controller('homeController', [
+  angular.module('clipto').controller('homeController', [
     '$q',
     '$scope',
     '$state',
@@ -409,7 +409,7 @@ angular.module('drops', [
       });
     });
   }
-  angular.module('drops').controller('mainController', [
+  angular.module('clipto').controller('mainController', [
     '$http',
     '$state',
     'Authentication',
@@ -471,7 +471,7 @@ angular.module('drops', [
       return d.promise;
     };
   }
-  angular.module('drops').controller('notesController', [
+  angular.module('clipto').controller('notesController', [
     '$stateParams',
     '$state',
     'Authentication',
@@ -518,7 +518,7 @@ angular.module('drops', [
       chrome.tabs.create({ 'url': self.apiEndPoint + '/auth/' + name });
     };
   }
-  angular.module('drops').controller('authenticationController', [
+  angular.module('clipto').controller('authenticationController', [
     '$http',
     '$state',
     'Authentication',
@@ -563,7 +563,7 @@ angular.module('drops', [
       });
     };
   }
-  angular.module('drops').controller('passwordController', [
+  angular.module('clipto').controller('passwordController', [
     '$stateParams',
     '$http',
     '$state',
@@ -574,6 +574,6 @@ angular.module('drops', [
 }());'use strict';
 angular.module('envConfig', []).constant('ENV', {
   name: 'production',
-  apiEndPoint: 'https://drops-extension.herokuapp.com'
+  apiEndPoint: 'https://www.clipto.co'
 });
 ;

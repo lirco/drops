@@ -61,7 +61,7 @@
 
   }
 
-  angular.module('drops')
+  angular.module('clipto')
     .controller('notesController', ['$stateParams', '$state', 'Authentication', 'Notes', '$q', 'AppState', 'activeTabUrl', 'activeTabDomain', 'activeNote', notesController])
 
 }());

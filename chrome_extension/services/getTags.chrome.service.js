@@ -7,6 +7,6 @@
 
   }
 
-  angular.module('drops')
+  angular.module('clipto')
     .factory('GetTags', [getTags])
 }());

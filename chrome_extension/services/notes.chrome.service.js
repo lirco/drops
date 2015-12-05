@@ -17,7 +17,7 @@
     });
   }
   //Notes service used for communicating with the articles REST endpoints
-  angular.module('drops')
+  angular.module('clipto')
     .factory('Notes', ['$resource', 'ENV', notesService])
 
 }());

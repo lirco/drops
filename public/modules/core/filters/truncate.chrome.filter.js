@@ -17,6 +17,6 @@
     }
   }
 
-  angular.module('drops')
+  angular.module('clipto')
     .filter('truncate', TruncateFilter)
 }());

@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-	db: 'mongodb://localhost/drops-dev',
+	db: 'mongodb://localhost/clipto-dev',
 	assets: {
 		lib: {
 			css: [
@@ -72,7 +72,7 @@ module.exports = {
 		]
 	},
 	app: {
-		title: 'drops - Development Environment'
+		title: 'clipto - Development Environment'
 	},
 	facebook: {
 		clientID: process.env.FACEBOOK_ID || '1595678530717040',

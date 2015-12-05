@@ -17,7 +17,7 @@
     }
   }
 
-  angular.module('drops')
+  angular.module('clipto')
     .factory('Authentication', [Authentication])
 
 }());

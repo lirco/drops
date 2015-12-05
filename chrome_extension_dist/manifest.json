@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "name": "drops",
+  "name": "clipto",
   "description": "Drop your notes anywhere",
   "version": "0.1",
   "permissions": [

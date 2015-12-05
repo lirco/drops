@@ -2,13 +2,13 @@
 
 module.exports = {
 	app: {
-		title: 'drops',
+		title: 'clipto',
 		description: 'drop your notes anywhere',
-		keywords: 'chrome, extension, chrome extension, note, notes, drops, remarks, comments'
+		keywords: 'chrome, extension, chrome extension, note, notes, clipto, remarks, comments'
 	},
 	port: process.env.PORT || 3000,
 	templateEngine: 'swig',
-	sessionSecret: 'dropsverysecret',
+	sessionSecret: 'cliptoverysecret',
 	sessionCollection: 'sessions',
 	assets: {
 		lib: {
