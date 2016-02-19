@@ -2,9 +2,7 @@
 	font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
 	font-weight: 700;
 }
-.undecorated-link:hover {
-	text-decoration: none;
-}
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
 	display: none !important;
 }
@@ -14,6 +12,7 @@
 .ng-valid.ng-dirty{
     border-color:#78FA89;
 }
+
 .top-bar {
 	height:10px;
 	position: fixed;
@@ -23,48 +22,56 @@
 	background-color: rgb(96,125,139);
 	z-index: 1030;
 }
+
+.content {
+	margin: 30px 90px 20px;
+}
+
+/* ================ left sidenav ================= */
+
+.sidenav md-content {
+	/*background-image: url(/img/Doodle-800x547_02.jpg) ;*/
+	/*background-color: rgb(96,125,139);*/
+}
+
+.site-sidenav,
+.site-sidenav.md-locked-open-add-active,
+.site-sidenav.md-locked-open {
+	width: 250px;
+	max-width: 250px;
+  min-width: 250px;
+}
+.sidenav-content{
+	position: relative;
+	top: 0;
+	left: 0;
+}
+.sidenav-header{
+	position: absolute;
+	top: 0;
+	left: 0;
+	height:50px;
+	width:100%;
+}
 .logo-wrapper {
 
 }
 .logo {
 
 }
-.search-box-wrapper{
-	position: relative;
-	left: 20px;
-	margin-top: 22px;
-  height: 50px;
-	width: inherit;
-}
-.search-box {
-	position: absolute;
-	left: 0;
-	top: 8px;
-	background-color: #FAFCFC;
-	border-radius: 6px;
-	border: 1px solid;
-	height: 34px;
-	width: 300px;
-	padding: 5px 20px;
-	color: grey;
-}
-.sidenav md-content {
-	background-image: url(/img/Doodle-800x547_02.jpg) ;
-}
-.content {
-	margin: 15px 0 0 0;
-}
-.main-content {
-	margin: 0 0 0 304px;
-	background-color: #FAFCFC !important;
-}
-
-/*----------- tags area ----------------- */
 .tags-area {
-	padding-top: 30px;
-	height: inherit;
-	width: inherit;
+	position: absolute;
+	top: 50px;
+	left: 0;
+	padding: 10px;
+	width: 100%;
 	overflow: hidden;
+}
+.tags-area .show-all {
+	background: #FAFCFC ;
+	border: 1px solid;
+	width: 90%;
+
 }
 .tags-area .md-button {
   line-height: 25px;
@@ -90,16 +97,57 @@
 	display: inline;
 }
 
-/*----------- main content ----------------- */
+/* =============== main content ================ */
+
+.main-content {
+	position: relative;
+	top: 0;
+	left: 0;
+	width: 500px;
+	padding: 10px 0;
+}
+
+.main-content-header{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 50px;
+	width: 100%;
+}
+.search-box-wrapper{
+	position: absolute;
+	top: 0;
+	left: 16px;
+	right: 16px;
+	height: 100%;
+}
+.search-box {
+	position: absolute;
+	left: 0;
+	top: 0;
+	/*margin-left: 16px;*/
+	padding: 0 16px;
+	background-color: #FFF;
+	height: 100%;
+	width: 100%;
+	color: grey;
+	outline: none;
+	border: none !important;
+	box-shadow: none !important;
+}
 .notes-list {
-	padding-top: 10px;
+	position: absolute;
+	top: 50px;
+	left: 0;
+	padding: 10px 0;
+	width: 100%;
+	overflow: hidden;
 }
 .note-container {
 	background-color: #FFF;
-	height:100px;
-	width:564px;
-	border-radius: 0 20px 20px 0;
-	margin-bottom: 16px;
+	height:105px;
+	width:100%;
+	margin-bottom: 10px;
 	transition:0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
 	position:relative;
 	padding: 5px 19px 0 19px;
@@ -112,6 +160,9 @@
 }
 .note-container .note-body {
 	height: 80px;
+	outline: none;
+	border: none !important;
+	box-shadow: none !important;
 }
 .note-container:focus, .note-container:hover  .note-title{
 	color: #428bca;
@@ -172,7 +223,13 @@
 	color: #550000;
 }
 
-/* ---------------note diaalog ---------------*/
+/* ================ right sidenav ================= */
+
+.ad-box{
+	height: 190px;
+	margin-bottom: 10px;
+}
+/* --------------- note diaalog ---------------*/
 .note-dialog {
 	max-height: 80%
 }

@@ -1,0 +1,81 @@
+<div class="top-bar"></div>
+<div class="content" data-ng-controller="homeController as homeCtrl" layout="column" flex>
+	<section layout="row" flex>
+
+		<!--left sidenav-->
+		<md-sidenav class="site-sidenav sidenav md-sidenav md-locked-open md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" flex>
+			<md-content class="sidenav-content" layout-padding data-ng-controller="sidebarController as sidebarCtrl" flex>
+				<div class="sidenav-header"><h4 style="text-align: center">Clip.to</h4></hi></div>
+				<ul class="tags-area">
+					<md-button class="show-all" ng-click="homeCtrl.showAll()">
+						<strong>show all notes</strong>
+					</md-button>
+					<li class="tags-list" ng-repeat="tag in homeCtrl.userTags">
+						<md-button ng-click="homeCtrl.click(tag)" style="background:{{tag.color}}">
+							<div style="background:#FFF ; padding: 0 6px">
+								{{tag.text}}
+							</div>
+						</md-button>
+					</li>
+				</ul>
+			</md-content>
+		</md-sidenav>
+
+		<!--main content-->
+		<md-content class="main-content" flex layout-padding>
+
+			<div class="main-content-header">
+				<div class="search-box-wrapper md-whiteframe-z1">
+					<input class="search-box" ng-model="searchText" placeholder="Search Notes...">
+				</div>
+			</div>
+
+			<div class="notes-list-wrapper">
+
+			</div>
+
+			
+			<md-list class="notes-list">
+				<md-list-item class="note-wrapper" ng-repeat="note in homeCtrl.notes |
+						orderBy:homeCtrl.sortOrder |
+						filter:homeCtrl.byTagsFilter |
+						filter: searchText">
+					<section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
+									 ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
+						<div class="note-body" ng-click="homeCtrl.showNote($event, note)">
+							<div class="note-title">
+								<p>{{note.title |truncate:9}}</p>
+							</div>
+							<div class="note-content">
+								<p>{{note.content | truncate:25}}</p>
+							</div>
+						</div>
+						<div class="note-footer">
+							<div class="note-link">
+								<a target="_blank" href={{note.url}}>go to page | {{note.domain}}</a>
+							</div>
+							<div class="note-hidden-buttons" layout="row" ng-show="note.showHidden">
+								<p class="note-delete" ng-click="homeCtrl.showDeleteDialog($event, note)">delete</p>
+								<p class="note-date">{{note.modified | date}}</p>
+							</div>
+						</div>
+					</section>
+				</md-list-item>
+			</md-list>
+			<div>
+			</div>
+		</md-content>
+
+		<!--right sidenav-->
+		<md-sidenav class="site-sidenav sidenav md-sidenav md-locked-open md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" flex>
+			<md-content class="sidenav-content" layout-padding data-ng-controller="sidebarController as sidebarCtrl" flex>
+
+				<div class="ad-box" style="background-color: #d0e9c6"></div>
+				<div class="ad-box" style="background-color: #e0e0e0 "></div>
+				<div class="ad-box" style="background-color: #fdf5ce"></div>
+
+			</md-content>
+		</md-sidenav>
+	</section>
+</div>
+
