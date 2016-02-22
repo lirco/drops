@@ -12,9 +12,9 @@
 }
 
 body {
-  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
-  font-weight: 700;
-  background-color: #f3f6f7;
+  /*font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;*/
+  /*font-weight: 700;*/
+  background-color: rgb(243,246,247);
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -148,11 +148,28 @@ body {
   background-color: #FFF;
   height: 100%;
   width: 100%;
-  color: grey;
+  color: #585858;
+  font-size:16px;
   outline: none;
   border: none !important;
   box-shadow: none !important;
 }
+.fadeout {
+  position: fixed;
+  margin-top: 50px;
+  margin-left: 0;
+  margin-right: 10px;
+  padding: 0 12px;
+  height: 12px;
+  width: inherit;
+  z-index: 2030;
+  overflow: hidden;
+  background: -webkit-linear-gradient(
+      rgba(243,246,247, 2) 10%,
+      rgba(243,246,247, 0) 100%
+  );
+}
+
 .notes-list {
   position: absolute;
   top: 50px;
@@ -165,7 +182,7 @@ body {
   background-color: #FFF;
   height:105px;
   width:100%;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
   transition:0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
   position:relative;
   padding: 5px 19px 0 19px;
@@ -182,15 +199,17 @@ body {
   border: none !important;
   box-shadow: none !important;
 }
-.note-container:focus, .note-container:hover  .note-title{
+.note-container:focus, .note-container:hover .note-title p{
   color: #428bca;
 }
 .note-container .note-title p{
   font-size:18px;
-  font-weight: bold;
+  /*font-weight: bold;*/
+  text-transform: capitalize;
   margin-bottom:3px;
   overflow: hidden;
   line-height: inherit;
+  color: #585858;
 }
 .note-container .note-content {
   font-size: 13px;
