@@ -11,10 +11,11 @@
   }
 }
 
-/*body {*/
-  /*font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;*/
-  /*font-weight: 700;*/
-/*}*/
+body {
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
+  font-weight: 700;
+  background-color: #f3f6f7;
+}
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
@@ -34,6 +35,9 @@
   width: 100%;
   background-color: rgb(96,125,139);
   z-index: 1030;
+}
+
+.content {
 }
 
 /* ================ left sidenav ================= */
@@ -115,6 +119,7 @@
   width: 600px;
   max-width: 600px;
   padding: 0 0;
+  background-color: inherit;
 }
 .main-content::-webkit-scrollbar {
   display: none;
