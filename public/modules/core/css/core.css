@@ -103,16 +103,20 @@
 	position: relative;
 	top: 0;
 	left: 0;
-	width: 500px;
-	padding: 10px 0;
+	width: 600px;
+	padding: 0 0;
+}
+.main-content::-webkit-scrollbar {
+	display: none;
 }
 
 .main-content-header{
-	position: absolute;
-	left: 0;
-	top: 0;
+	position: fixed;
+	margin-left: 0;
+	margin-top: 0;
 	height: 50px;
-	width: 100%;
+	width: inherit;
+	z-index: 1030;
 }
 .search-box-wrapper{
 	position: absolute;
@@ -125,7 +129,6 @@
 	position: absolute;
 	left: 0;
 	top: 0;
-	/*margin-left: 16px;*/
 	padding: 0 16px;
 	background-color: #FFF;
 	height: 100%;
@@ -180,7 +183,7 @@
 }
 .note-container .note-content p{
 	margin-bottom:3px;
-
+	overflow: hidden;
 }
 .note-container .note-footer {
 	margin-top:3px;
