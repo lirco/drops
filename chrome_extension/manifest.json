@@ -16,7 +16,7 @@
       "matches": [
         "http://*/",
         "https://*/",
-        "http://stackoverflow.com/*"
+        "<all_urls>"
       ],
       "js": ["jquery-1.12.1.min.js","contentScript.js"],
       "css": ["contentCSS.css"]
