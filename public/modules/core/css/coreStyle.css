@@ -15,6 +15,7 @@ body {
   /*font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;*/
   /*font-weight: 700;*/
   background-color: rgb(243,246,247);
+  /*background-image: url(/img/bokeh-1192988_1280.jpg) ;*/
 }
 
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
@@ -139,6 +140,7 @@ body {
   left: 16px;
   right: 16px;
   height: 100%;
+  width: 90%;
 }
 .search-box {
   position: absolute;
@@ -146,6 +148,7 @@ body {
   top: 0;
   padding: 0 16px;
   background-color: #FFF;
+  border-radius: 10px;
   height: 100%;
   width: 100%;
   color: #585858;
@@ -154,34 +157,35 @@ body {
   border: none !important;
   box-shadow: none !important;
 }
-.fadeout {
-  position: fixed;
-  margin-top: 50px;
-  margin-left: 0;
-  margin-right: 10px;
-  padding: 0 12px;
-  height: 12px;
-  width: inherit;
-  z-index: 2030;
-  overflow: hidden;
-  background: -webkit-linear-gradient(
-      rgba(243,246,247, 2) 10%,
-      rgba(243,246,247, 0) 100%
-  );
-}
+/*.fadeout {*/
+  /*position: fixed;*/
+  /*margin-top: 50px;*/
+  /*margin-left: 0;*/
+  /*margin-right: 10px;*/
+  /*padding: 0 12px;*/
+  /*height: 12px;*/
+  /*width: inherit;*/
+  /*z-index: 2030;*/
+  /*overflow: hidden;*/
+  /*background: -webkit-linear-gradient(*/
+      /*rgba(243,246,247, 2) 20%,*/
+      /*rgba(243,246,247, 0) 100%*/
+  /*);*/
+/*}*/
 
 .notes-list {
   position: absolute;
   top: 50px;
   left: 0;
   padding: 10px 0;
-  width: 100%;
+  width: inherit;
   overflow: hidden;
 }
 .note-container {
   background-color: #FFF;
+  border-radius: 0 25px 25px 0;
   height:105px;
-  width:100%;
+  width:90%;
   margin-bottom: 8px;
   transition:0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
   position:relative;
@@ -192,12 +196,16 @@ body {
   background-color: #f7f7f7;
   text-decoration: none;
   cursor: pointer;
+  width:100%;
+  transition: 0.3s;
 }
 .note-container .note-body {
   height: 80px;
+  max-width: 90%;
   outline: none;
   border: none !important;
   box-shadow: none !important;
+  overflow: hidden;
 }
 .note-container:focus, .note-container:hover .note-title p{
   color: #428bca;

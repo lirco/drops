@@ -7,12 +7,24 @@
     self.authentication = {};
     self.activeTabUrl = '';
 
+    //get the selected text from content script
+    chrome.browserAction.onClicked.addListener(function(tab) {
+      chrome.tabs.sendRequest(tab.id, {method: "getSelection"}, function(response){
+        sendServiceRequest(response.data);
+      });
+    });
+
+    function sendServiceRequest(selectedText) {
+      var serviceCall = 'http://www.google.com/search?q=' + selectedText;
+      chrome.tabs.create({url: serviceCall});
+    }
+
+    // get the tab domain and url
     chrome.tabs.query({'active': true, 'lastFocusedWindow': true, 'currentWindow': true}, function (tabs) {
 
       var domain ='';
       var uri = tabs[0].url;
       var domainArray = uri.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1].split(".");
-
 
       if (domainArray.length == 2) {
         domain = domainArray.join('.');
