@@ -40,8 +40,11 @@ function getSelectionInsertSpan() {
   //move this out to global variable
   var cliptoBoxHtml =
     '<div class="cliptoBox">' +
-      '<div class="cliptoIconWrapper">' +
+      '<div class="cliptoIconWrapper" style="margin-left:8px">' +
         '<div class="clipIcon">' +
+          //'<a href="#">' +
+          //  '<img src="chrome.extension.getURL(/icons/paper-clip-3-32-blue.png)">' +
+          //'</a>' +
         '</div>' +
       '</div>' +
       '<div class="cliptoIconWrapper">' +
@@ -63,7 +66,9 @@ function getSelectionInsertSpan() {
     span = document.createElement("span");
     span.setAttribute('id', 'cliptoHelperSpan');
     selection.insertNode(span);
-    $("#cliptoHelperSpan").append($(cliptoBoxHtml));
+    //$("#cliptoHelperSpan").append($(cliptoBoxHtml));
+
+    $(cliptoBoxHtml).appendTo("#cliptoHelperSpan").animate({top:-45, left:-20});
   }
 }
 
@@ -81,10 +86,8 @@ function insertCliptoBox() {
 }
 
 $(document.body).bind('mouseup', function(e){
-  //var coords = getSelectionCoords();
   insertCliptoBox();
-  //$("<span class='cliptoBox'></span>").insertBefore(".cliptoText");
 
-  $(".cliptoBox").animate({top:-45, left:-20});
+  //$("<span class='cliptoBox'></span>").insertBefore(".cliptoText");
 
 });
