@@ -68,7 +68,11 @@ function getSelectionInsertSpan() {
     selection.insertNode(span);
     //$("#cliptoHelperSpan").append($(cliptoBoxHtml));
 
-    $(cliptoBoxHtml).appendTo("#cliptoHelperSpan").animate({top:-45, left:-20});
+    //$(cliptoBoxHtml).appendTo("#cliptoHelperSpan").animate({top:-45, left:-20});
+
+    $.get(chrome.extension.getURL('/cliptoBox.html'), function(data) {
+      $(data).appendTo("#cliptoHelperSpan").animate({top:-45, left:-20});
+    });
   }
 }
 

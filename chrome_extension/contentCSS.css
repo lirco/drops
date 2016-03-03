@@ -2,12 +2,13 @@
   position: relative;
 }
 .cliptoBox {
-  width: 40px;
+  width: 188px;
   height:40px;
   background-color:red;
   border-radius: 20px 20px;
   position:absolute;
   z-index: 1000;
+
 }
 .cliptoBox:hover {
   width: 188px;
@@ -16,11 +17,11 @@
 .cliptoBox .cliptoIconWrapper {
   /*background-color: #0000cc;*/
   display: inline-block;
+  float: left;
   width: 40px;
   height: inherit;
   margin-right: 4px;
   position: relative;
-  /*top: -5px;*/
   z-index: 1030;
 }
 
@@ -29,5 +30,5 @@
   height: 40px;
   border-radius: 20px 20px;
   margin-left: 4px;
+  padding: 4px;
 }
-
