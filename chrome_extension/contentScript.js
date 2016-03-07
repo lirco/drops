@@ -38,28 +38,8 @@ function getSelectionInsertSpan() {
       span;
 
   //move this out to global variable
-  var cliptoBoxHtml =
-    '<div class="cliptoBox">' +
-      '<div class="cliptoIconWrapper" style="margin-left:8px">' +
-        '<div class="clipIcon">' +
-          //'<a href="#">' +
-          //  '<img src="chrome.extension.getURL(/icons/paper-clip-3-32-blue.png)">' +
-          //'</a>' +
-        '</div>' +
-      '</div>' +
-      '<div class="cliptoIconWrapper">' +
-        '<div class="noteIcon">' +
-        '</div>' +
-      '</div>' +
-      '<div class="cliptoIconWrapper">' +
-        '<div class="facebookIcon">' +
-        '</div>' +
-      '</div>' +
-      '<div class="cliptoIconWrapper">' +
-        '<div class="twitterIcon">' +
-        '</div>' +
-      '</div>' +
-    '</div>';
+  var image = chrome.extension.getURL('paper-clip-3-32-blue.png');
+
 
   if (window.getSelection && window.getSelection().toString() !== '') {
     selection = window.getSelection().getRangeAt(0);
@@ -72,6 +52,7 @@ function getSelectionInsertSpan() {
 
     $.get(chrome.extension.getURL('/cliptoBox.html'), function(data) {
       $(data).appendTo("#cliptoHelperSpan").animate({top:-45, left:-20});
+      $(image).appendTo("#cliptoHelperSpan");
     });
   }
 }
