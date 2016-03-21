@@ -1,34 +1,44 @@
-#cliptoHelperSpan {
+#clipto-helper-span {
   position: relative;
 }
-.cliptoBox {
-  width: 188px;
+.clipto-box {
+  /*width: 188px;*/
+  position: relative;
+  width: 40px;
   height:40px;
-  background-color:red;
-  border-radius: 20px 20px;
+  background-color:white;
+  border: 5px solid;
+  border-radius: 25px 25px;
   position:absolute;
   z-index: 1000;
-
+  overflow: hidden;
+  overflow-y: hidden;
 }
-.cliptoBox:hover {
-  width: 188px;
+.clipto-box:hover {
+  width: 80px;
   transition:0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
 }
-.cliptoBox .cliptoIconWrapper {
-  /*background-color: #0000cc;*/
+.clipto-box .clipto-icon-wrapper {
+  position: relative;
   display: inline-block;
+  top: 0;
+  left: 0;
   float: left;
   width: 40px;
-  height: inherit;
-  margin-right: 4px;
+  height: 40px;
+  /*margin-right: 2px;*/
   position: relative;
   z-index: 1030;
 }
+.clipto-icon {
+  position: relative;
+  top: 8px;
+  left: 8px;
+  height: 24px;
+  width: 24px;
+}
+.clipto-icon-wrapper img {
+  margin: 0 !important;
+  padding: 0 !important;
 
-.cliptoBox .clipIconWrapper {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px 20px;
-  margin-left: 4px;
-  padding: 4px;
 }

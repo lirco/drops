@@ -23,7 +23,10 @@
     }
   ],
   "web_accessible_resources": [
-    "paper-clip-3-32-blue.png",
+    "icons/attach-24-blue.png",
+    "icons/attach-24-yellow.png",
+    "icons/pencil-24-blue.png",
+    "icons/pencil-24-yellow.png",
     "cliptoBox.html"
   ],
   "content_security_policy": "script-src 'self'; object-src 'self'",

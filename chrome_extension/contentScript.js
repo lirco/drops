@@ -1,78 +1,70 @@
+'use strict';
 
-chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
-  if (request.method == "getSelection")
-    sendResponse({data: window.getSelection().toString()});
-  else
-    sendResponse({}); // snub them.
-});
+(function () {
 
-///**
-// * Get the selected text and wrap it with span
-// * @param document
-// */
-//function getSelectionText() {
-//  var selection,
-//    selectedText,
-//    span;
-//  if (window.getSelection  && window.getSelection().toString() !== '') {
-//    selection = window.getSelection().getRangeAt(0);
-//    selectedText = selection.extractContents();
-//    span = document.createElement("span");
-//    span.setAttribute('class', 'cliptoText');
-//    span.style.backgroundColor = "yellow";
-//    span.appendChild(selectedText);
-//    selection.insertNode(span);
-//    $("<span class='cliptoBox'></span>").insertBefore(".cliptoText");
-//    $(".cliptoBox").animate({top:e.pageX, left:e.pageY})
-//  }
-//  //else if (document.getSelection) {
-//  //  selection = document.getSelection();
-//  //}
-//  // selection.toString() !== '' && alert('"' + selection.toString() + '" was selected at ' + e.pageX + '/' + e.pageY);
-//  //selection.wrap('<span class = "cliptotest" ></span>')
-//}
+  var self = this;
 
+  chrome.extension.onRequest.addListener(function(request, sender, sendResponse) {
+    if (request.method == "getSelection")
+      sendResponse({data: window.getSelection().toString()});
+    else
+      sendResponse({}); // snub them.
+  });
 
-function getSelectionInsertSpan() {
-  var selection,
-      span;
-
-  //move this out to global variable
-  var image = chrome.extension.getURL('paper-clip-3-32-blue.png');
-
-
-  if (window.getSelection && window.getSelection().toString() !== '') {
-    selection = window.getSelection().getRangeAt(0);
-    span = document.createElement("span");
-    span.setAttribute('id', 'cliptoHelperSpan');
-    selection.insertNode(span);
-    //$("#cliptoHelperSpan").append($(cliptoBoxHtml));
-
-    //$(cliptoBoxHtml).appendTo("#cliptoHelperSpan").animate({top:-45, left:-20});
-
-    $.get(chrome.extension.getURL('/cliptoBox.html'), function(data) {
-      $(data).appendTo("#cliptoHelperSpan").animate({top:-45, left:-20});
-      $(image).appendTo("#cliptoHelperSpan");
-    });
+  /**
+   * extracts the user selection and returns it as object with the selectionRange and selected string
+   * @returns {{selection: *, selectionAsString: *}}
+   */
+  function getSelection() {
+    var selectionRange,
+        selectionString;
+    if (window.getSelection && window.getSelection().toString() !== '') {
+      selectionRange = window.getSelection().getRangeAt(0);
+      selectionString = window.getSelection().toString();
+    }
+    return {
+      selectionRange: selectionRange,
+      selectionString: selectionString
+    };
   }
-}
 
-/**
- * Insert a span before the selected text
- * this is done for positioning it relative
- */
-function insertCliptoBox() {
-  if ($('#cliptoHelperSpan').length) {
-    $('#cliptoHelperSpan').remove();
-    getSelectionInsertSpan();
-  } else {
-    getSelectionInsertSpan();
+  /**
+   * inserts a clipto-helper-span before the user-selected text
+   */
+  function insertSpan() {
+    var selection,
+        span,
+        clipImage = chrome.extension.getURL('icons/attach-24-blue.png'),
+        editImage = chrome.extension.getURL('icons/pencil-24-blue.png');
+
+    selection = getSelection();
+    if (selection) {
+      span = document.createElement("span");
+      span.setAttribute('id', 'clipto-helper-span');
+      selection.selectionRange.insertNode(span);
+
+      $.get(chrome.extension.getURL('/cliptoBox.html'), function(data) {
+        $(data).appendTo("#clipto-helper-span").animate({top:-50, left:-20});
+        $(".clip-image").attr("src", clipImage);
+        $(".edit-image").attr("src", editImage);
+      });
+    }
   }
-}
 
-$(document.body).bind('mouseup', function(e){
-  insertCliptoBox();
+  /**
+   * Main function to insert a span before the selected text in condition
+   */
+  function insertCliptoBox() {
+    if ($('#clipto-helper-span').length) {
+      $('#clipto-helper-span').remove();
+      insertSpan();
+    } else {
+      insertSpan();
+    }
+  }
+  
+  $(document.body).bind('mouseup', function(e){
+    insertCliptoBox();
+  });
 
-  //$("<span class='cliptoBox'></span>").insertBefore(".cliptoText");
-
-});
+}());
