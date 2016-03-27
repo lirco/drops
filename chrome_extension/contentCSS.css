@@ -1,18 +1,22 @@
 #clipto-helper-span {
   position: relative;
 }
+#clipto-wrap-span {
+  background-color: orange;
+}
 .clipto-box {
   /*width: 188px;*/
   position: relative;
   width: 40px;
   height:40px;
   background-color:white;
-  border: 5px solid;
-  border-radius: 25px 25px;
+  border: 3px solid;
+  border-radius: 10px 10px;
   position:absolute;
   z-index: 1000;
   overflow: hidden;
   overflow-y: hidden;
+  user-select: none;
 }
 .clipto-box:hover {
   width: 80px;
@@ -40,5 +44,4 @@
 .clipto-icon-wrapper img {
   margin: 0 !important;
   padding: 0 !important;
-
 }
