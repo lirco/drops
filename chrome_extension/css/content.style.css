@@ -1,3 +1,16 @@
+#clipto-container {
+  position: fixed ;
+  top: 0 ;
+  right: -300px ;
+  height: 100% ;
+  width: 300px ;
+}
+
+#clipto-container iframe {
+  height: inherit;
+  width: inherit;
+}
+
 #clipto-helper-span {
   position: relative;
 }
@@ -6,7 +19,7 @@
 }
 .clipto-box {
   /*width: 188px;*/
-  position: relative;
+  /*position: relative;*/
   width: 40px;
   height:40px;
   background-color:white;
@@ -31,15 +44,14 @@
   width: 40px;
   height: 40px;
   /*margin-right: 2px;*/
-  position: relative;
   z-index: 1030;
 }
 .clipto-icon {
   position: relative;
   top: 8px;
   left: 8px;
-  height: 24px;
-  width: 24px;
+  height: 24px !important;
+  width: 24px !important;
 }
 .clipto-icon-wrapper img {
   margin: 0 !important;

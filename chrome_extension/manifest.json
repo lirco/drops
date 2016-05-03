@@ -9,7 +9,10 @@
     "https://*/"
   ],
   "background": {
-    "scripts": ["lib/angular/angular.min.js"]
+    "scripts": [
+      "lib/angular/angular.min.js", //this is not neccassary anymore
+      "clipto.background.js"
+    ]
   },
   "content_scripts": [
     {
@@ -18,21 +21,24 @@
         "https://*/",
         "<all_urls>"
       ],
-      "js": ["jquery-1.12.1.min.js","contentScript.js"],
-      "css": ["contentCSS.css"]
+      "js": ["jquery-1.12.1.min.js","content.script.js"],
+      "css": ["css/content.style.css"]
     }
   ],
   "web_accessible_resources": [
+    "clipto.pane.html",
+    "clipto.pane.js",
     "icons/attach-24-blue.png",
     "icons/attach-24-yellow.png",
     "icons/pencil-24-blue.png",
     "icons/pencil-24-yellow.png",
-    "cliptoBox.html"
+    "clipto.box.html"
+
   ],
   "content_security_policy": "script-src 'self'; object-src 'self'",
   "browser_action": {
-    "default_icon": "icon.png",
-    "default_popup": "index.html"
+    "default_icon": "icon.png"
+//    "default_popup": "index.html"
   }
 }
 
