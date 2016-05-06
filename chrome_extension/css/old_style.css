@@ -1,11 +1,10 @@
 html, body {
-  width: 300px;
-  height: 100%;
-  max-height: inherit;
+  width: 660px;
+  height: 448px;
+  max-height: 448px;
   overflow: hidden;
   font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial;
 }
-
 .top-bar {
   height: 6px !important;
   position: fixed;
@@ -16,60 +15,17 @@ html, body {
   z-index: 1030;
 }
 
-/*----------- header --------------------- */
-.cp-header-display {
-  display: block;
-  width: 100%;
-  position: relative;
-  top: 0;
-  height: 50px;
-}
-
-.close-button {
-  display: inline-block;
-  position: absolute;
-}
-
-.greeting {
-  display: inline-block;
-  position: absolute;
-  right: 20px;
-}
-
-.new-note-button {
-  display: inline-block;
-}
-
-/*----------- footer --------------------- */
-
-.cp-footer {
-  position: absolute;
-  bottom: 0;
-  height: 48px;
-  width: 300px;
-  background-color: rgb(255,224,178)
-}
-
-.home-button {
-  display: block;
-  width: 100%;
-  text-align: center;
-  font-weight: 300;
-  font-size: medium;
-  vertical-align: middle;
-}
-
 /*----------- hello page ----------------- */
 .hello-bg {
-  width: 300px;
-  height: 100%;
-  max-height: inherit;
+  width: 660px;
+  height: 448px;
+  max-height: 448px;
   background-image: url(../img/intro-bg.jpg) ;
 }
 .hello-content {
   position:absolute;
-  width: 300px;
-  height: 100%;
+  width: 660px;
+  height: 448px;
   left:0;
   top:0;
 }
@@ -102,6 +58,34 @@ html, body {
   color: #66B2FF;
 }
 
+
+/*----------- left sidebar ----------------- */
+.sidebar-left {
+  width: 220px;
+  height: 448px;
+  background-image: url(../img/Doodle-800x547_01.jpg) ;
+}
+.sidebar-left .sidebar-title {
+  position:absolute;
+  top: 12px;
+  left: 0;
+  height: 80px;
+  width: inherit;
+  text-align: center;
+  margin: auto;
+  font-weight: 400;
+}
+.sidebar-left .sidebar-buttons {
+  position:absolute;
+  top: 80px;
+  left: 0;
+  width: inherit;
+  font-weight: 500;
+}
+.sidebar-left .md-button {
+  font-weight: normal;
+}
+
 /*----------- main content ----------------- */
 .no-notes-block {
   color:rgba(0,0,0,0.6);
@@ -109,43 +93,33 @@ html, body {
 }
 
 .main-content {
-  width: 300px;
+  width: 440px;
   overflow: hidden;
 }
 .list-group {
-  height: 90%;
+  height: 400px;
 }
 md-content::-webkit-scrollbar {
   display: none;
 }
 .tabs-area {
-  height: 100%;
+  height: 400px;
   width: inherit;
 }
 .list-group md-list{
   padding-top: 12px;
 }
 /*.footer {*/
-  /*height:48px;*/
-  /*width: inherit;*/
+/*height:48px;*/
+/*width: inherit;*/
 /*}*/
 
-/*----------- notes list ------------------- */
-
-.notes-list {
-  margin-bottom: 50px;
-}
-
 /*----------- note element ----------------- */
-md-list-item {
-  padding: 0 8px !important;
-}
-
 .note-container {
-  height:105px;
+  height:100px;
   width:564px;
   border-radius: 0 20px 20px 0;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
   transition:0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
   position:relative;
   padding: 5px 19px 0 19px;
@@ -157,19 +131,18 @@ md-list-item {
   cursor: pointer;
 }
 
-.note-container:focus, .note-container:hover .note-title p{
+.note-container:focus, .note-container:hover  .note-title{
   color: #428bca;
 }
 .note-content-wrapper{
   height: 80px;
 }
 .note-container .note-title p{
-  font-size:12px;
+  font-size:18px;
   font-weight: bold;
   margin-bottom:3px;
   overflow: hidden;
   line-height: inherit;
-  color: #585858;
 }
 .note-container .note-content {
   font-size: 13px;
@@ -284,21 +257,6 @@ md-list-item {
   position: relative;
   padding: 0 15px;
   width: 400px;
-}
-
-
-/* ==================COMMON CSS =============== */
-
-/* ----------------- padding -------------------*/
-
-.padding-25 {
-  padding: 25px;
-}
-.padding-20 {
-  padding: 20px;
-}
-.margin-left-10 {
-  margin-left: 10px;
 }
 
 

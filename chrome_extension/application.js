@@ -36,6 +36,12 @@ angular.module('clipto', ['envConfig', 'ui.router', 'ngResource', 'ui.bootstrap'
       })
       .state('home.views', {
         views: {
+          'header': {
+            templateUrl: 'views/home/sub_views/home.header.chrome.view.html'
+          },
+          'footer': {
+            templateUrl: 'views/home/sub_views/home.footer.chrome.view.html'
+          },
           'content': {
             templateUrl: 'views/home/sub_views/home.content.chrome.view.html'
           },

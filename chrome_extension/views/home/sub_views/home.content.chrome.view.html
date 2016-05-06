@@ -6,14 +6,14 @@
 
         <div ng-if="homeCtrl.urlNotes.length == 0">
           <div class="no-notes-block">
-            <h1 class="text-center">Hello</h1>
             <h3 class="text-center">No notes yet for this page</h3>
             <br>
             <md-button class="btn btn-block md-primary margin-auto" ng-click="homeCtrl.setContentToShow('newNote')">drop one</md-button>
           </div>
         </div>
 
-        <div ng-if="homeCtrl.domainNotes.length !== 0">
+        <div class="notes-list" ng-if="homeCtrl.urlNotes.length !== 0">
+          <md-button class="md-button md-primary margin-auto" ng-click="homeCtrl.setContentToShow('newNote')">Add New Note</md-button>
           <md-list class="list-group">
             <md-list-item ng-repeat="note in homeCtrl.urlNotes |
                               orderBy:homeCtrl.sortOrder">
@@ -24,7 +24,7 @@
                     <p>{{note.title |truncate:6}}</p>
                   </div>
                   <div class="note-content">
-                    <p>{{note.content | truncate:20}}</p>
+                    <p>{{note.content | truncate:10}}</p>
                   </div>
                   <div class="note-footer">
                     <div class="note-link">
@@ -49,14 +49,14 @@
 
         <div ng-if="homeCtrl.domainNotes.length == 0">
           <div class="no-notes-block">
-            <h1 class="text-center">Hello</h1>
             <h3 class="text-center">No notes yet for this site</h3>
             <br>
             <md-button class="btn btn-block md-primary margin-auto" ng-click="homeCtrl.setContentToShow('newNote')">drop one</md-button>
           </div>
         </div>
 
-        <div ng-if="homeCtrl.domainNotes.length !== 0">
+        <div class="notes-list" ng-if="homeCtrl.domainNotes.length !== 0">
+          <md-button class="md-button md-primary margin-auto" ng-click="homeCtrl.setContentToShow('newNote')">Add New Note</md-button>
           <md-list class="list-group">
             <md-list-item ng-repeat="note in homeCtrl.domainNotes |
                               orderBy:homeCtrl.sortOrder">
@@ -67,7 +67,7 @@
                     <p>{{note.title |truncate:6}}</p>
                   </div>
                   <div class="note-content">
-                    <p>{{note.content | truncate:20}}</p>
+                    <p>{{note.content | truncate:10}}</p>
                   </div>
                   <div class="note-footer">
                     <div class="note-link">

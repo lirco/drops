@@ -72,7 +72,7 @@
       if (!request.message) return;
 
       switch (request.message){
-        case 'new-tab-location': message_onLocationReceived(request.data); break;
+        case 'new-tab-location': onLocationReceived(request.data); break;
         //case 'save-iheart': message_onSaved(request.data); break;
       }
     }
@@ -88,11 +88,8 @@
       processMessage(request);
     }
 
-    function message_onLocationReceived(data) {
+    function onLocationReceived(data) {
       if (!data.location) return;
-      console.log('***************************************');
-      console.log(data.location);
-      console.log('***************************************');
       setLocation(data.location);
     }
 
