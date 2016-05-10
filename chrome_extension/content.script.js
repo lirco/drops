@@ -176,8 +176,9 @@
     if (!request.message) return;
 
     switch (request.message){
-      case 'clipto-iframe-loaded': message_onIframeLoaded(request.data); break;
+      case 'clipto-iframe-loaded': onIframeLoaded(request.data); break;
       case 'browser-action-clicked': onBrowserActionClick(request.data); break;
+      case 'clipto-close-pane': onClosePane(request.data); break;
     }
   };
 
@@ -185,9 +186,17 @@
   //******************** EVENTS ************************************//
   //****************************************************************//
 
+  function onIframeLoaded() {
+    message_onIframeLoaded();
+  }
+
   function onBrowserActionClick() {
     //show the pane
     $("#clipto-container").css("right", 0);
+  }
+
+  function onClosePane() {
+    $("#clipto-container").css("right", -300);
   }
 
   // messages coming from iframes and the current webpage

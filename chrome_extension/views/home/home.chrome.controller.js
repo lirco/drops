@@ -3,6 +3,16 @@
 (function () {
 
   function homeController($q, $scope, $state, Authentication, AppState, Notes, $mdDialog, notes, activeTabDomain, activeTabUrl, ENV) {
+
+    //****************************************************************//
+    //******************** VARIABLES *********************************//
+    //****************************************************************//
+
+
+    //****************************************************************//
+    //******************** GLOBALS ***********************************//
+    //****************************************************************//
+
     var self = this;
     self.authentication = {};
     self.authentication.user = Authentication.getUser();
@@ -16,34 +26,8 @@
     self.querySearch = querySearch;
     self.apiEndPoint = ENV.apiEndPoint;
 
-    $state.go('home.views');
-
     // initializing the content to show to be the list of notes
     self.contentToShow = "content";
-
-    // for switching between list of notes(content), add a new note screen and settings screen
-    self.setContentToShow = function(content) {
-      self.contentToShow = content;
-    };
-
-    self.noteHover = function(note) {
-      return note.showHidden = !note.showHidden;
-    };
-
-    self.goToPage = function(url) {
-      chrome.tabs.create({
-        url: url
-      });
-    };
-
-    self.goHome = function() {
-      chrome.tabs.create({
-        url: ENV.apiEndPoint
-      });
-    };
-
-    // -------------- Notes handlers ----------------
-    //TODO: move these to a different controller
 
     self.create = function() {
       var newNote = new Notes({
@@ -132,6 +116,78 @@
       }
     };
 
+    /**
+     * called from md-chips directive as md-on-append to transform tag from text to object
+     * @param chipText
+     * @returns {{text: *, color: string}}
+     */
+    self.newTagAppend = function(chip) {
+      if (chip.color) {
+        return {
+          text: chip.text,
+          color: chip.color
+        };
+      } else {
+        return {
+          text: chip,
+          color: getRandomColor()
+        };
+      }
+    };
+
+    /**
+     * for the drop down menu in the header
+     * TODO: move this to a dedicated directive
+     */
+    self.dropDownStatus = {
+        isopen: false
+    };
+    self.fuck = function() {
+      alert('zain still');
+    }
+
+
+
+    // for switching between view modes
+    self.setContentToShow = function(content) {
+      self.contentToShow = content;
+    };
+
+    self.noteHover = function(note) {
+      return note.showHidden = !note.showHidden;
+    };
+
+    self.goToPage = function(url) {
+      window.locaion.href = (url)
+    };
+
+    self.goHome = function() {
+      window.locaion.href = (ENV.apiEndPoint)
+    };
+
+    // -------------- Settings handlers ----------------
+    self.signOut = function() {
+
+    };
+
+    //****************************************************************//
+    //******************** PRIVATE FUNCTIONS *************************//
+    //****************************************************************//
+
+    /**
+     * helper function for creating random colors for tags
+     * TODO: move this to a service class that holds helper functions
+     * @returns {string}
+     */
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF'.split('');
+      var color = '#';
+      for (var i = 0; i < 6; i++ ) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
     // ---------------- autocomplete stuff -----------------
 
     self.userTags = loadTags();
@@ -162,43 +218,21 @@
       });
     }
 
-    /**
-     * helper function for creating random colors for tags
-     * TODO: move this to a service class that holds helper functions
-     * @returns {string}
-     */
-    function getRandomColor() {
-      var letters = '0123456789ABCDEF'.split('');
-      var color = '#';
-      for (var i = 0; i < 6; i++ ) {
-        color += letters[Math.floor(Math.random() * 16)];
-      }
-      return color;
-    }
+    //****************************************************************//
+    //******************** EVENTS ************************************//
+    //****************************************************************//
 
-    /**
-     * called from md-chips directive as md-on-append to transform tag from text to object
-     * @param chipText
-     * @returns {{text: *, color: string}}
-     */
-    self.newTagAppend = function(chip) {
-      if (chip.color) {
-        return {
-          text: chip.text,
-          color: chip.color
-        };
-      } else {
-        return {
-          text: chip,
-          color: getRandomColor()
-        };
-      }
-    };
+    //****************************************************************//
+    //******************** MESSAGES **********************************//
+    //****************************************************************//
 
-    // -------------- Settings handlers ----------------
-    self.signOut = function() {
+    //****************************************************************//
+    //******************** INIT **************************************//
+    //****************************************************************//
 
-    };
+
+    $state.go('home.views');
+
 
   }
 

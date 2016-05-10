@@ -23,21 +23,39 @@ html, body {
   position: relative;
   top: 0;
   height: 50px;
+  padding: 25px 20px 0 20px;
 }
 
 .close-button {
+  /* the color of the arrow is #819ba7, downloaded from
+  http://www.iconsdb.com/custom-color/arrow-25-icon.html */
   display: inline-block;
   position: absolute;
 }
 
-.greeting {
+.cp-greeting {
   display: inline-block;
   position: absolute;
-  right: 20px;
+  right: 0;
+  transition: color 0.2s ease;
+}
+
+.cp-greeting:hover {
+  /*font-weight: 400;*/
+  color: #428bca;
+  /*border: 1px solid;*/
+  /*border-color: #d4dce3;*/
+  /*border-radius: 3px;*/
 }
 
 .new-note-button {
   display: inline-block;
+}
+
+.cp-settings-menu {
+  position: fixed;
+  right: 10px;
+  top: 64px;
 }
 
 /*----------- footer --------------------- */
@@ -45,7 +63,7 @@ html, body {
 .cp-footer {
   position: absolute;
   bottom: 0;
-  height: 48px;
+  height: 60px;
   width: 300px;
   background-color: rgb(255,224,178)
 }
@@ -59,46 +77,80 @@ html, body {
   vertical-align: middle;
 }
 
-/*----------- hello page ----------------- */
-.hello-bg {
+/*----------- main page ----------------- */
+.cp-add-new-wrapper {
+  width: 100px;
+  height: 100px;
+  padding: 18px;
+  margin: auto;
+  margin-top: 30px;
+}
+.cp-add-new-plus {
+  /* the color of the arrow is #d4dce3, downloaded from
+  http://www.iconsdb.com/custom-color/plus-6-icon.html */
+}
+
+.cp-add-new-sm-wrapper {
   width: 300px;
-  height: 100%;
+  height: 36px;
+  margin: 22px 2px 0 2px;
+  padding: 0 16px 0 16px;
+  text-align: left;
+}
+
+.cp-add-new-sm-plus {
+  /* the color of the arrow is #d4dce3, downloaded from
+  http://www.iconsdb.com/custom-color/plus-6-icon.html */
+}
+
+.cp-add-new-sm-text {
+  margin-left: 10px;
+  text-transform: capitalize;
+  font-weight: 500;
+  color: #536a7f;
+}
+
+/*----------- sign in/up page ----------------- */
+
+.cp-hello-bg {
+  width: inherit;
+  height: inherit;
   max-height: inherit;
   background-image: url(../img/intro-bg.jpg) ;
 }
-.hello-content {
+.cp-hello-content {
   position:absolute;
-  width: 300px;
-  height: 100%;
+  width: inherit;
+  height: inherit;
   left:0;
   top:0;
 }
-.hello-content h1 {
+.cp-hello-content h1 {
   padding-left: 35px;
   color: whitesmoke;
   font-size: 44px;
 }
-.hello-form-wrapper {
+.cp-hello-form-wrapper {
   background-color:rgba(0,0,0,0.2);
-  margin-top: 30px;
-  margin-left: 200px;
+  margin-top: 50px;
+  margin-left: 25px;
   width: 250px;
   height:320px;
   border-radius: 5px;
 }
-.hello-form {
+.cp-hello-form {
   margin: auto;
   padding-top: 15px;
   height: 250px;
   width: 220px;
   color: whitesmoke;
 }
-.hello-footer {
+.cp-hello-footer {
   margin: auto;
   color: whitesmoke;
   padding: 15px 10px 10px 15px;
 }
-.hello-footer a {
+.cp-hello-footer a {
   color: #66B2FF;
 }
 
@@ -125,10 +177,6 @@ md-content::-webkit-scrollbar {
 .list-group md-list{
   padding-top: 12px;
 }
-/*.footer {*/
-  /*height:48px;*/
-  /*width: inherit;*/
-/*}*/
 
 /*----------- notes list ------------------- */
 
@@ -137,13 +185,10 @@ md-content::-webkit-scrollbar {
 }
 
 /*----------- note element ----------------- */
-md-list-item {
-  padding: 0 8px !important;
-}
 
 .note-container {
   height:105px;
-  width:564px;
+  width:300px;
   border-radius: 0 20px 20px 0;
   margin-bottom: 12px;
   transition:0.02s padding cubic-bezier(0.35, 0, 0.25, 1);
@@ -164,15 +209,15 @@ md-list-item {
   height: 80px;
 }
 .note-container .note-title p{
-  font-size:12px;
+  font-size:14px;
   font-weight: bold;
   margin-bottom:3px;
   overflow: hidden;
   line-height: inherit;
-  color: #585858;
+  color: #787878;
 }
 .note-container .note-content {
-  font-size: 13px;
+  font-size: 12px;
   line-height: 1.42857143;
 }
 .note-container .note-content p{
@@ -216,80 +261,95 @@ md-list-item {
 
 /* ---------------note view ---------------*/
 
-.note-dialog {
-  max-height: 80%
-}
-
-.note-wrapper {
+.cp-new-note-wrapper {
   position: absolute;
-  top: 6px;
-  height: 442px;
+  top: 50px;
+  bottom: 60px;
   width: inherit;
+  padding: 8px;
 }
 
-.note-wrapper .md-toolbar {
-  opacity: 0.9;
-}
-
-.md-toolbar-tools .note-dialog-form-title {
-  height:inherit;
-  margin:0;
-  padding-left: 10px;
-}
-.note-dialog-title {
-  /*color: rgb(255,255,255);*/
-  font-size: inherit;
-  margin: inherit;
-  font-family: inherit;
-  font-weight: 550;
-  line-height: 1.1;
-  display: block;
-  -webkit-margin-before: 0.83em;
-  -webkit-margin-after: 0.83em;
-  -webkit-margin-start: 0px;
-  -webkit-margin-end: 0px;
-  border-bottom: 1px #003366;
-}
-.note-dialog-content-wrapper{
+.cp-new-note-title-wrapper {
   position: absolute;
-  top: 64px;
-  height: 280px;
+  height: 80px;
   width: inherit;
+  margin-top: 10px;
+  padding: 10px 10px 0 0;
 }
-.note-dialog-content {
+
+.cp-new-note-title {
   height: inherit;
-  width: inherit;
-  border: none;
-  padding: 26px;
+  width: 100%;
+  resize: none;
+  overflow-y: scroll;
+  font-size: 15px;
+}
+
+.cp-new-note-content-wrapper {
+  position: absolute;
+  top: 90px;
+  bottom: 150px;
+  width: 100%;
+  padding: 10px 10px 0 0;
+  margin-top: 10px;
   overflow-y: scroll;
 }
-.note-dialog-tags-wrapper{
-  position: absolute;
-  bottom: 58px;
-  height: 48px;
-  width: 400px;
-  margin-left: 20px;
+
+.cp-new-note-content {
+  height: inherit;
+  width: 100%;
+  border: none;
+  resize: none;
+  overflow-y: scroll;
+  font-size: 15px;
 }
-.note-dialog-footer {
-  width: inherit;
-  height: 58px;
+
+.cp-new-note-tags-wrapper {
   position: absolute;
-  bottom: 0;
-  right: 0;
-  padding: 5px 26px;
+  bottom: 70px;
+  height: 95px;
+  width: inherit;
+  padding: 10px 10px 0 0;
+  margin-top: 10px;
+  overflow-y: scroll;
+}
+
+.cp-new-note-tags {
 
 }
-.note-dialog-footer .footer-buttons-wrapper {
-  /*float: right;*/
-  position: relative;
-  padding: 0 15px;
-  width: 400px;
+
+/* override md defaults for chips */
+.md-chips .md-chip {
+  border-radius: 5px;
+  height: 28px;
+  line-height: 28px;
+  margin: 5px 5px 0 0 ;
+  background: #f0f2f5;
+}
+.cp-new-note-footer {
+  position: absolute;
+  bottom: 0;
+  height: 52px;
+  width: inherit;
+  margin-top: 10px;
+  padding: 10px 0 10px 0;
+}
+
+.cp-new-note-footer .cp-new-note-button {
+  position: absolute;
+  bottom: 20px;
 }
 
 
 /* ==================COMMON CSS =============== */
 
-/* ----------------- padding -------------------*/
+img {
+  vertical-align: middle;
+}
+
+.no-border {
+  border: none !important;
+}
 
 .padding-25 {
   padding: 25px;
@@ -301,4 +361,26 @@ md-list-item {
   margin-left: 10px;
 }
 
+/* ==================OVERRIDE MATERIAL DESIGN CSS =============== */
+md-tooltip {
+   height: 2.3em;
+   font-size: 13px;
+   vertical-align: middle;
+}
 
+.md-chips {
+  font-size: 13px;
+}
+
+md-list-item {
+  padding: 0 2px !important;
+}
+
+/* ==================OVERRIDE UI-BOOTSTRAP DESIGN CSS =============== */
+
+.dropdown-menu {
+  top: 25px;
+  left: 50px;
+  right:0;
+
+}

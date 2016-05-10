@@ -6,14 +6,23 @@
 
         <div ng-if="homeCtrl.urlNotes.length == 0">
           <div class="no-notes-block">
-            <h3 class="text-center">No notes yet for this page</h3>
+            <h2 class="text-center">clipto</h2>
             <br>
-            <md-button class="btn btn-block md-primary margin-auto" ng-click="homeCtrl.setContentToShow('newNote')">drop one</md-button>
+            <h3 class="text-center">No notes yet for this page</h3>
+            <div class="cp-add-new-wrapper" ng-click="homeCtrl.setContentToShow('newNote')">
+              <img class="cp-add-new-plus" src="../../../icons/plus-6-64.png">
+              <md-tooltip>
+                Add New Note
+              </md-tooltip>
+            </div>
           </div>
         </div>
 
         <div class="notes-list" ng-if="homeCtrl.urlNotes.length !== 0">
-          <md-button class="md-button md-primary margin-auto" ng-click="homeCtrl.setContentToShow('newNote')">Add New Note</md-button>
+          <md-button class="cp-add-new-sm-wrapper" ng-click="homeCtrl.setContentToShow('newNote')">
+            <img class="cp-add-new-sm-plus" src="../../../icons/plus-6-24.png">
+            <span class="cp-add-new-sm-text">Add New Note</span>
+          </md-button>
           <md-list class="list-group">
             <md-list-item ng-repeat="note in homeCtrl.urlNotes |
                               orderBy:homeCtrl.sortOrder">
@@ -49,14 +58,23 @@
 
         <div ng-if="homeCtrl.domainNotes.length == 0">
           <div class="no-notes-block">
-            <h3 class="text-center">No notes yet for this site</h3>
+            <h2 class="text-center">clipto</h2>
             <br>
-            <md-button class="btn btn-block md-primary margin-auto" ng-click="homeCtrl.setContentToShow('newNote')">drop one</md-button>
+            <h3 class="text-center">No notes yet for this site</h3>
+            <div class="cp-add-new-wrapper" ng-click="homeCtrl.setContentToShow('newNote')">
+              <img class="cp-add-new-plus" src="../../../icons/plus-6-64.png">
+              <md-tooltip>
+                Add New Note
+              </md-tooltip>
+            </div>
           </div>
         </div>
 
         <div class="notes-list" ng-if="homeCtrl.domainNotes.length !== 0">
-          <md-button class="md-button md-primary margin-auto" ng-click="homeCtrl.setContentToShow('newNote')">Add New Note</md-button>
+          <md-button class="cp-add-new-sm-wrapper" ng-click="homeCtrl.setContentToShow('newNote')">
+            <img class="cp-add-new-sm-plus" src="../../../icons/plus-6-24.png">
+            <span class="cp-add-new-sm-text">Add New Note</span>
+          </md-button>
           <md-list class="list-group">
             <md-list-item ng-repeat="note in homeCtrl.domainNotes |
                               orderBy:homeCtrl.sortOrder">

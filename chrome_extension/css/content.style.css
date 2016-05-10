@@ -5,6 +5,7 @@
   height: 100% ;
   width: 300px ;
   box-shadow: 0 0 0 2px lightgrey;
+  z-index: 9999;
 }
 
 #clipto-container iframe {

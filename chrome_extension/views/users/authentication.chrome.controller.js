@@ -37,7 +37,7 @@
     };
 
     self.goToAuthProvider = function (name) {
-      chrome.tabs.create({"url": self.apiEndPoint+"/auth/" + name });
+      window.open(self.apiEndPoint+"/auth/" + name , '_blank')
     }
   }
 

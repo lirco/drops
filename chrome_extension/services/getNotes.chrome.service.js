@@ -13,7 +13,7 @@
       urlNotes: []
     };
 
-    function getNotes() {
+    function fetchNotes() {
       var d = $q.defer();
       Notes.getNotes({domain: AppState.getActiveTabDomain()}, function(response) {
         self.notes.domainNotes = response;
@@ -31,7 +31,7 @@
     }
 
     return {
-      getNotes: getNotes
+      getNotes: fetchNotes
     }
   }
 

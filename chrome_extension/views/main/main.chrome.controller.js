@@ -17,11 +17,16 @@
     self.authentication = {};
     self.activeTabUrl = '';
 
+    self.closePane = function() {
+      message_closePane();
+    };
+
     //****************************************************************//
     //******************** PRIVATE FUNCTIONS *************************//
     //****************************************************************//
 
     function setLocation(location) {
+
       self.activeTabUrl = location;
       var domain ='';
       var domainArray = location.match(/^[\w-]+:\/*\[?([\w\.:-]+)\]?(?::\d+)?/)[1].split(".");
@@ -72,7 +77,10 @@
       if (!request.message) return;
 
       switch (request.message){
-        case 'new-tab-location': onLocationReceived(request.data); break;
+        case 'new-tab-location':
+          onLocationReceived(request.data);
+          getAuthentication();
+          break;
         //case 'save-iheart': message_onSaved(request.data); break;
       }
     }
@@ -89,7 +97,10 @@
     }
 
     function onLocationReceived(data) {
-      if (!data.location) return;
+      if (!data.location) {
+        //TODO: add error log here
+        return;
+      }
       setLocation(data.location);
     }
 
@@ -97,17 +108,25 @@
     //******************** MESSAGES **********************************//
     //****************************************************************//
 
+    function message_paneLoaded() {
+      sendMessage('clipto-iframe-loaded');
+    }
+
+    function message_closePane() {
+      sendMessage('clipto-close-pane');
+    }
+
     //****************************************************************//
     //******************** INIT **************************************//
     //****************************************************************//
 
     // notify content script we are loaded
-    sendMessage('clipto-iframe-loaded');
+    message_paneLoaded();
 
     // listen to the Control Center (background.js) messages
     chrome.runtime.onMessage.addListener(background_onMessage);
 
-    getAuthentication()
+    //getAuthentication()
 
 
   }

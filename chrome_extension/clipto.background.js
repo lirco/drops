@@ -68,6 +68,7 @@
   }
 
   function onIframeLoaded() {
+
     chrome.tabs.getSelected(null, function (tab){
       var url = tab.url;
 
