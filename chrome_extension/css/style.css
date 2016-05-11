@@ -13,7 +13,7 @@ html, body {
   top: 0;
   width: 100%;
   background-color: rgb(96,125,139);
-  z-index: 1030;
+  z-index: 2147483647;
 }
 
 /*----------- header --------------------- */
@@ -215,9 +215,10 @@ md-content::-webkit-scrollbar {
   overflow: hidden;
   line-height: inherit;
   color: #787878;
+  text-transform: capitalize;
 }
 .note-container .note-content {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.42857143;
 }
 .note-container .note-content p{
@@ -265,8 +266,8 @@ md-content::-webkit-scrollbar {
   position: absolute;
   top: 50px;
   bottom: 60px;
-  width: inherit;
-  padding: 8px;
+  width: 280px;
+  padding: 8px 16px;
 }
 
 .cp-new-note-title-wrapper {

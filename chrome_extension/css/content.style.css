@@ -5,7 +5,7 @@
   height: 100% ;
   width: 300px ;
   box-shadow: 0 0 0 2px lightgrey;
-  z-index: 9999;
+  z-index: 2147483647;
 }
 
 #clipto-container iframe {
@@ -28,7 +28,7 @@
   border: 3px solid;
   border-radius: 10px 10px;
   position:absolute;
-  z-index: 1000;
+  z-index: 2147483647;
   overflow: hidden;
   overflow-y: hidden;
   user-select: none;
@@ -46,7 +46,7 @@
   width: 40px;
   height: 40px;
   /*margin-right: 2px;*/
-  z-index: 1030;
+  z-index: 2147483646;
 }
 .clipto-icon {
   position: relative;

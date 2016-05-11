@@ -18,8 +18,52 @@
   // variables ----------------------------------------------------------------
   var self = {},
     cliptoContainer	= null,
-    cliptoActions;
+    cliptoActions,
+    cliptoPageResize,
+    paneWidth = '300px';
 
+  //****************************************************************//
+  //************** PageResize CONSTRUCTOR **************************//
+  //****************************************************************//
+
+  function PageResize(width) {
+    this._paneWidth = width;
+  }
+
+  PageResize.prototype.getHtml = function() {
+
+    //resolve html tag, which is more dominant than <body>
+    var html;
+
+    if (document.documentElement) {
+      html = document.documentElement;
+    } else if (document.getElementsByTagName('html') && document.getElementsByTagName('html')[0]) {
+      html = document.getElementsByTagName('html')[0];
+    } else return; //if no html tag found, return
+
+    //position
+    if (getComputedStyle(html).position === 'static') {
+      html.style.position = 'relative';
+    }
+
+    return html;
+  };
+
+  PageResize.prototype.shrinkPage = function() {
+
+    var html = this.getHtml();
+    var currentWidth = getComputedStyle(html).width;
+    html.style.width = parseFloat(currentWidth) - parseFloat(this._paneWidth) + 'px';
+
+  };
+
+  PageResize.prototype.expandPage = function() {
+    
+    var html = this.getHtml();
+    var currentWidth = getComputedStyle(html).width;
+    html.style.width = parseFloat(currentWidth) + parseFloat(this._paneWidth) + 'px';
+
+  };
 
   //****************************************************************//
   //************** CliptoActions CONSTRUCTOR ***********************//
@@ -133,6 +177,7 @@
   //****************************************************************//
 
   self.tempRange = undefined;
+  self.isPaneOpen = false;
   self.clipImage = chrome.extension.getURL('icons/attach-24-blue.png');
   self.editImage = chrome.extension.getURL('icons/pencil-24-blue.png');
 
@@ -183,6 +228,18 @@
   };
 
   //****************************************************************//
+  //******************** PRIVATE FUNCTIONS *************************//
+  //****************************************************************//
+
+  function closePane() {
+    $("#clipto-container").css("right", -300);
+  }
+
+  function openPane() {
+    $("#clipto-container").css("right", 0);
+  }
+
+  //****************************************************************//
   //******************** EVENTS ************************************//
   //****************************************************************//
 
@@ -191,12 +248,19 @@
   }
 
   function onBrowserActionClick() {
-    //show the pane
-    $("#clipto-container").css("right", 0);
+    if (self.isPaneOpen == false) {
+      cliptoPageResize.shrinkPage();
+      openPane();
+      self.isPaneOpen = true;
+    }
   }
 
   function onClosePane() {
-    $("#clipto-container").css("right", -300);
+    if (self.isPaneOpen == true) {
+      cliptoPageResize.expandPage();
+      closePane();
+      self.isPaneOpen = false;
+    }
   }
 
   // messages coming from iframes and the current webpage
@@ -231,6 +295,7 @@
 
     // init new clipto subclass
     cliptoActions = new CliptoActionsClass(undefined);
+    cliptoPageResize = new PageResize(paneWidth);
 
     // insert clipto pane
     self.insertCliptoContainer();
