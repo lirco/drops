@@ -2,7 +2,7 @@
 
 (function () {
 
-  function homeController($q, $scope, $state, Authentication, AppState, Notes, $mdDialog, notes, activeTabDomain, activeTabUrl, ENV) {
+  function homeController($q, $scope, $state, Authentication, AppState, Notes, $mdDialog, notes, activeTabDomain, activeTabUrl, ENV, $window) {
 
     //****************************************************************//
     //******************** VARIABLES *********************************//
@@ -142,11 +142,6 @@
     self.dropDownStatus = {
         isopen: false
     };
-    self.fuck = function() {
-      alert('zain still');
-    }
-
-
 
     // for switching between view modes
     self.setContentToShow = function(content) {
@@ -158,11 +153,10 @@
     };
 
     self.goToPage = function(url) {
-      window.locaion.href = (url)
-    };
-
-    self.goHome = function() {
-      window.locaion.href = (ENV.apiEndPoint)
+      $window.open(
+        url,
+        '_blank'
+      )
     };
 
     // -------------- Settings handlers ----------------
@@ -230,13 +224,12 @@
     //******************** INIT **************************************//
     //****************************************************************//
 
-
     $state.go('home.views');
 
 
   }
 
   angular.module('clipto')
-    .controller('homeController', ['$q', '$scope','$state','Authentication','AppState','Notes', '$mdDialog', 'notes', 'activeTabDomain', 'activeTabUrl', 'ENV', homeController])
+    .controller('homeController', ['$q', '$scope','$state','Authentication','AppState','Notes', '$mdDialog', 'notes', 'activeTabDomain', 'activeTabUrl', 'ENV', '$window', homeController])
 
 }());

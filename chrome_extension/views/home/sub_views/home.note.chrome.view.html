@@ -19,11 +19,11 @@
     <form name="noteContentForm">
       <!-- content for a new note -->
       <md-input-container class="cp-new-note-content" ng-if="homeCtrl.editMode == false" md-no-float >
-        <textarea class="no-border" ng-model="homeCtrl.newNote.content" placeholder="Note Content"></textarea>
+        <textarea class="cp-no-border" ng-model="homeCtrl.newNote.content" placeholder="Note Content"></textarea>
       </md-input-container>
       <!-- update content for an existing note -->
       <md-input-container class="cp-new-note-content" ng-if="homeCtrl.editMode == true" md-no-float>
-        <textarea class="no-border" ng-model="homeCtrl.editedNote.content"></textarea>
+        <textarea class="cp-no-border" ng-model="homeCtrl.editedNote.content"></textarea>
       </md-input-container>
     </form>
   </div>

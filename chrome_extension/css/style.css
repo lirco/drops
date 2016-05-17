@@ -344,12 +344,14 @@ md-content::-webkit-scrollbar {
 
 /* ==================COMMON CSS =============== */
 
-img {
-  vertical-align: middle;
+.cp-no-border {
+  outline: none;
+  border: none !important;
+  box-shadow: none !important;
 }
 
-.no-border {
-  border: none !important;
+img {
+  vertical-align: middle;
 }
 
 .padding-25 {
@@ -384,4 +386,18 @@ md-list-item {
   left: 50px;
   right:0;
 
+}
+
+textarea:hover,
+input:hover,
+textarea:active,
+input:active,
+textarea:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover
+{
+  outline:0px !important;
+  -webkit-appearance:none;
 }

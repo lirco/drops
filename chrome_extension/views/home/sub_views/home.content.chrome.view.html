@@ -28,7 +28,7 @@
                               orderBy:homeCtrl.sortOrder">
               <section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
                        ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
-                <div class="note-content-wrapper" ng-click="homeCtrl.editNote(note)">
+                <div class="note-content-wrapper cp-no-border" ng-click="homeCtrl.editNote(note)">
                   <div class="note-title" ng-click="homeCtrl.showNote($event, note)">
                     <p>{{note.title |truncate:6}}</p>
                   </div>
@@ -80,7 +80,7 @@
                               orderBy:homeCtrl.sortOrder">
               <section class="note-container	md-padding md-whiteframe-z1 md-default-theme" layout="column"
                        ng-mouseenter="homeCtrl.noteHover(note)" ng-mouseleave="homeCtrl.noteHover(note)">
-                <div class="note-content-wrapper" ng-click="homeCtrl.editNote(note)">
+                <div class="note-content-wrapper cp-no-border" ng-click="homeCtrl.editNote(note)">
                   <div class="note-title" ng-click="homeCtrl.showNote($event, note)">
                     <p>{{note.title |truncate:6}}</p>
                   </div>

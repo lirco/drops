@@ -26,6 +26,12 @@
   //************** PageResize CONSTRUCTOR **************************//
   //****************************************************************//
 
+  /**
+   * http://stackoverflow.com/questions/10100540/chrome-extension-inject-sidebar-into-page
+   *
+   * @param width
+   * @constructor
+   */
   function PageResize(width) {
     this._paneWidth = width;
   }
@@ -58,7 +64,7 @@
   };
 
   PageResize.prototype.expandPage = function() {
-    
+
     var html = this.getHtml();
     var currentWidth = getComputedStyle(html).width;
     html.style.width = parseFloat(currentWidth) + parseFloat(this._paneWidth) + 'px';
@@ -231,12 +237,12 @@
   //******************** PRIVATE FUNCTIONS *************************//
   //****************************************************************//
 
-  function closePane() {
-    $("#clipto-container").css("right", -300);
-  }
-
   function openPane() {
     $("#clipto-container").css("right", 0);
+  }
+
+  function closePane() {
+    $("#clipto-container").css("right", -300);
   }
 
   //****************************************************************//
@@ -252,6 +258,10 @@
       cliptoPageResize.shrinkPage();
       openPane();
       self.isPaneOpen = true;
+    } else {
+      cliptoPageResize.expandPage();
+      closePane();
+      self.isPaneOpen = false;
     }
   }
 
