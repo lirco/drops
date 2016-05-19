@@ -149,19 +149,9 @@
           $("#clipto-container").css("right", 0);
           self.cleanPage();
         }
-        //clipto edit button clicked
-        else if(e.target.attributes.id.nodeValue=="clipto-selection-edit") {
-          console.log('click on selection edit');
-          self.cleanPage();
-        }
         //clipto image clip button clicked
         else if(e.target.attributes.id.nodeValue=="clipto-image-clip-wrapper") {
           console.log('click on image clip');
-          self.cleanPage();
-        }
-        //clipto image edit button clicked
-        else if(e.target.attributes.id.nodeValue=="clipto-image-edit-wrapper") {
-          console.log('click on image edit');
           self.cleanPage();
         }
         // just a click, do nothing

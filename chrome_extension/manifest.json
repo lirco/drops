@@ -10,8 +10,8 @@
   ],
   "background": {
     "scripts": [
-      "lib/angular/angular.min.js", //this is not neccassary anymore
-      "clipto.background.js"
+      "app/lib/angular/angular.min.js", //this is not neccassary anymore
+      "background/clipto.background.js"
     ]
   },
   "content_scripts": [
@@ -21,18 +21,18 @@
         "https://*/",
         "<all_urls>"
       ],
-      "js": ["jquery-1.12.1.min.js","content.script.js"],
+      "js": ["jquery-1.12.1.min.js","content_script/content.script.js"],
       "css": ["css/content.style.css"]
     }
   ],
   "web_accessible_resources": [
     "clipto.pane.html",
     "clipto.pane.js",
-    "icons/attach-24-blue.png",
-    "icons/attach-24-yellow.png",
-    "icons/pencil-24-blue.png",
-    "icons/pencil-24-yellow.png",
-    "clipto.box.html"
+    "app/icons/attach-24-blue.png",
+    "app/icons/attach-24-yellow.png",
+    "app/icons/pencil-24-blue.png",
+    "app/icons/pencil-24-yellow.png",
+    "app/clipto.box.html"
 
   ],
   "content_security_policy": "script-src 'self'; object-src 'self'",
