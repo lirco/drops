@@ -15,7 +15,7 @@ angular.module('clipto', [
     // material design theme config
     $mdThemingProvider.theme('default').primaryPalette('blue-grey').accentPalette('orange');
     $stateProvider.state('home', {
-      templateUrl: 'views/home/home.chrome.view.html',
+      templateUrl: 'app/views/home/home.chrome.view.html',
       controller: 'homeController',
       controllerAs: 'homeCtrl',
       resolve: {

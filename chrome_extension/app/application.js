@@ -60,7 +60,7 @@ angular.module('clipto', ['envConfig', 'ui.router', 'ngResource', 'ui.bootstrap'
       })
 
       .state('newNote', {
-        templateUrl: 'app/views/notes/newNote.chrome.view.html',
+        templateUrl: 'views/notes/newNote.chrome.view.html',
         controller: 'notesController',
         controllerAs: 'notesCtrl',
         resolve: {
@@ -84,7 +84,7 @@ angular.module('clipto', ['envConfig', 'ui.router', 'ngResource', 'ui.bootstrap'
         controllerAs: 'authCtrl'
       })
       .state('signUp', {
-        templateUrl: 'app/views/users/authentication/signUp.chrome.view.html',
+        templateUrl: 'app/views/users/authentication/signup.chrome.view.html',
         controller: 'authenticationController',
         controllerAs: 'authCtrl'
       })
